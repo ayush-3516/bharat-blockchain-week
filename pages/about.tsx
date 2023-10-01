@@ -5,6 +5,7 @@ const About = () => {
     return (
         <Layout>
             <div className="min-h-screen p-4">
+                About
             </div>
         </Layout>
     )

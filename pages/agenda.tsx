@@ -3,9 +3,7 @@ import Layout from 'components/Layout'
 import Timeline from 'components/Timeline'
 import React from 'react'
 
-type Props = {}
-
-const Agenda = (props: Props) => {
+const Agenda = () => {
     return (
         <Layout>
             <Hero

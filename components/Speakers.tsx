@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'
 
 type TeamMemberProps = {
     name: string;
@@ -9,7 +10,7 @@ type TeamMemberProps = {
 const TeamMember: React.FC<TeamMemberProps> = ({ name, role, imageSrc }) => (
     <div className="p-5 lg:w-1/5 md:w-1/2">
         <div className="h-full flex flex-col items-center text-center">
-            <img alt="team" className="flex-shrink-0 rounded-3xl w-60 h-52 object-cover border-4 border-[#a855f7] shadow-md shadow-purple-200 object-center mb-4" src={imageSrc} />
+            <Image alt="team" className="flex-shrink-0 rounded-3xl w-60 h-52 object-cover border-4 border-[#a855f7] shadow-md shadow-purple-200 object-center mb-4" src={imageSrc} />
             <div className="w-full">
                 <h2 className="font-medium text-lg text-gray-900">{name}</h2>
                 <h3 className="text-gray-500 mb-3">{role}</h3>

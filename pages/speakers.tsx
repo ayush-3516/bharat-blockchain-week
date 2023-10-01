@@ -3,9 +3,7 @@ import React from 'react'
 import Hero from 'components/Hero'
 import Team from 'components/Speakers'
 
-type Props = {}
-
-const Speakers = (props: Props) => {
+const Speakers = () => {
     return (
         <Layout>
             <Hero

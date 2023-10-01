@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const CTA = (props: Props) => {
+const CTA = () => {
     return (
         <section className="text-gray-600 bg-gray-100 body-font" id="cta">
             <div className="container mx-auto">

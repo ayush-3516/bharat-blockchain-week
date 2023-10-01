@@ -9,7 +9,7 @@ type Props = {
 }
 
 const Hero = ({
-    title, description, image, button1, button2
+    title, description, button1, button2
 }: Props) => {
     // Split the title words
     const titleWords = title.split(' ');

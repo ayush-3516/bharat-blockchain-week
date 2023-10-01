@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link'
 
 interface NavLinkProps {
     to: string;
@@ -7,9 +8,11 @@ interface NavLinkProps {
 
 function NavLink({ to, children }: NavLinkProps) {
     return (
-        <a href={to} className="mx-4">
-            {children}
-        </a>
+        <Link href={to}>
+            <a className="mx-4">
+                {children}
+            </a>
+        </Link>
     );
 }
 
@@ -26,39 +29,54 @@ function MobileNav({ open, setOpen }: MobileNavProps) {
         >
             <div className="flex items-center justify-center filter drop-shadow-md bg-white h-20">
                 {/* Logo container */}
-                <a className="text-xl font-semibold" href="/">
-                    LOGO
-                </a>
+                <Link
+                    href="/"
+                >
+                    <a className="text-xl font-semibold">
+                        LOGO
+                    </a>
+                </Link>
             </div>
             <div className="flex flex-col ml-4">
-                <a
-                    className="text-xl font-medium my-4"
+                <Link
                     href="/speakers"
-                    onClick={() => setTimeout(() => setOpen(!open), 100)}
                 >
-                    Speakers
-                </a>
-                <a
-                    className="text-xl font-normal my-4"
-                    href="/agenda"
-                    onClick={() => setTimeout(() => setOpen(!open), 100)}
+                    <a
+                        className="text-xl font-medium my-4"
+                        onClick={() => setTimeout(() => setOpen(!open), 100)}
+                    >
+                        Speakers
+                    </a>
+                </Link>
+                <Link
+                    href='/agenda'
                 >
-                    Agenda
-                </a>
-                <a
-                    className="text-xl font-normal my-4"
-                    href="/partners"
-                    onClick={() => setTimeout(() => setOpen(!open), 100)}
+                    <a
+                        className="text-xl font-normal my-4"
+                        onClick={() => setTimeout(() => setOpen(!open), 100)}
+                    >
+                        Agenda
+                    </a>
+                </Link>
+                <Link href='/partners'>
+                    <a
+                        className="text-xl font-normal my-4"
+                        onClick={() => setTimeout(() => setOpen(!open), 100)}
+                    >
+                        Partners
+                    </a>
+                </Link>
+                <Link
+                    href='/travel'
                 >
-                    Partners
-                </a>
-                <a
-                    className="text-xl font-normal my-4"
-                    href="/travel"
-                    onClick={() => setTimeout(() => setOpen(!open), 100)}
-                >
-                    Travel
-                </a>
+                    <a
+                        className="text-xl font-normal my-4"
+                        onClick={() => setTimeout(() => setOpen(!open), 100)}
+                    >
+                        Travel
+                    </a>
+                </Link>
+
             </div>
         </div>
     );
@@ -71,9 +89,13 @@ export default function Navbar() {
         <nav className="flex filter drop-shadow-md bg-white px-4 py-4 h-20 items-center">
             <MobileNav open={open} setOpen={setOpen} />
             <div className="w-3/12 flex items-center">
-                <a className="text-2xl font-semibold" href="/">
-                    LOGO
-                </a>
+                <Link
+                    href="/"
+                >
+                    <a className="text-2xl font-semibold">
+                        LOGO
+                    </a>
+                </Link>
             </div>
             <div className="w-9/12 flex justify-end items-center">
                 <div
@@ -109,7 +131,6 @@ export default function Navbar() {
                             Tickets
                         </button>
                     </div>
-
                 </div>
             </div>
         </nav>

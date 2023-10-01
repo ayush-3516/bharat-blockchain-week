@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Tags from './Tags';
+import Image from 'next/image';
 
 interface TabItem {
     date: string;
@@ -147,7 +148,7 @@ const TabComponent: React.FC = () => {
                                     </div>
                                     <div className="p-2 w-2/3">
                                         <div className="h-full flex sm:flex-row flex-col items-start sm:justify-start justify-center text-center sm:text-left">
-                                            <img alt="team" className="flex-shrink-0 rounded-lg w-36 h-36 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200" />
+                                            <Image alt="team" className="flex-shrink-0 rounded-lg w-36 h-36 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200" />
                                             <div className="flex-grow sm:pl-8">
                                                 <h2 className="font-medium text-2xl text-gray-900 mt-4 mb-2">
                                                     {tab.eventOrganizer}

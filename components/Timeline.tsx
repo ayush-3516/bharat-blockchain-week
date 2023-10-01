@@ -10,7 +10,7 @@ type Props = {
 }
 
 // Define a reusable TimelineItem component
-const TimelineItem = ({ time, date, title, description, stage, location }: Props) => (
+const TimelineItem = ({ time, title, description, stage, location }: Props) => (
     <div className="py-8 flex items-start border-2 border-purple-600 drop-shadow-[4px_4px_0px_#7e22ce] bg-white rounded-3xl w-full mx-auto px-10 overflow-hidden flex-wrap md:flex-nowrap relative" id='card'>
         <div className="absolute -bottom-3 -right-3 z-0">
             <i className="fal fa-compact-disc text-[90px] text-gray-200"></i>
