@@ -141,18 +141,18 @@ const TabComponent: React.FC = () => {
                     <ul>
                         {filteredTabs.map((tab, index) => (
                             <li key={index}>
-                                <div className="flex items-center justify-center overflow-hidden mx-auto border-2 rounded-3xl lg:px-32 md:px-12 px-4 py-4 mb-10 border-purple-600 sm:flex-row flex-col">
-                                    <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 text-3xl font-semibold inline-flex items-center justify-center rounded-full text-purple-600 flex-shrink-0">
+                                <div className="flex items-center justify-center overflow-hidden mx-auto border-2 rounded-3xl event-card px-4 py-4 mb-10 border-purple-600 sm:flex-row flex-col">
+                                    <div className="sm:mr-10 text-3xl font-semibold my-4 inline-flex items-center justify-center rounded-full text-purple-600 flex-shrink-0">
                                         {tab.date}
                                     </div>
-                                    <div className="p-2">
-                                        <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
+                                    <div className="p-2 w-2/3">
+                                        <div className="h-full flex sm:flex-row flex-col items-start sm:justify-start justify-center text-center sm:text-left">
                                             <img alt="team" className="flex-shrink-0 rounded-lg w-36 h-36 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200" />
                                             <div className="flex-grow sm:pl-8">
-                                                <h2 className="font-medium text-2xl text-gray-900 mb-1">
+                                                <h2 className="font-medium text-2xl text-gray-900 mt-4 mb-2">
                                                     {tab.eventOrganizer}
                                                 </h2>
-                                                <span className="flex items-center justify-center flex-wrap gap-2">
+                                                <span className="flex items-start flex-wrap gap-2">
                                                     {tab.tags && tab.tags.map((tag) => (
                                                         <span
                                                             key={tag} // Add a unique key to each span
@@ -168,7 +168,6 @@ const TabComponent: React.FC = () => {
                                                     </span>
                                                 </span>
                                             </div>
-                                            <button className=''></button>
                                         </div>
                                     </div>
                                 </div>

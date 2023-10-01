@@ -84,8 +84,8 @@ const Timeline = () => {
     const uniqueTimes = Array.from(new Set(timelineItems.map((item) => item.time)));
 
     return (
-        <section className="text-gray-600 body-font overflow-hidden">
-            <div className="container px-4 py-24 mx-auto">
+        <section className="text-gray-600 body-font overflow-hidden" id='timeline'>
+            <div className="container mx-auto">
                 <div className="mb-4 flex items-center justify-center gap-4 flex-wrap">
                     <input
                         type="text"

@@ -11,7 +11,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({ name, role, imageSrc }) => (
         <div className="h-full flex flex-col items-center text-center">
             <img alt="team" className="flex-shrink-0 rounded-3xl w-60 h-52 object-cover border-4 border-[#a855f7] shadow-md shadow-purple-200 object-center mb-4" src={imageSrc} />
             <div className="w-full">
-                <h2 className="title-font font-medium text-lg text-gray-900">{name}</h2>
+                <h2 className="font-medium text-lg text-gray-900">{name}</h2>
                 <h3 className="text-gray-500 mb-3">{role}</h3>
                 <div className="inline-flex">
                     <a className="text-gray-500" href=''>
@@ -73,7 +73,7 @@ const Team: React.FC<Props> = () => {
 
     return (
         <section className="text-gray-600 body-font">
-            <div className="container px-36 pt-24 pb-12 mx-auto" id='speakers'>
+            <div className="container mx-auto" id='speakers'>
                 <div className="flex flex-col text-center w-full mb-20">
                     <h1 className="text-3xl font-semibold title-font mb-4 text-gray-900">OUR <span className="text-purple-500">SPEAKERS</span></h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.</p>

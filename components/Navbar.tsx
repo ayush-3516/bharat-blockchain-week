@@ -33,17 +33,31 @@ function MobileNav({ open, setOpen }: MobileNavProps) {
             <div className="flex flex-col ml-4">
                 <a
                     className="text-xl font-medium my-4"
-                    href="/about"
+                    href="/speakers"
                     onClick={() => setTimeout(() => setOpen(!open), 100)}
                 >
-                    About
+                    Speakers
                 </a>
                 <a
                     className="text-xl font-normal my-4"
-                    href="/contact"
+                    href="/agenda"
                     onClick={() => setTimeout(() => setOpen(!open), 100)}
                 >
-                    Contact
+                    Agenda
+                </a>
+                <a
+                    className="text-xl font-normal my-4"
+                    href="/partners"
+                    onClick={() => setTimeout(() => setOpen(!open), 100)}
+                >
+                    Partners
+                </a>
+                <a
+                    className="text-xl font-normal my-4"
+                    href="/travel"
+                    onClick={() => setTimeout(() => setOpen(!open), 100)}
+                >
+                    Travel
                 </a>
             </div>
         </div>
@@ -82,9 +96,20 @@ export default function Navbar() {
                             }`}
                     />
                 </div>
-                <div className="hidden md:flex">
-                    <NavLink to="/contact">CONTACT</NavLink>
-                    <NavLink to="/about">ABOUT</NavLink>
+                <div className="hidden flex items-center md:flex">
+                    <NavLink to="/speakers">speakers</NavLink>
+                    <NavLink to="/agenda">agenda</NavLink>
+                    <NavLink to="/partners">partners</NavLink>
+                    <NavLink to="/agenda">travel</NavLink>
+                    <div className="flex items-center mt-4 md:mt-0">
+                        <button className="inline-flex items-center bg-white text-purple-700 border-2 border-purple-700 py-2 px-5 focus:outline-none transition-all hover:bg-purple-800 hover:text-white rounded-lg text-base font-medium md:ml-4">
+                            Exhibit
+                        </button>
+                        <button className="inline-flex items-center bg-gradient-to-r from-purple-600 to-purple-700 text-white border-2 border-purple-700 py-2 px-5 focus:outline-none transition-all ml-2 rounded-lg text-base font-medium md:ml-4">
+                            Tickets
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </nav>

@@ -18,7 +18,7 @@ const Hero = ({
         <div>
             <section className="text-gray-100 body-font bg-[#131313] hero">
                 <div className="container mx-auto flex items-center justify-center flex-col">
-                    <div className="text-center w-full lg:px-16 md:px-12 px-8 lg:py-24 md:py-12 py-16 bg-[#252525] drop-shadow-[0px_20px_0px_#a855f7] rounded-3xl">
+                    <div className="text-center w-full bg-[#252525] drop-shadow-[0px_20px_0px_#a855f7] rounded-3xl" id='hero-container'>
                         <h1 className="title-font mb-4 font-semibold text-white">
                             {titleWords.length > 1 ? (
                                 <span>
