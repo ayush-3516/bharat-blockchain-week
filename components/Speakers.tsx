@@ -73,7 +73,7 @@ const Team: React.FC<Props> = () => {
 
     return (
         <section className="text-gray-600 body-font">
-            <div className="container px-36 pt-24 pb-12 mx-auto">
+            <div className="container px-36 pt-24 pb-12 mx-auto" id='speakers'>
                 <div className="flex flex-col text-center w-full mb-20">
                     <h1 className="text-3xl font-semibold title-font mb-4 text-gray-900">OUR <span className="text-purple-500">SPEAKERS</span></h1>
                     <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.</p>

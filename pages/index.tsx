@@ -3,8 +3,6 @@ import Layout from 'components/Layout'
 import Head from 'next/head'
 import Hero from 'components/Hero'
 import Events from 'components/Events'
-import Tags from 'components/Tags'
-import CTA from 'components/CTA'
 
 const Home = () => {
   return (

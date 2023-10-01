@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from './Header'
 import Footer from './Footer'
 import CTA from './CTA'
+import Navbar from './Navbar'
 
 type Props = {
     children: React.ReactNode
@@ -10,7 +10,7 @@ type Props = {
 const Layout = (props: Props) => {
     return (
         <div>
-            <Header />
+            <Navbar />
             <div className="min-h-screen mx-auto bg-white text-black">
                 {props.children}
             </div>

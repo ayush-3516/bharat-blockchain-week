@@ -20,7 +20,7 @@ const TabComponent: React.FC = () => {
 
     const tabs: TabItem[] = [
         {
-            date: '17-10-2023',
+            date: '17/10/2023',
             start: '9:00 AM',
             end: '12:00 PM',
             eventOrganizer: 'Name of Event 1',
@@ -31,7 +31,7 @@ const TabComponent: React.FC = () => {
             registrationLink: '',
         },
         {
-            date: '18-10-2023',
+            date: '18/10/2023',
             start: '10:00 AM',
             end: '1:00 PM',
             eventOrganizer: 'Name of Event 2',
@@ -42,7 +42,7 @@ const TabComponent: React.FC = () => {
             registrationLink: 'https://example.com/event2',
         },
         {
-            date: '19-10-2023',
+            date: '19/10/2023',
             start: '2:00 PM',
             end: '4:00 PM',
             eventOrganizer: 'Name of Event 3',
@@ -53,7 +53,7 @@ const TabComponent: React.FC = () => {
             registrationLink: 'https://example.com/event3',
         },
         {
-            date: '20-10-2023',
+            date: '20/10/2023',
             start: '5:00 PM',
             end: '7:00 PM',
             eventOrganizer: 'Name of Event 4',
@@ -64,7 +64,7 @@ const TabComponent: React.FC = () => {
             registrationLink: 'https://example.com/event4',
         },
         {
-            date: '21-10-2023',
+            date: '21/10/2023',
             start: '6:00 PM',
             end: '8:00 PM',
             eventOrganizer: 'Name of Event 5',
@@ -74,7 +74,7 @@ const TabComponent: React.FC = () => {
             location: 'Sydney',
             registrationLink: 'https://example.com/event5',
         }, {
-            date: '22-10-2023',
+            date: '22/10/2023',
             start: '7:00 PM',
             end: '9:00 PM',
             eventOrganizer: 'Name of Event 6',
@@ -84,7 +84,7 @@ const TabComponent: React.FC = () => {
             location: 'Beijing',
             registrationLink: 'https://example.com/event6',
         }, {
-            date: '23-10-2023',
+            date: '23/10/2023',
             start: '8:00 PM',
             end: '10:00 PM',
             eventOrganizer: 'Name of Event 7',
@@ -134,33 +134,34 @@ const TabComponent: React.FC = () => {
                 selectedTag={selectedPayment}
                 onTagClick={handlePaymentClick}
             />
-            <div className="px-12 py-12">
+            <div className="px-12 py-12" id='events'>
                 {filteredTabs.length === 0 ? (
                     'No content available'
                 ) : (
                     <ul>
                         {filteredTabs.map((tab, index) => (
                             <li key={index}>
-                                <div className="flex items-center mx-auto border-2 rounded-3xl px-12 py-4 mb-10 border-purple-600 sm:flex-row flex-col">
+                                <div className="flex items-center justify-center overflow-hidden mx-auto border-2 rounded-3xl lg:px-32 md:px-12 px-4 py-4 mb-10 border-purple-600 sm:flex-row flex-col">
                                     <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 text-3xl font-semibold inline-flex items-center justify-center rounded-full text-purple-600 flex-shrink-0">
                                         {tab.date}
                                     </div>
-                                    <div className="p-4">
+                                    <div className="p-2">
                                         <div className="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
                                             <img alt="team" className="flex-shrink-0 rounded-lg w-36 h-36 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200" />
                                             <div className="flex-grow sm:pl-8">
-                                                <h2 className="title-font font-medium text-2xl text-gray-900 mb-1">
+                                                <h2 className="font-medium text-2xl text-gray-900 mb-1">
                                                     {tab.eventOrganizer}
                                                 </h2>
-                                                <p className="text-purple-600 font-medium mb-3">UI Designer</p>
-
-                                                <span className="flex items-center">
-                                                    <span className="inline-block py-2 px-4 rounded-lg bg-purple-200 text-purple-700 text-sm font-semibold tracking-wider capitalize">
-                                                        {
-                                                            tab.tags.length > 0 && tab && tab.tags
-                                                        }
-                                                    </span>
-                                                    <span className="inline-block py-2 px-4 rounded-lg bg-gradient-to-br from-orange-100 to-orange-200 text-orange-600 text-sm mx-2 font-semibold tracking-wider capitalize">
+                                                <span className="flex items-center justify-center flex-wrap gap-2">
+                                                    {tab.tags && tab.tags.map((tag) => (
+                                                        <span
+                                                            key={tag} // Add a unique key to each span
+                                                            className="inline-block py-2 px-4 rounded-lg bg-purple-200 text-purple-700 text-sm font-semibold tracking-wider capitalize"
+                                                        >
+                                                            {tag}
+                                                        </span>
+                                                    ))}
+                                                    <span className="inline-block py-2 px-4 rounded-lg bg-gradient-to-br from-orange-100 to-orange-200 text-orange-600 text-sm font-semibold tracking-wider capitalize">
                                                         {
                                                             tab.price
                                                         }

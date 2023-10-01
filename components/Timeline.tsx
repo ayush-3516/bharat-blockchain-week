@@ -11,15 +11,15 @@ type Props = {
 
 // Define a reusable TimelineItem component
 const TimelineItem = ({ time, date, title, description, stage, location }: Props) => (
-    <div className="py-8 flex items-start border-2 border-purple-600 drop-shadow-[4px_4px_0px_#7e22ce] bg-white rounded-3xl w-10/12 mx-auto px-10 overflow-hidden flex-wrap md:flex-nowrap relative">
-        <div className="absolute -bottom-3 -right-3">
+    <div className="py-8 flex items-start border-2 border-purple-600 drop-shadow-[4px_4px_0px_#7e22ce] bg-white rounded-3xl w-full mx-auto px-10 overflow-hidden flex-wrap md:flex-nowrap relative" id='card'>
+        <div className="absolute -bottom-3 -right-3 z-0">
             <i className="fal fa-compact-disc text-[90px] text-gray-200"></i>
         </div>
         <div className="md:w-32 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-            <span className="font-semibold title-font text-gray-700">{time}</span>
+            <span className="font-semibold text-[24px] text-gray-700">{time}</span>
         </div>
         <div className="md:flex-grow">
-            <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">{title}</h2>
+            <h2 className="text-2xl font-semibold text-gray-900 mb-2">{title}</h2>
             <p className="leading-relaxed">{description}</p>
             <a className="font-semibold inline-flex items-center mt-4">
                 <span>
@@ -85,8 +85,8 @@ const Timeline = () => {
 
     return (
         <section className="text-gray-600 body-font overflow-hidden">
-            <div className="container px-32 py-24 mx-auto">
-                <div className="mb-4 flex items-center justify-center space-x-2">
+            <div className="container px-4 py-24 mx-auto">
+                <div className="mb-4 flex items-center justify-center gap-4 flex-wrap">
                     <input
                         type="text"
                         placeholder="Search by session title"
@@ -95,7 +95,7 @@ const Timeline = () => {
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                     <select
-                        className="border border-gray-300 rounded-xl py-3 px-5 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        className="border border-gray-300 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
                         onChange={(e) =>
                             setFilterCriteria({ ...filterCriteria, stage: e.target.value })
                         }
@@ -108,20 +108,7 @@ const Timeline = () => {
                         ))}
                     </select>
                     <select
-                        className="border border-gray-300 rounded-xl py-3 px-5 focus:outline-none focus:ring-2 focus:ring-purple-600"
-                        onChange={(e) =>
-                            setFilterCriteria({ ...filterCriteria, location: e.target.value })
-                        }
-                    >
-                        <option value="All">All Locations</option>
-                        {uniqueLocations.map((location) => (
-                            <option key={location} value={location}>
-                                {location}
-                            </option>
-                        ))}
-                    </select>
-                    <select
-                        className="border border-gray-300 rounded-xl py-3 px-5 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        className="border border-gray-300 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
                         onChange={(e) =>
                             setFilterCriteria({ ...filterCriteria, time: e.target.value })
                         }
@@ -133,8 +120,21 @@ const Timeline = () => {
                             </option>
                         ))}
                     </select>
+                    <select
+                        className="border border-gray-300 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        onChange={(e) =>
+                            setFilterCriteria({ ...filterCriteria, location: e.target.value })
+                        }
+                    >
+                        <option value="All">All Locations</option>
+                        {uniqueLocations.map((location) => (
+                            <option key={location} value={location}>
+                                {location}
+                            </option>
+                        ))}
+                    </select>
                 </div>
-                <div className="my-8 space-y-4">
+                <div className="my-8 flex items-center flex-col gap-4">
                     {filteredTimelineItems.map((item, index) => (
                         <TimelineItem key={index} {...item} />
                     ))}

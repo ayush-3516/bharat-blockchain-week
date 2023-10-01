@@ -5,7 +5,7 @@ type Props = {}
 
 const Events = (props: Props) => {
     return (
-        <div className='container mx-auto flex px-32 py-20 bg-purple-50 items-center justify-center flex-col'>
+        <div className='container mx-auto bg-purple-50 py-12 items-center justify-center flex-col'>
             <TabComponent />
         </div>
     )

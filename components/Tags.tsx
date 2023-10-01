@@ -8,7 +8,7 @@ interface TagsProps {
 
 const Tags: React.FC<TagsProps> = ({ tags, selectedTag, onTagClick }) => {
   return (
-    <div className="flex items-center justify-center space-x-2 mt-4">
+    <div className="flex items-start justify-start overflow-x-scroll space-x-2 mt-4 mx-5">
       <button
         className={`px-3 py-1 rounded-lg ${selectedTag === null ? 'bg-gradient-to-br from-purple-400 to-purple-600 text-white' : 'bg-gradient-to-br from-yellow-50 to-purple-200 text-gray-700'
           }`}
