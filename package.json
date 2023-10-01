@@ -15,7 +15,7 @@
     "eslint",
     "prettier",
     "husky",
-    "lint-staged"
+    "lint-staged" 
   ],
   "scripts": {
     "dev": "next dev",
