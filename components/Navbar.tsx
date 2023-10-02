@@ -4,7 +4,7 @@ import Link from 'next/link'
 interface NavLinkProps {
     to: string;
     children: React.ReactNode;
-}
+} 
 
 function NavLink({ to, children }: NavLinkProps) {
     return (

@@ -78,12 +78,16 @@ body {
     font-size: var(--mobile-font-size);
   }
 
-  .nav {
+  .container {
+    padding: 24px 1rem;
+  }
+
+  nav {
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
   }
 
   .hero,
@@ -94,6 +98,10 @@ body {
   #speaker-register .px-16 {
     min-height: auto;
     padding: 30px 0;
+  }
+
+  .tags {
+    justify-content: start;
   }
 
   .hero h1 {
@@ -111,6 +119,22 @@ body {
     overflow-x: scroll;
   }
 
+  .hero .container {
+    padding: 4rem 1rem;
+  }
+
+  #hero-container {
+    padding: 3rem 2rem;
+  }
+
+  #timeline {
+    padding: 3rem 1rem;
+  }
+
+  #cta {
+    padding: 4rem 2rem;
+  }
+
   #card {
     width: 100%;
     padding: 3rem 2rem;
@@ -124,8 +148,40 @@ body {
     padding: 30px 0;
   }
 
+  .container {
+    padding: 24px 5rem;
+  }
+
   .hero h1 {
     font-size: 24px;
+  }
+
+  .tags {
+    overflow: hidden;
+    justify-content: start;
+    overflow-x: scroll;
+  }
+
+  #events {
+    padding: 3rem 0rem;
+  }
+
+  #event-card {
+    width: 100%;
+  }
+
+  #event-card img {
+    max-width: 320px !important;
+    max-height: 320px !important;
+    object-fit: cover;
+  }
+
+  #event-card .flex-grow {
+    margin-left: 1rem;
+  }
+
+  #cta {
+    padding: 4rem 2rem;
   }
 }
 

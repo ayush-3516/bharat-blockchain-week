@@ -21,7 +21,7 @@ const TimelineItem = ({ time, title, description, stage, location }: Props) => (
         <div className="md:flex-grow">
             <h2 className="text-2xl font-semibold text-gray-900 mb-2">{title}</h2>
             <p className="leading-relaxed">{description}</p>
-            <a className="font-semibold inline-flex items-center mt-4">
+            <a className="font-semibold inline-flex items-start mt-4">
                 <span>
                     <i className="fas fa-map-marker-alt text-purple-900 text-sm"></i>
                 </span>
@@ -86,7 +86,7 @@ const Timeline = () => {
     return (
         <section className="text-gray-600 body-font overflow-hidden" id='timeline'>
             <div className="container mx-auto">
-                <div className="mb-4 flex items-center justify-center gap-4 flex-wrap">
+                <div className="mb-4 flex items-center justify-start gap-4 flex-wrap">
                     <input
                         type="text"
                         placeholder="Search by session title"
@@ -97,13 +97,13 @@ const Timeline = () => {
                     <select
                         className="border border-gray-300 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
                         onChange={(e) =>
-                            setFilterCriteria({ ...filterCriteria, stage: e.target.value })
+                            setFilterCriteria({ ...filterCriteria, location: e.target.value })
                         }
                     >
-                        <option value="All">All Stages</option>
-                        {uniqueStages.map((stage) => (
-                            <option key={stage} value={stage} className='py-2'>
-                                {stage}
+                        <option value="All">All Locations</option>
+                        {uniqueLocations.map((location) => (
+                            <option key={location} value={location}>
+                                {location}
                             </option>
                         ))}
                     </select>
@@ -123,13 +123,13 @@ const Timeline = () => {
                     <select
                         className="border border-gray-300 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
                         onChange={(e) =>
-                            setFilterCriteria({ ...filterCriteria, location: e.target.value })
+                            setFilterCriteria({ ...filterCriteria, stage: e.target.value })
                         }
                     >
-                        <option value="All">All Locations</option>
-                        {uniqueLocations.map((location) => (
-                            <option key={location} value={location}>
-                                {location}
+                        <option value="All">All Stages</option>
+                        {uniqueStages.map((stage) => (
+                            <option key={stage} value={stage} className='py-2'>
+                                {stage}
                             </option>
                         ))}
                     </select>
