@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface NavLinkProps {
     to: string;
     children: React.ReactNode;
-} 
+}
 
 function NavLink({ to, children }: NavLinkProps) {
     return (
         <Link href={to}>
-            <a className="mx-4">
-                {children}
-            </a>
+            <a className="mx-4">{children}</a>
         </Link>
     );
 }
@@ -29,46 +28,19 @@ function MobileNav({ open, setOpen }: MobileNavProps) {
         >
             <div className="flex items-center justify-center filter drop-shadow-md bg-white h-20">
                 {/* Logo container */}
-                <Link
-                    href="/"
-                >
-                    <a className="text-xl font-semibold">
-                        LOGO
+                <Link href="/">
+                    <a>
+                        <Image
+                            src="/logo.png"
+                            alt="logo"
+                            width={100}
+                            height={100}
+                        />
                     </a>
                 </Link>
             </div>
             <div className="flex flex-col ml-4">
-                <Link
-                    href="/speakers"
-                >
-                    <a
-                        className="text-xl font-medium my-4"
-                        onClick={() => setTimeout(() => setOpen(!open), 100)}
-                    >
-                        Speakers
-                    </a>
-                </Link>
-                <Link
-                    href='/agenda'
-                >
-                    <a
-                        className="text-xl font-normal my-4"
-                        onClick={() => setTimeout(() => setOpen(!open), 100)}
-                    >
-                        Agenda
-                    </a>
-                </Link>
-                <Link href='/partners'>
-                    <a
-                        className="text-xl font-normal my-4"
-                        onClick={() => setTimeout(() => setOpen(!open), 100)}
-                    >
-                        Partners
-                    </a>
-                </Link>
-                <Link
-                    href='/travel'
-                >
+                <Link href="/travel">
                     <a
                         className="text-xl font-normal my-4"
                         onClick={() => setTimeout(() => setOpen(!open), 100)}
@@ -76,7 +48,6 @@ function MobileNav({ open, setOpen }: MobileNavProps) {
                         Travel
                     </a>
                 </Link>
-
             </div>
         </div>
     );
@@ -86,14 +57,18 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
 
     return (
-        <nav className="flex filter drop-shadow-md bg-white px-4 py-4 h-20 items-center">
+        <nav className="flex filter drop-shadow-md bg-black px-4 max-h-28 py-4 items-center">
             <MobileNav open={open} setOpen={setOpen} />
             <div className="w-3/12 flex items-center">
-                <Link
-                    href="/"
-                >
-                    <a className="text-2xl font-semibold">
-                        LOGO
+                <Link href="/">
+                    <a className='flex items-center justify-center'>
+                        <Image
+                            src="/logo.png"
+                            alt="logo"
+                            width={260}
+                            height={180}
+                            layout='fixed'
+                        />
                     </a>
                 </Link>
             </div>
@@ -118,17 +93,11 @@ export default function Navbar() {
                             }`}
                     />
                 </div>
-                <div className="hidden flex items-center md:flex">
-                    <NavLink to="/speakers">speakers</NavLink>
-                    <NavLink to="/agenda">agenda</NavLink>
-                    <NavLink to="/partners">partners</NavLink>
-                    <NavLink to="/agenda">travel</NavLink>
+                <div className="hidden flex text-white items-center md:flex">
+                    <NavLink to="/agenda">Travel</NavLink>
                     <div className="flex items-center mt-4 md:mt-0">
-                        <button className="inline-flex items-center bg-white text-purple-700 border-2 border-purple-700 py-2 px-5 focus:outline-none transition-all hover:bg-purple-800 hover:text-white rounded-lg text-base font-medium md:ml-4">
-                            Exhibit
-                        </button>
-                        <button className="inline-flex items-center bg-gradient-to-r from-purple-600 to-purple-700 text-white border-2 border-purple-700 py-2 px-5 focus:outline-none transition-all ml-2 rounded-lg text-base font-medium md:ml-4">
-                            Tickets
+                        <button className="inline-flex items-center bg-gradient-to-br from-orange-500 to-[#ff4e00] text-white shadow-2xl py-2 px-5 focus:outline-none transition-all ml-2 rounded-lg text-base font-medium md:ml-4">
+                            Organise Side Events
                         </button>
                     </div>
                 </div>

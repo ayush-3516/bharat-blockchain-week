@@ -16,7 +16,7 @@ const Home = () => {
         </Head>
         <Hero
           title='Bharat Blockchain Week'
-          description='lorem ipsum dolor sit amet, consectetur adipiscing'
+          description='NETWORK, OPPORTUNITIES, AND CULTURE !!'
           image=''
           button1='side event sheet'
           button2='submit your event'

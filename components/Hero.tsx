@@ -16,13 +16,16 @@ const Hero = ({
 
     return (
         <div>
-            <section className="text-gray-100 body-font bg-[#131313] hero">
+            <section className="text-gray-100 body-font bg-[#fff] hero">
+                <div className="rangoli">
+                    <img src="/rangoli.png" alt="rangoli" />
+                </div>
                 <div className="container mx-auto flex items-center justify-center flex-col">
-                    <div className="text-center w-full bg-[#252525] drop-shadow-[0px_20px_0px_#a855f7] rounded-3xl" id='hero-container'>
-                        <h1 className="title-font mb-4 font-semibold text-white">
+                    <div className="text-center w-full bg-[#fff] border-t-[12px] border-t-[#ff4e00] border-l-[5px] border-l-[#06038D] border-r-[5px] border-r-[#06038D] drop-shadow-[0px_20px_0px_#138808] rounded-3xl relative" id='hero-container'>
+                        <h1 className="title-font text-4xl mb-4 font-semibold text-black">
                             {titleWords.length > 1 ? (
                                 <span>
-                                    <span className="mr-2 font-semibold text-purple-400">
+                                    <span className="mr-2 font-semibold text-[#ff4e00]">
                                         {titleWords[0]}
                                     </span>
                                     {titleWords.slice(1).join(' ')}
@@ -31,20 +34,23 @@ const Hero = ({
                                 title
                             )}
                         </h1>
-                        <p className="leading-relaxed mb-8">
+                        <p className="leading-relaxed text-black mb-8">
                             {description}
                         </p>
                         <div className="flex flex-wrap gap-4 items-center justify-center">
                             {button1 && (
-                                <button className="inline-flex text-white bg-gradient-to-br from-purple-500 to-purple-700 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded-lg text-lg">
+                                <button className="inline-flex text-white bg-[#06038D] border-2 border-[#06038d] py-2 px-6 focus:outline-none rounded-lg text-lg">
                                     {button1}
                                 </button>
                             )}
                             {button2 && (
-                                <button className="inline-flex text-gray-950 bg-gradient-to-br from-purple-50 to-purple-300 py-2 px-6 border-2 border-purple-500 focus:outline-none rounded-lg text-lg">
+                                <button className="inline-flex text-[#06038d] font-semibold bg-[#06038D10] py-2 px-6 border-2 border-[#06038D] focus:outline-none rounded-lg text-lg">
                                     {button2}
                                 </button>
                             )}
+                        </div>
+                        <div className="monument">
+                            <img src="/monument.png" alt="monument" />
                         </div>
                     </div>
                 </div>

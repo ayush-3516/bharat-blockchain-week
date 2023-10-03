@@ -22,6 +22,11 @@ body {
   font-size: var(--title-font-size);
 }
 
+.logo img {
+  max-width: 200px; 
+  width: 100%;
+}
+
 .hero {
   width: 100%;
   display: flex;
@@ -41,8 +46,43 @@ body {
   padding: 24px 10rem;
 }
 
+.hero {
+  min-height: 85vh;
+  position: relative;
+}
+
+.rangoli {
+  position: absolute;
+  top: 0%;
+  left: -5%;
+  max-width: 300px;
+}
+
+.rangoli img {
+  transform: rotate(45deg);
+  animation: rotateCircle 5s linear infinite; /* Increased duration and linear timing function */
+}
+
+@keyframes rotateCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg); /* Rotate the element continuously */
+  }
+}
+
 #hero-container {
-  padding: 5rem;
+  padding: 8rem 4rem;
+}
+
+#hero-container .monument {
+  position: absolute;
+  left: 50%;
+  bottom: 0%;
+  transform: translateX(-50%);
+  z-index: 10;
+  max-width: 600px;
 }
 
 .tags {

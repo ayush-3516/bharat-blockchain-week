@@ -21,7 +21,7 @@ const TabComponent: React.FC = () => {
 
     const tabs: TabItem[] = [
         {
-            date: '17/10/2023',
+            date: '04/12/2023',
             start: '9:00 AM',
             end: '12:00 PM',
             eventOrganizer: 'Name of Event 1',
@@ -32,7 +32,7 @@ const TabComponent: React.FC = () => {
             registrationLink: '',
         },
         {
-            date: '18/10/2023',
+            date: '05/12/2023',
             start: '10:00 AM',
             end: '1:00 PM',
             eventOrganizer: 'Name of Event 2',
@@ -43,7 +43,7 @@ const TabComponent: React.FC = () => {
             registrationLink: 'https://example.com/event2',
         },
         {
-            date: '19/10/2023',
+            date: '06/12/2023',
             start: '2:00 PM',
             end: '4:00 PM',
             eventOrganizer: 'Name of Event 3',
@@ -54,7 +54,7 @@ const TabComponent: React.FC = () => {
             registrationLink: 'https://example.com/event3',
         },
         {
-            date: '20/10/2023',
+            date: '07/12/2023',
             start: '5:00 PM',
             end: '7:00 PM',
             eventOrganizer: 'Name of Event 4',
@@ -65,7 +65,7 @@ const TabComponent: React.FC = () => {
             registrationLink: 'https://example.com/event4',
         },
         {
-            date: '21/10/2023',
+            date: '08/12/2023',
             start: '6:00 PM',
             end: '8:00 PM',
             eventOrganizer: 'Name of Event 5',
@@ -75,7 +75,7 @@ const TabComponent: React.FC = () => {
             location: 'Sydney',
             registrationLink: 'https://example.com/event5',
         }, {
-            date: '22/10/2023',
+            date: '09/12/2023',
             start: '7:00 PM',
             end: '9:00 PM',
             eventOrganizer: 'Name of Event 6',
@@ -85,7 +85,7 @@ const TabComponent: React.FC = () => {
             location: 'Beijing',
             registrationLink: 'https://example.com/event6',
         }, {
-            date: '23/10/2023',
+            date: '10/12/2023',
             start: '8:00 PM',
             end: '10:00 PM',
             eventOrganizer: 'Name of Event 7',
@@ -130,11 +130,11 @@ const TabComponent: React.FC = () => {
                 selectedTag={selectedTag}
                 onTagClick={handleTagClick}
             />
-            <Tags
-                tags={['free', 'paid']}
-                selectedTag={selectedPayment}
-                onTagClick={handlePaymentClick}
-            />
+            <button
+                className="py-2 px-4 rounded-lg bg-gradient-to-br from-yellow-300 to-yellow-600 my-4 flex items-center justify-center text-center text-sm font-semibold tracking-wider capitalize"
+            >
+                Exclusive Events
+            </button>
             <div id='events'>
                 {filteredTabs.length === 0 ? (
                     'No content available'
@@ -147,22 +147,22 @@ const TabComponent: React.FC = () => {
                                         {tab.date}
                                     </div>
                                     <div className="p-2 lg:w-2/3" id="event-card">
-                                        <div className="h-full flex sm:flex-row flex-col sm:items-start items-center sm:justify-start justify-center text-center sm:text-left">
-                                            <Image alt="team" width="100%" height="100%" src="https://dummyimage.com/200x200" />
-                                            <div className="flex-grow w-full">
-                                                <h2 className="font-medium text-2xl text-gray-900 mt-4 mb-2">
+                                        <div className="h-full flex sm:flex-row flex-col sm:items-center items-center sm:justify-start justify-center text-center sm:text-left">
+                                            <Image alt="team" width="100%" height="100%" className='rounded-lg' src="https://dummyimage.com/250x250" />
+                                            <div className="flex-grow w-full sm:pl-4">
+                                                <h2 className="font-medium text-2xl mb-2 text-gray-900">
                                                     {tab.eventOrganizer}
                                                 </h2>
                                                 <span className="flex sm:items-start items-center sm:justify-start justify-center flex-wrap gap-2">
                                                     {tab.tags && tab.tags.map((tag) => (
                                                         <span
                                                             key={tag} // Add a unique key to each span
-                                                            className="inline-block py-2 px-4 rounded-lg bg-purple-200 text-purple-700 text-sm font-semibold tracking-wider capitalize"
+                                                            className="inline-block py-1 px-3 rounded-lg bg-purple-200 text-purple-700 text-xs font-semibold tracking-wider capitalize"
                                                         >
                                                             {tag}
                                                         </span>
                                                     ))}
-                                                    <span className="inline-block py-2 px-4 rounded-lg bg-gradient-to-br from-orange-100 to-orange-200 text-orange-600 text-sm font-semibold tracking-wider capitalize">
+                                                    <span className="inline-block py-1 px-3 rounded-lg bg-gradient-to-br from-orange-100 to-orange-200 text-orange-600 text-xs font-semibold tracking-wider capitalize">
                                                         {
                                                             tab.price
                                                         }

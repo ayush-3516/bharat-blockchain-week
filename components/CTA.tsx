@@ -5,18 +5,19 @@ const CTA = () => {
         <section className="text-gray-600 bg-gray-100 body-font" id="cta">
             <div className="container mx-auto">
                 <div className="flex flex-col text-center w-full mb-12">
-                    <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Master Cleanse Reliac Heirloom</h1>
-                    <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep.</p>
+                    <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Feedback</h1>
+                    <p className="mx-auto leading-relaxed text-base">
+                        Your feedback is important to us, it help us improve !
+                        Please feel free to leave feedbacks, suggestions, critisism about any web3 event, this website and Bhart Blockchain Week !!
+                    </p>
                 </div>
-                <div className="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+                <div className="flex w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
                     <div className="relative flex-grow w-full">
-                        <input type="text" id="full-name" name="full-name" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                        <input type="text" id="feedback" name="feedback" className="w-full bg-gray-100 bg-opacity-50 rounded-lg border-2 border-purple-600 focus:bg-transparent focus:ring-2  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                     </div>
-                    <div className="relative flex-grow w-full">
-                        <input type="email" id="email" name="email" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:bg-transparent focus:ring-2  text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                    </div>
-                    <button className="text-white bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">Button</button>
+                    <button className="text-white bg-gradient-to-br from-purple-400 to-purple-800 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 text-lg rounded-lg">Submit</button>
                 </div>
+                <p className=' text-center text-sm my-2 text-gray-400'>We don't need your names, it's anonymous!</p>
             </div>
         </section>
     )
