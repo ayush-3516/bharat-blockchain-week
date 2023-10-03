@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 type Props = {
     title: string;
@@ -18,7 +19,7 @@ const Hero = ({
         <div>
             <section className="text-gray-100 body-font bg-[#fff] hero">
                 <div className="rangoli">
-                    <img src="/rangoli.png" alt="rangoli" />
+                    <Image width={360} height={200} src="/rangoli.png" alt="rangoli" />
                 </div>
                 <div className="container mx-auto flex items-center justify-center flex-col">
                     <div className="text-center w-full bg-[#fff] border-t-[12px] border-t-[#ff4e00] border-l-[5px] border-l-[#06038D] border-r-[5px] border-r-[#06038D] drop-shadow-[0px_20px_0px_#138808] rounded-3xl relative" id='hero-container'>
@@ -50,7 +51,7 @@ const Hero = ({
                             )}
                         </div>
                         <div className="monument">
-                            <img src="/monument.png" alt="monument" />
+                            <Image width={1000} height={600} src="/monument.png" alt="monument" />
                         </div>
                     </div>
                 </div>

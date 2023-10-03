@@ -58,20 +58,6 @@ body {
   max-width: 300px;
 }
 
-.rangoli img {
-  transform: rotate(45deg);
-  animation: rotateCircle 5s linear infinite; /* Increased duration and linear timing function */
-}
-
-@keyframes rotateCircle {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg); /* Rotate the element continuously */
-  }
-}
-
 #hero-container {
   padding: 8rem 4rem;
 }
@@ -79,7 +65,7 @@ body {
 #hero-container .monument {
   position: absolute;
   left: 50%;
-  bottom: 0%;
+  bottom: -6px;
   transform: translateX(-50%);
   z-index: 10;
   max-width: 600px;

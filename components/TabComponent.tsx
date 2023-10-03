@@ -17,7 +17,7 @@ interface TabItem {
 const TabComponent: React.FC = () => {
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
-    const [selectedPayment, setSelectedPayment] = useState<string | null>(null);
+    const [showExclusiveEvents, setShowExclusiveEvents] = useState<boolean>(false); // Track exclusive events
 
     const tabs: TabItem[] = [
         {
@@ -38,7 +38,7 @@ const TabComponent: React.FC = () => {
             eventOrganizer: 'Name of Event 2',
             content: 'Content for Event 2',
             tags: ['conference/summit'],
-            price: 'paid',
+            price: '542',
             location: 'New York',
             registrationLink: 'https://example.com/event2',
         },
@@ -95,7 +95,7 @@ const TabComponent: React.FC = () => {
             location: 'Paris',
             registrationLink: 'https://example.com/event7',
         }
-    ];
+    ]; // Your tab data
 
     const handleTagClick = (tag: string | null) => {
         setSelectedTag(tag);
@@ -105,17 +105,16 @@ const TabComponent: React.FC = () => {
         setSelectedDate(date);
     };
 
-    const handlePaymentClick = (payment: string | null) => {
-        setSelectedPayment(payment);
-    };
-
     // Filter tabs based on selected criteria
     const filteredTabs = tabs.filter((tab) => {
         const tagFilter = !selectedTag || tab.tags.includes(selectedTag);
         const dateFilter = !selectedDate || tab.date === selectedDate;
-        const paymentFilter = !selectedPayment || tab.price === selectedPayment;
 
-        return tagFilter && dateFilter && paymentFilter;
+        if (showExclusiveEvents) {
+            return tagFilter || dateFilter || tab.price !== 'free'; // Display events with some price
+        } else {
+            return tagFilter && dateFilter;
+        }
     });
 
     return (
@@ -132,10 +131,11 @@ const TabComponent: React.FC = () => {
             />
             <button
                 className="py-2 px-4 rounded-lg bg-gradient-to-br from-yellow-300 to-yellow-600 my-4 flex items-center justify-center text-center text-sm font-semibold tracking-wider capitalize"
+                onClick={() => setShowExclusiveEvents(!showExclusiveEvents)}
             >
-                Exclusive Events
+                {showExclusiveEvents ? 'All Events' : 'Exclusive Events'}
             </button>
-            <div id='events'>
+            <div id="events">
                 {filteredTabs.length === 0 ? (
                     'No content available'
                 ) : (
@@ -148,26 +148,22 @@ const TabComponent: React.FC = () => {
                                     </div>
                                     <div className="p-2 lg:w-2/3" id="event-card">
                                         <div className="h-full flex sm:flex-row flex-col sm:items-center items-center sm:justify-start justify-center text-center sm:text-left">
-                                            <Image alt="team" width="100%" height="100%" className='rounded-lg' src="https://dummyimage.com/250x250" />
+                                            <Image alt="team" width="100%" height="100%" className="rounded-lg" src="https://dummyimage.com/250x250" />
                                             <div className="flex-grow w-full sm:pl-4">
-                                                <h2 className="font-medium text-2xl mb-2 text-gray-900">
-                                                    {tab.eventOrganizer}
-                                                </h2>
-                                                <span className="flex sm:items-start items-center sm:justify-start justify-center flex-wrap gap-2">
+                                                <h2 className="font-medium text-2xl mb-2 text-gray-900">{tab.eventOrganizer}</h2>
+                                                <div className="flex sm:items-start items-center sm:justify-start justify-center flex-wrap gap-2">
                                                     {tab.tags && tab.tags.map((tag) => (
                                                         <span
-                                                            key={tag} // Add a unique key to each span
+                                                            key={tag}
                                                             className="inline-block py-1 px-3 rounded-lg bg-purple-200 text-purple-700 text-xs font-semibold tracking-wider capitalize"
                                                         >
                                                             {tag}
                                                         </span>
                                                     ))}
                                                     <span className="inline-block py-1 px-3 rounded-lg bg-gradient-to-br from-orange-100 to-orange-200 text-orange-600 text-xs font-semibold tracking-wider capitalize">
-                                                        {
-                                                            tab.price
-                                                        }
+                                                        {tab.price}
                                                     </span>
-                                                </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
