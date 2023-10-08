@@ -33,8 +33,8 @@ function MobileNav({ open, setOpen }: MobileNavProps) {
                         <Image
                             src="/logo.png"
                             alt="logo"
-                            width={100}
-                            height={100}
+                            width={10}
+                            height={10}
                         />
                     </a>
                 </Link>
@@ -57,18 +57,22 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
 
     return (
-        <nav className="flex filter drop-shadow-md bg-black px-4 max-h-28 py-4 items-center">
+        <nav className="flex filter drop-shadow-md bg-black px-4 max-h-28 py-4 items-center" 
+            style={{
+                zIndex: 100,
+                position: "sticky",
+                top: "0px",
+            }}
+        >
             <MobileNav open={open} setOpen={setOpen} />
             <div className="w-3/12 flex items-center">
                 <Link href="/">
-                    <a className='flex items-center justify-center'>
-                        <Image
-                            src="/logo.png"
-                            alt="logo"
-                            width={260}
-                            height={180}
-                            layout='fixed'
-                        />
+                    <a className='flex items-center overflow-hidden justify-center'
+                        style={{
+                            maxWidth: '140px !important',
+                        }}
+                    >
+                        <img src="/logo.png" alt="" />
                     </a>
                 </Link>
             </div>
@@ -97,7 +101,7 @@ export default function Navbar() {
                     <NavLink to="/agenda">Travel</NavLink>
                     <div className="flex items-center mt-4 md:mt-0">
                         <button className="inline-flex items-center bg-gradient-to-br from-orange-500 to-[#ff4e00] text-white shadow-2xl py-2 px-5 focus:outline-none transition-all ml-2 rounded-lg text-base font-medium md:ml-4">
-                            Organise Side Events
+                            Organise a Side Event
                         </button>
                     </div>
                 </div>

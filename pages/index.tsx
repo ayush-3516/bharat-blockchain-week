@@ -2,7 +2,8 @@ import React from 'react'
 import Layout from 'components/Layout'
 import Head from 'next/head'
 import Hero from 'components/Hero'
-import Events from 'components/Events'
+import TabComponent from 'components/TabComponent'
+import Feature from 'components/Feature'
 
 const Home = () => {
   return (
@@ -21,7 +22,8 @@ const Home = () => {
           button1='side event sheet'
           button2='submit your event'
         />
-        <Events />
+        <Feature />
+        <TabComponent />
       </Layout>
     </div>
   )

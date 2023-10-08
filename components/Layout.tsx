@@ -11,9 +11,7 @@ const Layout = (props: Props) => {
     return (
         <div>
             <Navbar />
-            <div className="min-h-screen mx-auto bg-white text-black">
-                {props.children}
-            </div>
+            {props.children}
             <CTA />
             <Footer />
         </div>

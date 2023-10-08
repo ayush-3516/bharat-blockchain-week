@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-  --font-family: 'Inter', sans-serif;
+  --font-family: 'Kanit', sans-serif;
   --font-size: 16px;
   --title-font-size: 32px;
   --mobile-font-size: 18px;
@@ -22,8 +22,8 @@ body {
   font-size: var(--title-font-size);
 }
 
-.logo img {
-  max-width: 200px; 
+.logo{
+  max-width: 200px !important; 
   width: 100%;
 }
 
@@ -34,8 +34,9 @@ body {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  padding: 42px 20px;
   transition: all 0.5s ease;
+  height: 90vh;
+  z-index: 0;
 }
 
 .hero h1 {
@@ -43,12 +44,7 @@ body {
 }
 
 .container {
-  padding: 24px 10rem;
-}
-
-.hero {
-  min-height: 85vh;
-  position: relative;
+  padding: 6rem 10rem;
 }
 
 .rangoli {
@@ -56,10 +52,16 @@ body {
   top: 0%;
   left: -5%;
   max-width: 300px;
+  display: none;
+}
+
+#tsparticles canvas {
+  max-height: 100vh !important;
 }
 
 #hero-container {
-  padding: 8rem 4rem;
+  padding: 10rem 0rem;
+  transform: translateY(-15%);
 }
 
 #hero-container .monument {
@@ -79,6 +81,106 @@ body {
 
 .event-card {
   max-width: 840px;
+}
+
+/* ticket */
+
+
+.ticket {
+  width: 85%;
+  padding: 0 20px;
+  background: #fff;
+  overflow: hidden;
+  margin: 1rem auto;
+  border-radius: 1.5rem;
+}
+
+.ticket-right, .ticket-left {
+  float: left;
+  padding: 20px;
+}
+
+.ticket-right {
+  padding: 79px 50px;
+  margin-right: 20px;
+  width: 25%;
+  position: relative;
+  height: 286px;
+}
+
+.ticket-right .up-border, .ticket-right .down-border {
+    padding: 14px 15px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+}
+.ticket-right .up-border {
+  top: -15px;
+  right: -35px;
+}
+.ticket-right .down-border {
+  bottom: -15px;
+  right: -35px;
+}
+.ticket-right .num {
+  font-size: 60px;
+  text-align: center;
+  color: #111
+}
+.ticket-right .day, .ticket-left .event {
+  color: #555;
+  font-size: 20px;
+  margin-bottom: 9px;
+}
+.ticket-right .day {
+  text-align: center;
+  font-size: 25px;
+}
+.ticket-left {
+  width: 71%;
+  padding: 34px 0px 19px 46px;
+  border-left: 3px dotted #999;
+} 
+.ticket-left .title {
+  color: #111;
+  font-size: 34px;
+  margin-bottom: 12px
+}
+.ticket-left .sce {
+  margin-top: 5px;
+  display: block
+}
+.ticket-left .sce .icon, .ticket-left .sce p,
+.ticket-left .loc .icon, .ticket-left .loc p{
+    float: left;
+    letter-spacing: 1px;
+    color: #888;
+}
+.ticket-left .sce .icon, .ticket-left .loc .icon {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #888;
+}
+.ticket-left .loc {display: block}
+.fix {clear: both}
+.ticket .tickets, .booked, .cancel{
+    color: #fff;
+    padding: 6px 14px;
+    float: right;
+    margin-top: 10px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer
+}
+.ticket .booked {background: #3D71E9}
+.ticket .cancel {background: #DF5454}
+.linethrough {text-decoration: line-through}
+
+@media only screen and (max-width: 1150px) {
+  .ticket {
+    width: 100%;
+    margin-right: 20px
+  }
 }
 
 #cta {
