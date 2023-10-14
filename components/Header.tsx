@@ -8,7 +8,7 @@ const Header = () => {
         setDropdownOpen(!isDropdownOpen);
     };
 
-    return (
+    return ( 
         <header className="text-gray-600 body-font">
             <div className="container bg-gradient-to-r from-purple-600 via-purple-800 to-purple-700 text-white text-center text-sm py-2">
                 <a href="" className="underline underline-offset-2">

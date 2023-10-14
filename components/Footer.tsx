@@ -6,15 +6,17 @@ const Footer = () => {
     return (
         <footer className="text-white bg-black relative body-font overflow-hidden pb-6">
             <div className="px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-                <div className="w-[120px] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-                    <Link href="/" className="flex font-medium items-center text-white w-96 h-10 mb-4 md:mb-0">
-                        <a className='flex items-center overflow-hidden justify-center'>
-                            <Image src="/logo.png" width={420} height={240} alt="" />
-                        </a>
-                    </Link>
+                <div className="w-[280px] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+                    <div className='w-[150px]'>
+                        <Link href="/" className="flex font-medium items-center text-white h-10 mb-4 md:mb-0">
+                            <a className='flex items-center overflow-hidden justify-center'>
+                                <Image src="/logo.png" width={420} height={240} alt="" />
+                            </a>
+                        </Link>
+                    </div>
                 </div>
                 {/* links */}
-                <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+                <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-center">
                     <div className="lg:w-1/3 md:w-1/2 w-full px-4">
                         <h2 className="font-medium text-white tracking-widest mb-3">BUILT BY</h2>
                         <nav className="list-none mb-10">
@@ -29,9 +31,9 @@ const Footer = () => {
                             </li>
                         </nav>
                     </div>
-                    <div className="lg:w-1/3 md:w-1/2 flex items-start justify-center md:justify-start text-center flex-col w-[50%] border-2">
+                    <div className="lg:w-1/3 md:w-1/2 flex items-start md:justify-start text-center flex-col">
                         <h2 className="font-medium text-white tracking-widest mb-3">POWERED BY WEB3 EVENTS</h2>
-                        <nav className="list-none flex items-start justify-center w-[48%] gap-4 mb-10">
+                        <nav className="list-none flex items-center w-[48%] text-center justify-center gap-4 mb-10">
                             <a className="text-white hover:text-white">
                                 <i className="fab fa-instagram text-[15px]"></i>
                             </a>

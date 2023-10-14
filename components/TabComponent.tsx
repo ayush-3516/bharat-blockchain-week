@@ -89,7 +89,7 @@ const TabComponent: React.FC = () => {
             start: '8:00 PM',
             end: '10:00 PM',
             eventOrganizer: 'Name of Event 7',
-            content: 'Content for Event 7',
+            content: 'Content for Event 7', 
             tags: ['party/dinner'],
             price: 'free',
             location: 'Paris',
@@ -119,7 +119,33 @@ const TabComponent: React.FC = () => {
 
     return (
         <section className='relative events-section bg-black'>
-            <div className="container px-5 py-24 mx-auto">
+            <div className="absolute ad-campaign w-[17%] top-[10.5%] left-[0%] p-2 mb-3">
+                <div className="flex flex-col items-center gap-4">
+                    <div className="w-full h-[200px] bg-gray-100 rounded-xl p-3">
+                        Ad Campaign 1
+                    </div>
+                    <div className="w-full h-[200px] bg-gray-100 rounded-xl p-3">
+                        Ad Campaign 1
+                    </div>
+                    <div className="w-full h-[200px] bg-gray-100 rounded-xl p-3">
+                        Ad Campaign 1
+                    </div>
+                </div>
+            </div>
+            <div className="absolute ad-campaign w-[17%] mx-auto top-[10.5%] right-[0%] p-2 mb-3">
+                <div className="flex flex-col items-center gap-4">
+                    <div className="w-full h-[200px] bg-gray-100 rounded-xl p-3">
+                        Ad Campaign 1
+                    </div>
+                    <div className="w-full h-[200px] bg-gray-100 rounded-xl p-3">
+                        Ad Campaign 1
+                    </div>
+                    <div className="w-full h-[200px] bg-gray-100 rounded-xl p-3">
+                        Ad Campaign 1
+                    </div>
+                </div>
+            </div>
+            <div className=" relative w-2/3 px-5 py-24 mx-auto">
                 <Tags
                     tags={Array.from(new Set(tabs.map((tab) => tab.date)))}
                     selectedTag={selectedDate}
@@ -138,7 +164,7 @@ const TabComponent: React.FC = () => {
                             {filteredTabs.map((tab, index) => (
                                 <div key={index} className='bg-black'>
                                     <EventTicket
-                                        date={tab.date}
+                                        date={tab.date} 
                                         start={
                                             tab.start
                                         }
