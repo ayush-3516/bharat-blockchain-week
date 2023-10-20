@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
+import Link from 'next/link';
+import React from 'react';
 
 type Props = {
     date: string;
@@ -68,12 +68,20 @@ const EventTicket = (
 
                 <h2 className="title font-semibold my-2">{eventOrganizer}</h2>
 
-                <div className="sce flex items-center justify-center">
-                    <div className="icon">
-                        <i className="fa fa-table text-xs"></i>
+                <div className="flex items-start space-x-8">
+                    <div className="sce flex items-center justify-center">
+                        <div className="icon">
+                            <i className="fa fa-table text-xs"></i>
+                        </div>
+                        <p className='leading-relaxed' >{date} <br /> {startTime24H} - {endTime24H}</p>
                     </div>
-                    <p className='leading-relaxed' >{date} <br /> {startTime24H} - {endTime24H}</p>
-                </div> 
+                    <div className="sce flex items-center">
+                        <div className="icon">
+                            <i className="fa fa-tags text-xs"></i>
+                        </div>
+                        <p className='leading-relaxed'>{price}</p>
+                    </div>
+                </div>
                 <div className="fix"></div>
                 <div className="loc flex items-start my-2">
                     <div className="icon">
@@ -82,7 +90,10 @@ const EventTicket = (
                     <p className='leading-relaxed'>{location}</p>
                 </div>
                 <div className="fix"></div>
-                <button className="tickets bg-gradient-to-br from-orange-500 to-[#ff4e00] rounded-full px-[32px] py-2">Register</button>
+                <Link href={registrationLink}>
+                    <a className="tickets bg-gradient-to-br from-orange-500 to-[#ff4e00] rounded-full px-[32px] py-2">
+                        Register
+                    </a></Link>
             </div>
         </div>
     );

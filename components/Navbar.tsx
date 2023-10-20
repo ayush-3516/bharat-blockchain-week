@@ -23,29 +23,35 @@ interface MobileNavProps {
 function MobileNav({ open, setOpen }: MobileNavProps) {
     return (
         <div
-            className={`absolute top-0 left-0 h-screen w-screen bg-white transform ${open ? '-translate-x-0' : '-translate-x-full'
+            className={`absolute top-0 left-0 h-screen w-screen bg-orange-100 transform ${open ? '-translate-x-0' : '-translate-x-full'
                 } transition-transform z-50 duration-300 ease-in-out filter drop-shadow-md`}
         >
-            <div className="flex items-center justify-center filter drop-shadow-md bg-white h-20">
+            <div className="flex items-center justify-center filter drop-shadow-md bg-black h-20">
                 {/* Logo container */}
                 <Link href="/">
-                    <a>
+                    <a style={{ width: '100%', height: '100%', position: 'relative', padding: '10px' }}>
                         <Image
                             src="/logo.png"
                             alt="logo"
-                            width={10}
-                            height={10}
+                            width={105} height={60}
                         />
                     </a>
                 </Link>
             </div>
-            <div className="flex flex-col ml-4">
+            <div className="flex flex-col ml-4 space-y-4">
                 <Link href="/travel">
                     <a
-                        className="text-xl font-normal my-4"
+                        className="text-xl font-normal mt-6"
                         onClick={() => setTimeout(() => setOpen(!open), 100)}
                     >
                         Travel
+                    </a>
+                </Link>
+                <Link href='/createEvent'>
+                    <a
+                        className="text-xl font-normal"
+                    >
+                        Organise a Side Event
                     </a>
                 </Link>
             </div>
@@ -68,11 +74,8 @@ export default function Navbar() {
             <div className="w-3/12 flex items-center">
                 <Link href="/">
                     <a className='flex items-center overflow-hidden justify-center'
-                        style={{
-                            maxWidth: '140px !important',
-                        }}
                     >
-                        <img src="/logo.png" alt="" />
+                        <Image src="/logo.png" width={147} height={84} alt="" />
                     </a>
                 </Link>
             </div>
@@ -85,15 +88,15 @@ export default function Navbar() {
                 >
                     {/* Hamburger button */}
                     <span
-                        className={`h-1 w-full bg-black rounded-lg transform transition duration-300 ease-in-out ${open ? 'rotate-45 translate-y-3.5' : ''
+                        className={`h-1 w-full bg-white rounded-lg transform transition duration-300 ease-in-out ${open ? 'rotate-45 translate-y-3.5' : ''
                             }`}
                     />
                     <span
-                        className={`h-1 w-full bg-black rounded-lg transition-all duration-300 ease-in-out ${open ? 'w-0' : 'w-full'
+                        className={`h-1 w-full bg-white rounded-lg transition-all duration-300 ease-in-out ${open ? 'w-0 hidden' : 'w-full'
                             }`}
                     />
                     <span
-                        className={`h-1 w-full bg-black rounded-lg transform transition duration-300 ease-in-out ${open ? '-rotate-45 -translate-y-3.5' : ''
+                        className={`h-1 w-full bg-white rounded-lg transform transition duration-300 ease-in-out ${open ? '-rotate-45 -translate-y-3.5' : ''
                             }`}
                     />
                 </div>

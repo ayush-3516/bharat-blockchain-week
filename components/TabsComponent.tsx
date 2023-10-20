@@ -4,6 +4,7 @@ import EventTicket from './EventTicket';
 import axios from 'axios';
 import Loader from './Loader';
 
+/*
 interface TabItem {
     id: string;
     date: string;
@@ -17,6 +18,7 @@ interface TabItem {
     registrationLink: string;
     isApproved: boolean;
 }
+*/
 
 interface TabData {
     id: string;
@@ -28,9 +30,9 @@ interface TabData {
 const TabsComponent: React.FC = () => {
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
-    const [showExclusiveEvents, setShowExclusiveEvents] = useState<boolean>(false);
+    const [showExclusiveEvents] = useState<boolean>(false);
     const [data, setData] = useState<TabData[]>([]);
-    const [loading, setLoading] = useState(false)
+    const [loading] = useState(false)
 
     useEffect(() => {
         axios.get('/api/airtable')

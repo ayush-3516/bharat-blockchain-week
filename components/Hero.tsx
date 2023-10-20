@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import HeroBg from './HeroBg';
 

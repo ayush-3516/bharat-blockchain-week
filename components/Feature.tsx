@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 type FeatureItemProps = {
     color: string;
@@ -23,12 +24,14 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
                     background: `${color}`,
                 }}
             >
-                <img
-                    className="h-48 border-[4px] border-black rounded-xl w-full object-cover object-center mb-6"
+                <Image
+                    className="border-[4px] border-black rounded-xl w-full object-cover object-center "
                     src={imageUrl}
+                    width={500}
+                    height={320}
                     alt="content"
                 />
-                <h3 className="text-black text-base">
+                <h3 className="text-black text-base my-3">
                     {subtitle}
                 </h3>
                 <h2 className="text-[28px] text-black font-medium mb-2">
@@ -72,10 +75,10 @@ const featureItems = [
 
 const Feature: React.FC = () => {
     return (
-        <section className="relative bg-orange-500 border-4 border-black rounded-t-[10rem]">
+        <section className="relative bg-orange-500 border-4 border-black rounded-t-[10rem]" id='feature-section'>
             <div className="container mx-auto"
             >
-                <div className="flex items-center justify-center space-x-3">
+                <div className="flex items-center justify-center gap-4" id='feature'>
                     {featureItems.map((item, index) => (
                         <FeatureItem key={index} {...item} />
                     ))}

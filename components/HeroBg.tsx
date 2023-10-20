@@ -4,9 +4,7 @@ import Particles from "react-particles";
 import { loadSlim } from "tsparticles-slim";
 import { Engine } from 'tsparticles-engine';
 
-type Props = {}
-
-const HeroBg = (props: Props) => {
+const HeroBg = () => {
 
     const particlesInit = useCallback(async (engine: Engine) => {
         console.log(engine);

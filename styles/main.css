@@ -165,7 +165,7 @@ body {
 }
 .ticket-left .sce .icon,
 .ticket-left .loc .icon {
-  margin-right: 10px; 
+  margin-right: 10px;
   color: #888;
 }
 .ticket-left .loc {
@@ -197,10 +197,83 @@ body {
   text-decoration: line-through;
 }
 
+#footer-sec-2 {
+  margin-left: 10rem;
+}
+
 @media only screen and (max-width: 1150px) {
   .ticket {
     width: 100%;
     margin-right: 20px;
+    padding: 2rem 1rem;
+  }
+
+  .ticket .up-border,
+  .ticket .down-border {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ticket .up-border {
+    bottom: 0%;
+    left: 0%;
+  }
+
+  .ticket .down-border {
+    bottom: 0;
+    right: 0;
+  }
+
+  .ticket-right,
+  .ticket-left {
+    width: 100%;
+    height: auto;
+    padding: 2rem 0rem;
+  }
+
+  .ticket-right .num {
+    font-size: 72px;
+  }
+
+  .ticket-right .day {
+    font-size: 30px;
+  }
+
+  .ticket-left {
+    width: 100%;
+    border: none;
+    border-top: 3px dotted #999;
+  }
+
+  #cta .container {
+    padding: 0rem;
+  }
+
+  #cta .container .px-12 {
+    padding: 2rem 1rem;
+  }
+
+  #cta .container button {
+    width: 100%;
+  }
+
+  #footer-sec-2 {
+    justify-content: center;
+    margin-left: 0rem;
+  }
+
+  #special-footer div {
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+
+  footer .tracking-widest {
+    text-align: center;
+    width: 100%;
+  }
+
+  #footer-contact {
+    padding-left: 0rem;
   }
 }
 
@@ -289,16 +362,26 @@ body {
 /* Tablet Styles */
 @media screen and (max-width: 1000px) {
   .hero {
-    min-height: auto;
+    min-height: 80vh;
     padding: 30px 0;
   }
 
   .container {
-    padding: 24px 2rem;
+    padding: 24px 1rem;
   }
 
   .hero h1 {
     font-size: 24px;
+  }
+
+  #feature-section {
+    border-radius: 3rem 3rem 0 0;
+    padding: 2rem 0;
+  }
+
+  #feature {
+    display: flex;
+    flex-direction: column;
   }
 
   .tags {
@@ -332,9 +415,18 @@ body {
 
 /* Desktop Styles */
 
-
 /* Airtable Style */
 
-.baymax input[type='text']:not(.ignore-baymax-defaults), .baymax input[type='email']:not(.ignore-baymax-defaults), .baymax input[type='password']:not(.ignore-baymax-defaults), .baymax input[type='tel']:not(.ignore-baymax-defaults), .baymax input[type='url']:not(.ignore-baymax-defaults), .baymax input[type='submit']:not(.ignore-baymax-defaults), .baymax [contenteditable='plaintext-only']:not(.ignore-baymax-defaults), .baymax [contenteditable='true']:not(.ignore-baymax-defaults), .baymax button:not(.ignore-baymax-defaults), .baymax textarea:not(.ignore-baymax-defaults), .baymax .styled-input:not(.ignore-baymax-defaults) {
+.baymax input[type='text']:not(.ignore-baymax-defaults),
+.baymax input[type='email']:not(.ignore-baymax-defaults),
+.baymax input[type='password']:not(.ignore-baymax-defaults),
+.baymax input[type='tel']:not(.ignore-baymax-defaults),
+.baymax input[type='url']:not(.ignore-baymax-defaults),
+.baymax input[type='submit']:not(.ignore-baymax-defaults),
+.baymax [contenteditable='plaintext-only']:not(.ignore-baymax-defaults),
+.baymax [contenteditable='true']:not(.ignore-baymax-defaults),
+.baymax button:not(.ignore-baymax-defaults),
+.baymax textarea:not(.ignore-baymax-defaults),
+.baymax .styled-input:not(.ignore-baymax-defaults) {
   border: 2px solid #111;
 }

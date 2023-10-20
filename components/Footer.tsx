@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="text-white bg-black relative body-font overflow-hidden pb-6">
             <div className="px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-                <div className="w-[280px] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+                <div className="max-w-[280px] flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
                     <div className='w-[150px]'>
                         <Link href="/" className="flex font-medium items-center text-white h-10 mb-4 md:mb-0">
                             <a className='flex items-center overflow-hidden justify-center'>
@@ -16,7 +16,7 @@ const Footer = () => {
                     </div>
                 </div>
                 {/* links */}
-                <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-center">
+                <div className="flex-grow flex flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-center" id='footer-sec-2'>
                     <div className="lg:w-1/3 md:w-1/2 w-full px-4">
                         <h2 className="font-medium text-white tracking-widest mb-3">BUILT BY</h2>
                         <nav className="list-none mb-10">
@@ -31,9 +31,9 @@ const Footer = () => {
                             </li>
                         </nav>
                     </div>
-                    <div className="lg:w-1/3 md:w-1/2 flex items-start md:justify-start text-center flex-col">
+                    <div className="lg:w-1/3 md:w-1/2 flex items-start md:justify-start text-center flex-col" id='special-footer'>
                         <h2 className="font-medium text-white tracking-widest mb-3">POWERED BY WEB3 EVENTS</h2>
-                        <nav className="list-none flex items-center w-[48%] text-center justify-center gap-4 mb-10">
+                        <div className="list-none flex items-center w-[48%] text-center justify-center gap-4 mb-10">
                             <a className="text-white hover:text-white">
                                 <i className="fab fa-instagram text-[15px]"></i>
                             </a>
@@ -44,9 +44,9 @@ const Footer = () => {
                             <a className="text-white hover:text-white">
                                 <i className="fab fa-telegram-plane text-[15px]"></i>
                             </a>
-                        </nav>
+                        </div>
                     </div>
-                    <div className="lg:w-1/3 md:w-1/2 flex items-start justify-start text-center md:text-left flex-col pl-12 w-full">
+                    <div className="lg:w-1/3 md:w-1/2 flex items-start justify-start text-center md:text-left flex-col pl-12 w-full" id='footer-contact'>
                         <h2 className="font-medium text-white tracking-widest mb-3">CONTACT US</h2>
                         <nav className="list-none mb-10">
                             <li>

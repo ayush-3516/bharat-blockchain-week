@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const Loader = (props: Props) => {
+const Loader = () => {
   return (
     <div className='text-white'>Loader</div>
   )
