@@ -11,7 +11,7 @@ export default async function handler(
     res: NextApiResponse
 ) {
     try {
-        const records = await base('Sheet1')
+        const records = await base('New Events')
             .select({ view: 'Grid view' })
             .all();
 

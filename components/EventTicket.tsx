@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
 type Props = {
     date: string;
-    start: string;
-    end: string;
+    start: number;
+    end: number;
     eventOrganizer: string;
-    content: string;
     tags: string[];
     price: string;
     location: string;
@@ -14,30 +14,39 @@ type Props = {
 
 const EventTicket = (
     {
-        date, start, end, eventOrganizer, content, tags, price, location, registrationLink
+        date, start, end, eventOrganizer, tags, price, location, registrationLink
     }: Props
 ) => {
 
-    const dateWords = date.split(' ');
+    const dateComponents = date.split('-');
+    const day = dateComponents[2]; // Extract the day component
+    const month = getMonthName(dateComponents[1]); // Convert the month number to its name
 
-    // Take the first two words for .num and .date
-    const num = dateWords[0];
-    const month = dateWords[1];
+    function getMonthName(monthNumber: string) {
+        const months = [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ];
+        const monthIndex = parseInt(monthNumber, 10) - 1;
+        return months[monthIndex] || '';
+    }
 
-    const getRandomColor = () => {
-        // Generate a random color in hexadecimal format
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
+    const formatTime = (timeInSeconds: number) => {
+        const hours = Math.floor(timeInSeconds / 3600);
+        const minutes = Math.floor((timeInSeconds % 3600) / 60);
+        const formattedHours = hours < 10 ? `0${hours}` : hours;
+        const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+        return `${formattedHours}:${formattedMinutes}`;
     };
+
+    const startTime24H = formatTime(start);
+    const endTime24H = formatTime(end);
+
 
     return (
         <div className="ticket">
             <div className="ticket-right">
-                <h2 className="num">{num}</h2>
+                <h2 className="num">{day}</h2>
                 <p className="day">{month}</p>
                 <span className="up-border"></span>
                 <span className="down-border"></span>
@@ -61,14 +70,14 @@ const EventTicket = (
 
                 <div className="sce flex items-center justify-center">
                     <div className="icon">
-                        <i className="fa fa-table"></i>
+                        <i className="fa fa-table text-xs"></i>
                     </div>
-                    <p className='leading-relaxed' >{date} <br /> {start} - {end}</p>
-                </div>
+                    <p className='leading-relaxed' >{date} <br /> {startTime24H} - {endTime24H}</p>
+                </div> 
                 <div className="fix"></div>
-                <div className="loc flex items-center my-2">
+                <div className="loc flex items-start my-2">
                     <div className="icon">
-                        <i className="fa fa-map-marker"></i>
+                        <i className="fa fa-map-marker text-xs"></i>
                     </div>
                     <p className='leading-relaxed'>{location}</p>
                 </div>

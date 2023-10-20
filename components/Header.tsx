@@ -38,7 +38,7 @@ const Header = () => {
                     <a
                         className="mr-5 flex items-center cursor-pointer hover:text-gray-900"
                         onClick={toggleDropdown}
-                    >
+                    > 
                         Agenda
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

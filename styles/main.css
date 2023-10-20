@@ -22,8 +22,8 @@ body {
   font-size: var(--title-font-size);
 }
 
-.logo{
-  max-width: 200px !important; 
+.logo {
+  max-width: 200px !important;
   width: 100%;
 }
 
@@ -60,8 +60,7 @@ body {
 }
 
 #hero-container {
-  padding: 10rem 0rem;
-  transform: translateY(-15%);
+  padding: 8rem 0rem;
 }
 
 #hero-container .monument {
@@ -79,12 +78,15 @@ body {
   justify-content: center;
 }
 
+.events-section {
+  padding: 2rem;
+}
+
 .event-card {
   max-width: 840px;
 }
 
 /* ticket */
-
 
 .ticket {
   width: 100%;
@@ -95,7 +97,8 @@ body {
   border-radius: 1.5rem;
 }
 
-.ticket-right, .ticket-left {
+.ticket-right,
+.ticket-left {
   float: left;
   padding: 20px;
 }
@@ -108,11 +111,12 @@ body {
   height: 286px;
 }
 
-.ticket-right .up-border, .ticket-right .down-border {
-    padding: 14px 15px;
-    background-color: #000;
-    border-radius: 50%;
-    position: absolute;
+.ticket-right .up-border,
+.ticket-right .down-border {
+  padding: 14px 15px;
+  background-color: #000;
+  border-radius: 50%;
+  position: absolute;
 }
 .ticket-right .up-border {
   top: -15px;
@@ -125,9 +129,10 @@ body {
 .ticket-right .num {
   font-size: 60px;
   text-align: center;
-  color: #111
+  color: #111;
 }
-.ticket-right .day, .ticket-left .event {
+.ticket-right .day,
+.ticket-left .event {
   color: #555;
   font-size: 20px;
   margin-bottom: 9px;
@@ -140,51 +145,63 @@ body {
   width: 71%;
   padding: 34px 0px 19px 46px;
   border-left: 3px dotted #999;
-} 
+}
 .ticket-left .title {
   color: #111;
   font-size: 34px;
-  margin-bottom: 12px
+  margin-bottom: 12px;
 }
 .ticket-left .sce {
   margin-top: 5px;
-  display: block
+  display: block;
 }
-.ticket-left .sce .icon, .ticket-left .sce p,
-.ticket-left .loc .icon, .ticket-left .loc p{
-    float: left;
-    letter-spacing: 1px;
-    color: #888;
-}
-.ticket-left .sce .icon, .ticket-left .loc .icon {
-  margin-right: 10px;
-  font-size: 20px;
+.ticket-left .sce .icon,
+.ticket-left .sce p,
+.ticket-left .loc .icon,
+.ticket-left .loc p {
+  float: left;
+  letter-spacing: 1px;
   color: #888;
 }
-.ticket-left .loc {display: block}
-.fix {clear: both}
-.ticket .tickets, .booked, .cancel{
-    color: #fff;
-    padding: 6px 14px;
-    float: right;
-    margin-top: 10px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer
+.ticket-left .sce .icon,
+.ticket-left .loc .icon {
+  margin-right: 10px; 
+  color: #888;
 }
-.ticket .booked {background: #3D71E9}
-.ticket .cancel {background: #DF5454}
-.linethrough {text-decoration: line-through}
+.ticket-left .loc {
+  display: block;
+}
+.fix {
+  clear: both;
+}
+
+.ticket .tickets,
+.booked,
+.cancel {
+  color: #fff;
+  padding: 6px 14px;
+  float: right;
+  font-size: 20px;
+  border: none;
+  border-radius: 0rem 0rem 10px 0rem;
+  cursor: pointer;
+}
+
+.ticket .booked {
+  background: #3d71e9;
+}
+.ticket .cancel {
+  background: #df5454;
+}
+.linethrough {
+  text-decoration: line-through;
+}
 
 @media only screen and (max-width: 1150px) {
   .ticket {
     width: 100%;
-    margin-right: 20px
+    margin-right: 20px;
   }
-}
-
-#cta {
-  padding: 4rem 11rem;
 }
 
 #speakers {
@@ -314,3 +331,10 @@ body {
 }
 
 /* Desktop Styles */
+
+
+/* Airtable Style */
+
+.baymax input[type='text']:not(.ignore-baymax-defaults), .baymax input[type='email']:not(.ignore-baymax-defaults), .baymax input[type='password']:not(.ignore-baymax-defaults), .baymax input[type='tel']:not(.ignore-baymax-defaults), .baymax input[type='url']:not(.ignore-baymax-defaults), .baymax input[type='submit']:not(.ignore-baymax-defaults), .baymax [contenteditable='plaintext-only']:not(.ignore-baymax-defaults), .baymax [contenteditable='true']:not(.ignore-baymax-defaults), .baymax button:not(.ignore-baymax-defaults), .baymax textarea:not(.ignore-baymax-defaults), .baymax .styled-input:not(.ignore-baymax-defaults) {
+  border: 2px solid #111;
+}

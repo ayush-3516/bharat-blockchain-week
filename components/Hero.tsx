@@ -19,9 +19,9 @@ const Hero = ({
     return (
         <section className="text-gray-100 body-font hero">
             <HeroBg />
-            <div className="rangoli">
+            {/* <div className="rangoli">
                 <Image width={360} height={200} src="/rangoli.png" alt="rangoli" />
-            </div>
+            </div> */}
             <div className="container mx-auto flex items-center justify-center flex-col">
                 <div className="text-center w-full bg-[#fff] border-t-[12px] border-t-[#ff4e00] border-l-[5px] border-l-[#06038D] border-r-[5px] border-r-[#06038D] drop-shadow-[0px_20px_0px_#138808] rounded-3xl relative" id='hero-container'>
                     <h1 className="title-font text-6xl mb-4 font-semibold text-black">

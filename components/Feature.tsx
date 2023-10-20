@@ -31,12 +31,12 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
                 <h3 className="text-black text-base">
                     {subtitle}
                 </h3>
-                <h2 className="text-[32px] text-black font-medium mb-2">
+                <h2 className="text-[28px] text-black font-medium mb-2">
                     {title}
                 </h2>
                 <p className="leading-relaxed text-base text-[20px] mb-4">{description}</p>
-                <button className="bg-white rounded-lg px-6 py-2 border-black border-[3px] text-[20px]">
-                    Check Karein
+                <button className="bg-white rounded-lg px-5 py-2 border-black border-[3px] text-[20px]">
+                    Check Karein !
                 </button>
             </div>
         </div>
@@ -64,7 +64,7 @@ const featureItems = [
         color: '#eeffd3',
         imageUrl: 'https://dummyimage.com/722x402',
         subtitle: 'SUBTITLE',
-        title: 'Great Pyramid of Giza',
+        title: 'Great Giza',
         description:
             'Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.',
     },
@@ -73,10 +73,7 @@ const featureItems = [
 const Feature: React.FC = () => {
     return (
         <section className="relative bg-orange-500 border-4 border-black rounded-t-[10rem]">
-            <div className="mx-auto px-[18%]"
-                style={{
-                    transform: "translateY(-25%)",
-                }}
+            <div className="container mx-auto"
             >
                 <div className="flex items-center justify-center space-x-3">
                     {featureItems.map((item, index) => (

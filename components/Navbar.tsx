@@ -57,7 +57,7 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
 
     return (
-        <nav className="flex filter drop-shadow-md bg-black px-4 max-h-28 py-4 items-center" 
+        <nav className="flex filter drop-shadow-md bg-black px-4 max-h-28 py-4 items-center"
             style={{
                 zIndex: 100,
                 position: "sticky",
@@ -100,9 +100,11 @@ export default function Navbar() {
                 <div className="hidden flex text-white items-center md:flex">
                     <NavLink to="/agenda">Travel</NavLink>
                     <div className="flex items-center mt-4 md:mt-0">
-                        <button className="inline-flex items-center bg-gradient-to-br from-orange-500 to-[#ff4e00] text-white shadow-2xl py-2 px-5 focus:outline-none transition-all ml-2 rounded-lg text-base font-medium md:ml-4">
-                            Organise a Side Event
-                        </button>
+                        <NavLink to='/createEvent'>
+                            <span className="inline-flex items-center bg-gradient-to-br from-orange-500 to-[#ff4e00] text-white shadow-2xl py-2 px-5 focus:outline-none transition-all ml-2 rounded-lg text-base font-medium md:ml-4">
+                                Organise a Side Event
+                            </span>
+                        </NavLink>
                     </div>
                 </div>
             </div>

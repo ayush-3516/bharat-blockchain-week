@@ -4,7 +4,7 @@ const CTA = () => {
     return (
         <section className="text-gray-600 bg-orange-500 relative body-font" id="cta">
             <div className="container mx-auto">
-                <div className='w-[85%] mx-auto border-[4px] border-black rounded-3xl px-12 py-20 bg-white'>
+                <div className='mx-auto border-[4px] border-black rounded-3xl px-12 py-20 bg-white'>
                     <div className="flex flex-col text-center w-full mb-12">
                         <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Feedback</h1>
                         <p className="mx-auto leading-relaxed text-base">
