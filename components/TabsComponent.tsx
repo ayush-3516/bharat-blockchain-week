@@ -3,22 +3,7 @@ import Tags from './Tags';
 import EventTicket from './EventTicket';
 import axios from 'axios';
 import Loader from './Loader';
-
-/*
-interface TabItem {
-    id: string;
-    date: string;
-    start: number;
-    end: number;
-    eventOrganizer: string;
-    content: string;
-    tags: string[];
-    price: string;
-    location: string;
-    registrationLink: string;
-    isApproved: boolean;
-}
-*/
+import EventGrid from './EventGrid';
 
 interface TabData {
     id: string;
@@ -32,7 +17,9 @@ const TabsComponent: React.FC = () => {
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
     const [showExclusiveEvents] = useState<boolean>(false);
     const [data, setData] = useState<TabData[]>([]);
-    const [loading] = useState(false)
+    const [loading] = useState(false);
+    const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
+    const [isMobileView, setIsMobileView] = useState<boolean>(false);
 
     useEffect(() => {
         axios.get('/api/airtable')
@@ -42,18 +29,38 @@ const TabsComponent: React.FC = () => {
             .catch((err) => console.error(err));
     }, []);
 
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobileView(window.innerWidth <= 768); // Adjust the screen width as needed
+        };
+
+        handleResize(); // Call it once to set the initial value
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     const handleTagClick = (tag: string | null) => {
-        setSelectedTag(tag); // Update selectedTag, not selectedDate
+        setSelectedTag(tag);
     };
 
     const handleDateClick = (date: string | null) => {
-        setSelectedDate(date); // Update selectedDate
+        setSelectedDate(date);
+    };
+
+    const switchToListView = () => {
+        setViewMode('list');
+    };
+
+    const switchToGridView = () => {
+        setViewMode('grid');
     };
 
     const tagsByDate = Array.from(new Set(data.map((tab) => tab.fields['Date'])));
-    const tagsByCategory = Array.from(new Set(data.map((tab) => tab.fields['Category'])))
+    const tagsByCategory = Array.from(new Set(data.map((tab) => tab.fields['Category'])));
 
-    // Define your filtering logic here if needed
     const filteredTabs = data.filter((tab) => {
         const tagFilter = !selectedTag || tab.fields['Category'].includes(selectedTag);
         const dateFilter = !selectedDate || tab.fields['Date'] === selectedDate;
@@ -64,7 +71,6 @@ const TabsComponent: React.FC = () => {
             return tagFilter && dateFilter && tab.fields['Approve Event'] === 'YES';
         }
     });
-
 
     return (
         <section className='relative py-12 bg-black'>
@@ -81,24 +87,55 @@ const TabsComponent: React.FC = () => {
                             selectedTag={selectedTag}
                             onTagClick={handleTagClick}
                         />
+                        <div className="flex items-center justify-center space-x-2 mt-4">
+                            <button
+                                className={`px-3 py-2 w-14 rounded-md ${viewMode === 'list' ? 'bg-orange-500 text-white' : 'bg-white text-black'}`}
+                                onClick={switchToListView}
+                            >
+                                <i className="fas fa-list"></i>
+                            </button>
+                            {!isMobileView && (
+                                <button
+                                    className={`px-3 py-2 w-14 rounded-md ${viewMode === 'grid' ? 'bg-orange-500 text-white' : 'bg-white text-black'}`}
+                                    onClick={switchToGridView}
+                                >
+                                    <i className="fas fa-th"></i>
+                                </button>
+                            )}
+                        </div>
                         <div className="container mx-auto px-0">
-                            <ul className='py-0'>
-                                {filteredTabs.map((tab, index) => (
-                                    <li key={index}>
+                            {viewMode === 'list' ? (
+                                filteredTabs.map((tab, index) => (
+                                    <div key={index}>
                                         <EventTicket
-                                            key={index}
                                             date={tab.fields['Date']}
                                             start={tab.fields['Start Time']}
                                             end={tab.fields['End Time']}
                                             eventOrganizer={tab.fields['Event Name']}
-                                            tags={tab.fields['Category'].split('/')} // Split the Category string into an array if it contains '/'
+                                            tags={tab.fields['Category'].split('/')}
                                             price={tab.fields['Entry']}
                                             location={tab.fields['Event Location']}
                                             registrationLink={tab.fields['Registration link']}
                                         />
-                                    </li>
-                                ))}
-                            </ul>
+                                    </div>
+                                ))
+                            ) : (
+                                <div className="flex items-center justify-around flex-wrap -m-3">
+                                    {filteredTabs.map((tab, index) => (
+                                        <EventGrid
+                                            key={index}
+                                            eventTitle={tab.fields['Event Name']}
+                                            eventLocation={tab.fields['Event Location']}
+                                            eventDate={tab.fields['Date']}
+                                            start={`${tab.fields['Start Time']}`}
+                                            end={`${tab.fields['End Time']}`}
+                                            eventCategory={tab.fields['Category']}
+                                            eventPrice={tab.fields['Entry']}
+                                            registrationLink={tab.fields['Registration link']}
+                                        />
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </div>
                 )}
