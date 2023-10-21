@@ -206,43 +206,42 @@ body {
     width: 100%;
     margin-right: 20px;
     padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
   }
 
   .ticket .up-border,
   .ticket .down-border {
     width: 20px;
     height: 20px;
+    display: none;
   }
 
-  .ticket .up-border {
-    bottom: 0%;
-    left: 0%;
-  }
-
-  .ticket .down-border {
-    bottom: 0;
-    right: 0;
-  }
-
-  .ticket-right,
-  .ticket-left {
-    width: 100%;
+  .ticket-right {
+    padding: 0rem;
+    width: 20%;
     height: auto;
-    padding: 2rem 0rem;
+  }
+
+  .ticket-left {
+    width: 80%;
+    padding: 0rem;
+    border: none;
   }
 
   .ticket-right .num {
-    font-size: 72px;
+    font-size: 42px;
   }
 
-  .ticket-right .day {
-    font-size: 30px;
+  .ticket .tickets {
+    margin-top: 1rem;
+    float: left;
   }
 
-  .ticket-left {
-    width: 100%;
-    border: none;
-    border-top: 3px dotted #999;
+  .ticket-left .title {
+    font-size: 2rem;
+    font-weight: 500;
   }
 
   #cta .container {

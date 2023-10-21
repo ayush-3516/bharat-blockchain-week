@@ -68,7 +68,7 @@ const EventTicket = (
 
                 <h2 className="title font-semibold my-2">{eventOrganizer}</h2>
 
-                <div className="flex items-start space-x-8">
+                <div className="flex items-start space-x-4">
                     <div className="sce flex items-center justify-center">
                         <div className="icon">
                             <i className="fa fa-table text-xs"></i>
