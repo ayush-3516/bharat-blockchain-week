@@ -78,6 +78,36 @@ body {
   justify-content: center;
 }
 
+.tag-date {
+  border-bottom: 1px solid #474747;
+  color: #474747;
+  font-weight: normal;
+  height: 75px;
+}
+
+.tag-date button {
+  background: none;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.tag-date .text-white {
+  color: #ff6827;
+  position: relative;
+  padding-bottom: 20px;
+  transition: all 0.5s;
+}
+
+.tag-date .text-white::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2%;
+  height: 12px;
+  width: 1px;
+  border: 1px solid #ff6827;
+}
+
 .events-section {
   padding: 2rem;
 }
@@ -90,25 +120,60 @@ body {
 
 .ticket {
   width: 100%;
-  padding: 0 20px;
-  background: #fff;
+  background: #1d1d1d;
   overflow: hidden;
-  margin: 1rem auto;
-  border-radius: 1.5rem;
+  margin: 1rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.ticket-right,
+.ticket-left {
+  max-width: 20%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ticket-left .location {
+  color: #c9c9c9;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.ticket-left .date {
+  font-size: 20px;
+  color: #fff;
+}
+
+.ticket-right {
+  max-width: 80%;
+  width: 100%;
+  background: #151414;
+  padding: 1rem;
+  border: 1px solid #474747;
+  border-radius: 20px;
+}
+
+/* .ticket-right,
 .ticket-left {
   float: left;
   padding: 20px;
 }
 
 .ticket-right {
-  padding: 79px 50px;
-  margin-right: 20px;
+  padding: 0px;
   width: 25%;
   position: relative;
   height: 286px;
+}
+
+.ticket-left {
+  background: #151414;
 }
 
 .ticket-right .up-border,
@@ -195,7 +260,7 @@ body {
 }
 .linethrough {
   text-decoration: line-through;
-}
+} */
 
 #footer-sec-2 {
   margin-left: 10rem;
@@ -319,6 +384,8 @@ body {
 
   .tags {
     justify-content: start;
+    overflow: hidden;
+    overflow-x: scroll;
   }
 
   .hero h1 {
@@ -329,11 +396,6 @@ body {
   #speakers,
   #speaker-register {
     padding: 3rem 1.5rem;
-  }
-
-  .tags {
-    overflow: hidden;
-    overflow-x: scroll;
   }
 
   .hero .container {

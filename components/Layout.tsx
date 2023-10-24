@@ -11,7 +11,9 @@ const Layout = (props: Props) => {
     return (
         <div>
             <Navbar />
-            {props.children}
+            <div className='bg-[#020204]'>
+                {props.children}
+            </div>
             <CTA />
             <Footer />
         </div>

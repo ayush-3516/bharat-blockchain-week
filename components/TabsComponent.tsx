@@ -3,7 +3,8 @@ import Tags from './Tags';
 import EventTicket from './EventTicket';
 import axios from 'axios';
 import Loader from './Loader';
-import EventGrid from './EventGrid';
+//import EventGrid from './EventGrid';
+import Ad from './Ad';
 
 interface TabData {
     id: string;
@@ -42,6 +43,12 @@ const TabsComponent: React.FC = () => {
         };
     }, []);
 
+    const formatDate = (dateStr: string) => {
+        const options = { weekday: 'long', day: 'numeric' } as Intl.DateTimeFormatOptions;
+        const date = new Date(dateStr);
+        return date.toLocaleDateString(undefined, options);
+    };
+
     const handleTagClick = (tag: string | null) => {
         setSelectedTag(tag);
     };
@@ -58,12 +65,13 @@ const TabsComponent: React.FC = () => {
         setViewMode('grid');
     };
 
-    const tagsByDate = Array.from(new Set(data.map((tab) => tab.fields['Date'])));
-    const tagsByCategory = Array.from(new Set(data.map((tab) => tab.fields['Category'])));
+    const tagsByDate = Array.from(new Set(data.map((tab) => tab.fields['Date'])))
+
+    const tagsByCategory = Array.from(new Set(data.map((tab) => tab.fields['Category'])))
 
     const filteredTabs = data.filter((tab) => {
         const tagFilter = !selectedTag || tab.fields['Category'].includes(selectedTag);
-        const dateFilter = !selectedDate || tab.fields['Date'] === selectedDate;
+        const dateFilter = !selectedDate || formatDate(tab.fields['Date']) === selectedDate;
 
         if (showExclusiveEvents) {
             return tagFilter || dateFilter || (tab.fields['price'] !== 'Free' && tab.fields['Approve Event'] === 'YES');
@@ -73,19 +81,21 @@ const TabsComponent: React.FC = () => {
     });
 
     return (
-        <section className='relative py-12 bg-black'>
+        <section className='relative py-12'>
             {loading ? <Loader /> :
                 (
                     <div>
                         <Tags
-                            tags={tagsByDate}
+                            tags={tagsByDate.map((date) => formatDate(date))}
                             selectedTag={selectedDate}
                             onTagClick={handleDateClick}
+                            className="tag-date"
                         />
                         <Tags
                             tags={tagsByCategory}
                             selectedTag={selectedTag}
                             onTagClick={handleTagClick}
+                            className="tag-category"
                         />
                         <div className="flex items-center justify-center space-x-2 mt-4">
                             <button
@@ -122,20 +132,25 @@ const TabsComponent: React.FC = () => {
                             ) : (
                                 <div className="flex items-center justify-around flex-wrap -m-3">
                                     {filteredTabs.map((tab, index) => (
-                                        <EventGrid
-                                            key={index}
-                                            eventTitle={tab.fields['Event Name']}
-                                            eventLocation={tab.fields['Event Location']}
-                                            eventDate={tab.fields['Date']}
-                                            start={`${tab.fields['Start Time']}`}
-                                            end={`${tab.fields['End Time']}`}
-                                            eventCategory={tab.fields['Category']}
-                                            eventPrice={tab.fields['Entry']}
-                                            registrationLink={tab.fields['Registration link']}
-                                        />
+                                        <div key={index}>
+                                            <p>{tab.fields['Event Name']}</p>
+                                            {/* <EventGrid
+                                                key={index}
+                                                eventTitle={tab.fields['Event Name']}
+                                                eventLocation={tab.fields['Event Location']}
+                                                eventDate={formatDate(tab.fields['Date'])}
+                                                start={`${tab.fields['Start Time']}`}
+                                                end={`${tab.fields['End Time']}`}
+                                                eventCategory={tab.fields['Category']}
+                                                eventPrice={tab.fields['Entry']}
+                                                registrationLink={tab.fields['Registration link']}
+                                            /> */}
+                                            grid section
+                                        </div>
                                     ))}
                                 </div>
                             )}
+                            <Ad />
                         </div>
                     </div>
                 )}

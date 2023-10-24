@@ -10,7 +10,6 @@ type FeatureItemProps = {
 };
 
 const FeatureItem: React.FC<FeatureItemProps> = ({
-    color,
     imageUrl,
     subtitle,
     title,
@@ -19,28 +18,29 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
     return (
         <div className="xl:w-1/3 md:w-1/2">
             <div
-                className="border-[4px] border-black h-full w-full bg-[#ffe7b9] bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 px-6 py-8 rounded-2xl"
-                style={{
-                    background: `${color}`,
-                }}
+                className="h-full w-full bg-[#1d1d1d] text-[#CACACA] p-4 space-y-2 rounded-2xl"
             >
                 <Image
-                    className="border-[4px] border-black rounded-xl w-full object-cover object-center "
+                    className="border-[4px] rounded-xl w-full object-cover object-center"
                     src={imageUrl}
                     width={500}
                     height={320}
                     alt="content"
                 />
-                <h3 className="text-black text-base my-3">
-                    {subtitle}
-                </h3>
-                <h2 className="text-[28px] text-black font-medium mb-2">
-                    {title}
-                </h2>
-                <p className="leading-relaxed text-base text-[20px] mb-4">{description}</p>
-                <button className="bg-white rounded-lg px-5 py-2 border-black border-[3px] text-[20px]">
+                <div className='py-1'>
+                    <span className="bg-[#020204] rounded-full px-8 py-2 text-[14px]">
+                        {subtitle}
+                    </span>
+                    <div className="my-4">
+                        <h2 className="text-[18px] font-medium mb-1">
+                            {title}
+                        </h2>
+                        <p className="leading-relaxed text-base font-light text-[16px]">{description}</p>
+                        {/* <button className="bg-white rounded-lg px-5 py-2 border-[3px] text-[20px]">
                     Check Karein !
-                </button>
+                </button> */}
+                    </div>
+                </div>
             </div>
         </div>
     );
@@ -49,7 +49,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
 const featureItems = [
     {
         color: '#ffd79a',
-        imageUrl: 'https://dummyimage.com/720x400',
+        imageUrl: '/feature1.png',
         subtitle: 'SUBTITLE',
         title: 'Chichen Itza',
         description:
@@ -57,7 +57,7 @@ const featureItems = [
     },
     {
         color: '#c2d3ff',
-        imageUrl: 'https://dummyimage.com/721x401',
+        imageUrl: '/feature2.png',
         subtitle: 'SUBTITLE',
         title: 'Colosseum Roma',
         description:
@@ -65,7 +65,7 @@ const featureItems = [
     },
     {
         color: '#eeffd3',
-        imageUrl: 'https://dummyimage.com/722x402',
+        imageUrl: '/feature3.png',
         subtitle: 'SUBTITLE',
         title: 'Great Giza',
         description:
@@ -75,9 +75,15 @@ const featureItems = [
 
 const Feature: React.FC = () => {
     return (
-        <section className="relative bg-orange-500 border-4 border-black rounded-t-[10rem]" id='feature-section'>
-            <div className="container mx-auto"
-            >
+        <section className="relative overflow-hidden" id='feature-section'>
+            <div className="absolute top-8 -left-10">
+                <Image src='/square.svg' alt='square' width={600} height={600} />
+            </div>
+            <div className="absolute -bottom-20 -right-44">
+                <Image src='/square.svg' alt='square' width={550} height={550} />
+            </div>
+            <div className="container mx-auto">
+                <h1 className="text-[40px] font-medium title-font text-white mb-12 text-center">Event Highlights</h1>
                 <div className="flex items-center justify-center gap-4" id='feature'>
                     {featureItems.map((item, index) => (
                         <FeatureItem key={index} {...item} />

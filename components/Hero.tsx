@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import HeroBg from './HeroBg';
 import Link from 'next/link';
 
 type Props = {
@@ -18,8 +17,10 @@ const Hero = ({
     const titleWords = title.split(' ');
 
     return (
-        <section className="text-gray-100 body-font hero">
-            <HeroBg />
+        <section className="body-font hero relative bg-[#020204]">
+            <div className="absolute top-[50px] -left-[50px]">
+                <Image src='/ellipse.svg' alt='ellipse' width={1200} height={1200} />
+            </div>
             <div className="container mx-auto flex items-center justify-center flex-col">
                 <div className="text-center w-full bg-[#fff] border-t-[12px] border-t-[#ff4e00] border-l-[5px] border-l-[#06038D] border-r-[5px] border-r-[#06038D] drop-shadow-[0px_20px_0px_#138808] rounded-3xl relative" id='hero-container'>
                     <h1 className="title-font text-6xl mb-4 font-semibold text-black">

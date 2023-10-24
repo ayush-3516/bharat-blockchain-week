@@ -18,7 +18,7 @@ const Home = () => {
         <Hero
           title='Bharat Blockchain Week'
           description='NETWORK, OPPORTUNITIES, AND CULTURE !!'
-          image=''
+          image='' 
           button1='side event sheet'
           button2='submit your event'
         />
