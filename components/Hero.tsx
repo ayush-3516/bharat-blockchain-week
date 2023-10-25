@@ -17,8 +17,8 @@ const Hero = ({
     const titleWords = title.split(' ');
 
     return (
-        <section className="body-font hero relative bg-[#020204]">
-            <div className="absolute top-[50px] -left-[50px]">
+        <section className="body-font hero relative">
+            <div className="absolute top-[50px] -left-[50px]" id='ellipse'>
                 <Image src='/ellipse.svg' alt='ellipse' width={1200} height={1200} />
             </div>
             <div className="container mx-auto flex items-center justify-center flex-col">

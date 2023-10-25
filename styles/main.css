@@ -266,81 +266,6 @@ body {
   margin-left: 10rem;
 }
 
-@media only screen and (max-width: 1150px) {
-  .ticket {
-    width: 100%;
-    margin-right: 20px;
-    padding: 2rem 1rem;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-  }
-
-  .ticket .up-border,
-  .ticket .down-border {
-    width: 20px;
-    height: 20px;
-    display: none;
-  }
-
-  .ticket-right {
-    padding: 0rem;
-    width: 20%;
-    height: auto;
-  }
-
-  .ticket-left {
-    width: 80%;
-    padding: 0rem;
-    border: none;
-  }
-
-  .ticket-right .num {
-    font-size: 42px;
-  }
-
-  .ticket .tickets {
-    margin-top: 1rem;
-    float: left;
-  }
-
-  .ticket-left .title {
-    font-size: 2rem;
-    font-weight: 500;
-  }
-
-  #cta .container {
-    padding: 0rem;
-  }
-
-  #cta .container .px-12 {
-    padding: 2rem 1rem;
-  }
-
-  #cta .container button {
-    width: 100%;
-  }
-
-  #footer-sec-2 {
-    justify-content: center;
-    margin-left: 0rem;
-  }
-
-  #special-footer div {
-    margin: auto;
-    margin-bottom: 2rem;
-  }
-
-  footer .tracking-widest {
-    text-align: center;
-    width: 100%;
-  }
-
-  #footer-contact {
-    padding-left: 0rem;
-  }
-}
-
 #speakers {
   padding: 4rem 11rem;
 }
@@ -354,8 +279,9 @@ body {
   padding: 4rem 2rem;
 }
 
-/* Mobile Styles */
-@media screen and (max-width: 768px) {
+/* Tablet Styles */
+
+@media only screen and (max-width: 1150px) {
   body {
     font-size: var(--mobile-font-size);
   }
@@ -392,12 +318,6 @@ body {
     font-size: 32px;
   }
 
-  #events,
-  #speakers,
-  #speaker-register {
-    padding: 3rem 1.5rem;
-  }
-
   .hero .container {
     padding: 4rem 1rem;
   }
@@ -406,71 +326,149 @@ body {
     padding: 3rem 2rem;
   }
 
-  #timeline {
-    padding: 3rem 1rem;
+  #feature {
+    flex-wrap: wrap;
+  }
+
+  #feature #card {
+    padding: 0rem 0.5rem;
   }
 
   #cta {
     padding: 4rem 2rem;
   }
 
-  #card {
+  #ellipse {
+    top: 0%;
+  }
+
+  #square1 {
+    top: -15%;
+    left: -15%;
+  }
+
+  .tag-date {
+    flex-wrap: nowrap;
+  }
+
+  .tag-date button {
+    padding: 0rem;
+  }
+
+  .ticket {
+    max-width: 360px;
+    background: #1d1d1d;
+    flex-direction: column;
+    margin: 1rem 0;
+  }
+
+  .ticket-left,
+  .ticket-right {
     width: 100%;
-    padding: 3rem 2rem;
-  }
-}
-
-/* Tablet Styles */
-@media screen and (max-width: 1000px) {
-  .hero {
-    min-height: 80vh;
-    padding: 30px 0;
+    max-width: 100%;
   }
 
-  .container {
-    padding: 24px 1rem;
-  }
-
-  .hero h1 {
-    font-size: 24px;
-  }
-
-  #feature-section {
-    border-radius: 3rem 3rem 0 0;
-    padding: 2rem 0;
-  }
-
-  #feature {
+  .ticket-left {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 1rem 1.2rem;
+  }
+
+  .ticket-left .date {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .ticket-left .date .day {
+    margin-left: 5px;
+  }
+
+  #ticket-item {
     flex-direction: column;
   }
 
-  .tags {
-    overflow: hidden;
-    justify-content: start;
-    overflow-x: scroll;
-  }
-
-  #events {
-    padding: 3rem 0rem;
-  }
-
-  #event-card {
+  #ticket-img {
     width: 100%;
   }
 
-  #event-card img {
-    max-width: 320px !important;
-    max-height: 320px !important;
-    object-fit: cover;
+  #ticket-img span {
+    width: 100% !important;
   }
 
-  #event-card .flex-grow {
-    margin-left: 1rem;
+  #ticket-desc {
+    width: 100%;
   }
 
-  #cta {
-    padding: 4rem 2rem;
+  #ticket-desc .space-y-3 {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  #ticket-inner {
+    flex-direction: column;
+  }
+
+  #ad {
+    margin: 0rem;
+  }
+
+  #ad h1 {
+    font-size: 1.5rem;
+  }
+
+  #cta .container {
+    padding: 0rem;
+  }
+
+  #cta .container .px-12 {
+    padding: 2rem 1rem;
+  }
+
+  #cta .container button {
+    width: 100%;
+  }
+
+  #cta #cta-inputs {
+    padding: 0rem;
+  }
+
+  #cta #cta-inputs #input-feedback {
+    width: 100%;
+    padding: 0rem;
+  }
+
+  #cta #cta1 {
+    bottom: -25%;
+    left: -10%;
+    max-width: 100px;
+  }
+
+  #cta #cta2 {
+    top: 32%;
+    right: -10%;
+    max-width: 100px;
+  }
+
+  #footer-sec-2 {
+    justify-content: center;
+    margin-left: 0rem;
+  }
+
+  #special-footer div {
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+
+  footer .tracking-widest {
+    text-align: center;
+    width: 100%;
+  }
+
+  #footer-contact {
+    padding-left: 0rem;
   }
 }
 

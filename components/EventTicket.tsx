@@ -56,12 +56,12 @@ const EventTicket = (
             </div>
 
             <div className="ticket-right">
-                <div className='flex items-center'>
-                    <div className='w-[200px]'>
+                <div className='flex items-center' id='ticket-item'>
+                    <div className='w-[200px]' id='ticket-img'>
                         <Image src="/feature1.png" alt='feature' width={180} height={180} />
                     </div>
-                    <div className='flex-grow'>
-                        <div className='flex items-center justify-between'>
+                    <div className='flex-grow' id='ticket-desc'>
+                        <div className='flex items-center justify-between' id='ticket-inner'>
                             <div className='space-y-3'>
                                 <h2 className="text-[20px] text-white">{eventOrganizer}</h2>
                                 <div className="flex items-start space-x-4">
@@ -89,10 +89,10 @@ const EventTicket = (
                                             </span>
                                         ))
                                     }
-                                </div>  
+                                </div>
                                 <div className="loc flex items-start ">
                                     <div className="icon mr-2">
-                                        <i className="far fa-map-marker text-white text-sm"></i>
+                                        <i className="far fa-map-marker-alt text-[#CACACA] text-[12px]"></i>
                                     </div>
                                     <p className='leading-relaxed text-sm font-light my-[2px] text-[#CACACA]'>{location}</p>
                                 </div>

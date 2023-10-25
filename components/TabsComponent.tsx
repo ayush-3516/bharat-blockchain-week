@@ -44,10 +44,13 @@ const TabsComponent: React.FC = () => {
     }, []);
 
     const formatDate = (dateStr: string) => {
-        const options = { weekday: 'long', day: 'numeric' } as Intl.DateTimeFormatOptions;
+        const options = { day: 'numeric', month: 'short' } as Intl.DateTimeFormatOptions;
         const date = new Date(dateStr);
-        return date.toLocaleDateString(undefined, options);
+        const day = date.toLocaleDateString(undefined, { day: 'numeric' });
+        const month = date.toLocaleDateString(undefined, { month: 'short' });
+        return `${day} ${month}`;
     };
+
 
     const handleTagClick = (tag: string | null) => {
         setSelectedTag(tag);
@@ -97,7 +100,7 @@ const TabsComponent: React.FC = () => {
                             onTagClick={handleTagClick}
                             className="tag-category"
                         />
-                        <div className="flex items-center justify-center space-x-2 mt-4">
+                        {/* <div className="flex items-center justify-center space-x-2 mt-4">
                             <button
                                 className={`px-3 py-2 w-14 rounded-md ${viewMode === 'list' ? 'bg-orange-500 text-white' : 'bg-white text-black'}`}
                                 onClick={switchToListView}
@@ -112,7 +115,7 @@ const TabsComponent: React.FC = () => {
                                     <i className="fas fa-th"></i>
                                 </button>
                             )}
-                        </div>
+                        </div> */}
                         <div className="container mx-auto px-0">
                             {viewMode === 'list' ? (
                                 filteredTabs.map((tab, index) => (
