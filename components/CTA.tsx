@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const CTA = () => {
     return (
-        <section className="text-gray-600 bg-[#020204] body-font" id="cta">
+        <section className="text-gray-600 bg-[#020204] body-font overflow-hidden" id="cta">
             <div className="container relative mx-auto">
                 <div className="absolute bottom-[12%] left-[12%]" id='cta1'> 
                     <Image src='/cta1.svg' alt='cta1' width={150} height={150} />
