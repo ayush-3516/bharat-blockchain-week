@@ -19,8 +19,6 @@ const TabsComponent: React.FC = () => {
     const [showExclusiveEvents] = useState<boolean>(false);
     const [data, setData] = useState<TabData[]>([]);
     const [loading] = useState(false);
-    const [viewMode, setViewMode] = useState<'list' | 'grid'>('list');
-    const [isMobileView, setIsMobileView] = useState<boolean>(false);
 
     useEffect(() => {
         axios.get('/api/airtable')
@@ -30,27 +28,12 @@ const TabsComponent: React.FC = () => {
             .catch((err) => console.error(err));
     }, []);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobileView(window.innerWidth <= 768); // Adjust the screen width as needed
-        };
-
-        handleResize(); // Call it once to set the initial value
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
     const formatDate = (dateStr: string) => {
-        const options = { day: 'numeric', month: 'short' } as Intl.DateTimeFormatOptions;
         const date = new Date(dateStr);
         const day = date.toLocaleDateString(undefined, { day: 'numeric' });
         const month = date.toLocaleDateString(undefined, { month: 'short' });
         return `${day} ${month}`;
-    };
-
+    };    
 
     const handleTagClick = (tag: string | null) => {
         setSelectedTag(tag);
@@ -58,14 +41,6 @@ const TabsComponent: React.FC = () => {
 
     const handleDateClick = (date: string | null) => {
         setSelectedDate(date);
-    };
-
-    const switchToListView = () => {
-        setViewMode('list');
-    };
-
-    const switchToGridView = () => {
-        setViewMode('grid');
     };
 
     const tagsByDate = Array.from(new Set(data.map((tab) => tab.fields['Date'])))
@@ -100,24 +75,9 @@ const TabsComponent: React.FC = () => {
                             onTagClick={handleTagClick}
                             className="tag-category"
                         />
-                        {/* <div className="flex items-center justify-center space-x-2 mt-4">
-                            <button
-                                className={`px-3 py-2 w-14 rounded-md ${viewMode === 'list' ? 'bg-orange-500 text-white' : 'bg-white text-black'}`}
-                                onClick={switchToListView}
-                            >
-                                <i className="fas fa-list"></i>
-                            </button>
-                            {!isMobileView && (
-                                <button
-                                    className={`px-3 py-2 w-14 rounded-md ${viewMode === 'grid' ? 'bg-orange-500 text-white' : 'bg-white text-black'}`}
-                                    onClick={switchToGridView}
-                                >
-                                    <i className="fas fa-th"></i>
-                                </button>
-                            )}
-                        </div> */}
+
                         <div className="container mx-auto px-0">
-                            {viewMode === 'list' ? (
+                            {
                                 filteredTabs.map((tab, index) => (
                                     <div key={index}>
                                         <EventTicket
@@ -132,27 +92,7 @@ const TabsComponent: React.FC = () => {
                                         />
                                     </div>
                                 ))
-                            ) : (
-                                <div className="flex items-center justify-around flex-wrap -m-3">
-                                    {filteredTabs.map((tab, index) => (
-                                        <div key={index}>
-                                            <p>{tab.fields['Event Name']}</p>
-                                            {/* <EventGrid
-                                                key={index}
-                                                eventTitle={tab.fields['Event Name']}
-                                                eventLocation={tab.fields['Event Location']}
-                                                eventDate={formatDate(tab.fields['Date'])}
-                                                start={`${tab.fields['Start Time']}`}
-                                                end={`${tab.fields['End Time']}`}
-                                                eventCategory={tab.fields['Category']}
-                                                eventPrice={tab.fields['Entry']}
-                                                registrationLink={tab.fields['Registration link']}
-                                            /> */}
-                                            grid section
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
+                            }
                             <Ad />
                         </div>
                     </div>
