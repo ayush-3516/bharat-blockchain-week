@@ -1,11 +1,11 @@
 import React, { useState, FormEvent } from 'react';
-
+import axios from 'axios';
 // Define the type for your form state
 type FormData = {
   title: string;
   date: string;
-  startDate: string;
-  endDate: string;
+  startTime: string;
+  endTime: string;
   organizer: string;
   description: string;
   category: string;
@@ -17,11 +17,12 @@ type FormData = {
 };
 
 const EventForm: React.FC = () => {
+  const url = 'https://blockchain-bharat-production.up.railway.app/api/events/';
   const [formData, setFormData] = useState<FormData>({
     title: '',
     date: '',
-    startDate: '',
-    endDate: '',
+    startTime: '',
+    endTime: '',
     organizer: '',
     description: '',
     category: '',
@@ -39,7 +40,10 @@ const EventForm: React.FC = () => {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    // Handle the submission to your API
+    axios.post(url, formData).then((res) => {
+      console.log(res);
+    });
+
     console.log(formData);
   };
 
