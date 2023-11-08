@@ -1,12 +1,21 @@
-import Layout from 'components/Layout'
-import React from 'react'
+import EventForm from 'components/Form';
+import Layout from 'components/Layout';
+import React from 'react';
 
 const CreateEvent = () => {
-    return (
-        <Layout>
-            <iframe className="airtable-embed airtable-dynamic-height" src="https://airtable.com/embed/apphBFYesxq4qk0Cc/shrO63MKlzdU1hOfX?backgroundColor=gray" width="100%" height="2271" style={{ background: "transparent", border: "1px solid #ccc" }}></iframe>
-        </Layout>
-    )
-}
+  return (
+    <Layout>
+      <div className="text-white flex flex-col justify-center gap-y-4 w-full items-center   ">
+        <h1 className="font-semibold text-6xl text-center">
+          {' '}
+          <span className="text-orange-500">Create</span> Event
+        </h1>
+        <p>Fill the given form to get listed!</p>
 
-export default CreateEvent
+        <EventForm />
+      </div>
+    </Layout>
+  );
+};
+
+export default CreateEvent;

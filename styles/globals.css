@@ -1,4 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+/* EventForm.css */
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
+  /* Styles to apply when the input is focused or filled */
+  top: -6px; /* Adjust this value to fit your design */
+  left: 0;
+  font-size: 0.75rem; /* This should match the `text-sm` size in Tailwind */
+  color: #f59e0b; /* This should match the `text-orange-500` color in Tailwind */
+}
+
+/* Additional styling for when the input is not focused or filled */
+input ~ label {
+  top: 10px; /* Center label vertically within the input */
+  left: 0.5rem; /* Padding inside the input */
+  font-size: 1rem; /* Initial font size */
+  color: #9ca3af; /* This should match the `text-gray-500` color in Tailwind */
+  pointer-events: none; /* Allows clicks to pass through to the input */
+  transition: all 0.2s ease-in-out;
+}
