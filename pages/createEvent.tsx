@@ -6,12 +6,11 @@ const CreateEvent = () => {
   return (
     <Layout>
       <div className="text-white flex flex-col justify-center gap-y-4 w-full items-center   ">
-        <h1 className="font-semibold text-6xl text-center">
+        <h1 className="font-medium text-4xl text-center">
           {' '}
           <span className="text-orange-500">Create</span> Event
         </h1>
-        <p>Fill the given form to get listed!</p>
-
+        <p className=' text-xl mb-4'>Fill the given form to get listed!</p>
         <EventForm />
       </div>
     </Layout>

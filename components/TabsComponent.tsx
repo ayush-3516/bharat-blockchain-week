@@ -1,16 +1,28 @@
+/*
 import { useState, useEffect } from 'react';
 import Tags from './Tags';
 import EventTicket from './EventTicket';
 import axios from 'axios';
 import Loader from './Loader';
-//import EventGrid from './EventGrid';
+import EventGrid from './EventGrid';
 import Ad from './Ad';
 
 interface TabData {
-    id: string;
-    fields: {
-        [key: string]: any;
-    };
+    _id: string;
+    title: string;
+    date: string;
+    startDate: string;
+    endDate: string;
+    organizer: string;
+    description: string;
+    category: string;
+    location: string;
+    locationUrl: string;
+    posterUrl: string;
+    organizerContact: string;
+    followed: boolean;
+    entry: string;
+    __v: number;
 }
 
 const TabsComponent: React.FC = () => {
@@ -18,14 +30,18 @@ const TabsComponent: React.FC = () => {
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
     const [showExclusiveEvents] = useState<boolean>(false);
     const [data, setData] = useState<TabData[]>([]);
-    const [loading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('/api/airtable')
+        axios.get('https://blockchain-bharat-production.up.railway.app/api/events/')
             .then((res) => {
                 setData(res.data);
+                setLoading(false);
             })
-            .catch((err) => console.error(err));
+            .catch((err) => {
+                console.error(err);
+                setLoading(false);
+            });
     }, []);
 
     const formatDate = (dateStr: string) => {
@@ -33,7 +49,7 @@ const TabsComponent: React.FC = () => {
         const day = date.toLocaleDateString(undefined, { day: 'numeric' });
         const month = date.toLocaleDateString(undefined, { month: 'short' });
         return `${day} ${month}`;
-    };    
+    };
 
     const handleTagClick = (tag: string | null) => {
         setSelectedTag(tag);
@@ -43,19 +59,16 @@ const TabsComponent: React.FC = () => {
         setSelectedDate(date);
     };
 
-    const tagsByDate = Array.from(new Set(data.map((tab) => tab.fields['Date'])))
+    const tagsByDate = Array.from(new Set(data.map((tab) => tab.startDate)))
 
-    const tagsByCategory = Array.from(new Set(data.map((tab) => tab.fields['Category'])))
+    const tagsByCategory = Array.from(new Set(data.map((tab) => tab.category)))
 
     const filteredTabs = data.filter((tab) => {
-        const tagFilter = !selectedTag || tab.fields['Category'].includes(selectedTag);
-        const dateFilter = !selectedDate || formatDate(tab.fields['Date']) === selectedDate;
+        const tabFields = tab || {}; // Handle undefined fields
+        const tagFilter = !selectedTag || tabFields['category'].includes(selectedTag);
+        const dateFilter = !selectedDate || formatDate(tabFields['startDate']) === selectedDate;
 
-        if (showExclusiveEvents) {
-            return tagFilter || dateFilter || (tab.fields['price'] !== 'Free' && tab.fields['Approve Event'] === 'YES');
-        } else {
-            return tagFilter && dateFilter && tab.fields['Approve Event'] === 'YES';
-        }
+    
     });
 
     return (
@@ -81,14 +94,13 @@ const TabsComponent: React.FC = () => {
                                 filteredTabs.map((tab, index) => (
                                     <div key={index}>
                                         <EventTicket
-                                            date={tab.fields['Date']}
-                                            start={tab.fields['Start Time']}
-                                            end={tab.fields['End Time']}
-                                            eventOrganizer={tab.fields['Event Name']}
-                                            tags={tab.fields['Category'].split('/')}
-                                            price={tab.fields['Entry']}
-                                            location={tab.fields['Event Location']}
-                                            registrationLink={tab.fields['Registration link']}
+                                            startDate={tab.startDate}
+                                            endDate={tab.endDate}
+                                            eventOrganizer={tab.organizer}
+                                            tags={tab.category.split('/')}
+                                            entry={tab.entry}
+                                            location={tab.location}
+                                            registrationLink="https://"
                                         />
                                     </div>
                                 ))
@@ -102,3 +114,13 @@ const TabsComponent: React.FC = () => {
 };
 
 export default TabsComponent;
+
+*/
+import React from 'react'
+const TabsComponent = () => {
+  return (
+    <div>TabsComponent</div>
+  )
+}
+
+export default TabsComponent

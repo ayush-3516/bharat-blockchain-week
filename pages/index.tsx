@@ -2,8 +2,8 @@ import React from 'react'
 import Layout from 'components/Layout'
 import Head from 'next/head'
 import Hero from 'components/Hero'
-import TabsComponent from 'components/TabsComponent'
-import Feature from 'components/Feature'
+import TabComponent from 'components/TabComponent'
+import Feature from 'components/Feature' 
 
 const Home = () => {
   return (
@@ -23,7 +23,7 @@ const Home = () => {
           button2='submit your event'
         />
         <Feature />
-        <TabsComponent />
+        <TabComponent />
       </Layout>
     </div>
   )

@@ -2,36 +2,35 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-type Props = {
-    date: string;
-    start: number;
-    end: number;
+interface EventTicketProps {
+    startDate: string;
+    endDate: string;
     eventOrganizer: string;
     tags: string[];
-    price: string;
+    entry: string;
     location: string;
     registrationLink: string;
 }
 
-const EventTicket = (
-    {
-        date, start, end, eventOrganizer, tags, price, location, registrationLink
-    }: Props
-) => {
-
-    const dateComponents = date.split('-');
-    const day = dateComponents[2]; // Extract the day component
-    const month = getMonthName(dateComponents[1]); // Convert the month number to its name
-
-    function getMonthName(monthNumber: string) {
-        const months = [
-            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-        ];
-        const monthIndex = parseInt(monthNumber, 10) - 1;
-        return months[monthIndex] || '';
+const EventTicket: React.FC<EventTicketProps> = ({
+    startDate, endDate, eventOrganizer, tags, entry, location, registrationLink
+}) => {
+    if (!startDate) {
+        return null;
     }
 
+    const startDateObject = new Date(startDate);
+    const formattedStartDate = startDateObject.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    });
+
+    const dayOfWeek = startDateObject.getDay();
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOfWeekString = daysOfWeek[dayOfWeek];
+
+    // Format time function
     const formatTime = (timeInSeconds: number) => {
         const hours = Math.floor(timeInSeconds / 3600);
         const minutes = Math.floor((timeInSeconds % 3600) / 60);
@@ -40,8 +39,8 @@ const EventTicket = (
         return `${formattedHours}:${formattedMinutes}`;
     };
 
-    const startTime24H = formatTime(start);
-    const endTime24H = formatTime(end);
+    const startTime24H = formatTime(new Date(startDate).getHours() * 3600);
+    const endTime24H = formatTime(new Date(endDate).getHours() * 3600);
 
     return (
         <div className="ticket">
@@ -50,8 +49,8 @@ const EventTicket = (
                     <p className=' font-light'>{location}</p>
                 </div>
                 <div className='date'>
-                    <h2 className="num">{day}</h2>
-                    <p className="day">{month}</p>
+                    <h2 className="num">{startDateObject.getDate()}</h2>
+                    <p className="day">{dayOfWeekString.slice(0, 3)}</p>
                 </div>
             </div>
 
@@ -69,13 +68,15 @@ const EventTicket = (
                                         <div className="icon mr-2">
                                             <i className="fa fa-table text-xs font-light text-[#CACACA]"></i>
                                         </div>
-                                        <p className='leading-relaxed text-sm font-light text-[#CACACA]' >{date} <br /> {startTime24H} - {endTime24H}</p>
+                                        <p className='leading-relaxed text-sm font-light text-[#CACACA]'>
+                                            {formattedStartDate} <br /> {startTime24H} - {endTime24H}
+                                        </p>
                                     </div>
                                     <div className="sce flex items-center">
                                         <div className="icon mr-2">
                                             <i className="far fa-tags text-xs font-light text-[#CACACA]"></i>
                                         </div>
-                                        <p className='leading-relaxed text-sm font-light text-[#CACACA]'>{price}</p>
+                                        <p className='leading-relaxed text-sm font-light text-[#CACACA]'>{entry}</p>
                                     </div>
                                 </div>
                                 <div className=' space-x-2'>
@@ -100,7 +101,8 @@ const EventTicket = (
                             <Link href={registrationLink}>
                                 <a className="bg-[#1D1D1D] text-white font-light uppercase border-[1px] border-[#474747] rounded-full px-[32px] py-2">
                                     Register
-                                </a></Link>
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
