@@ -1,7 +1,5 @@
 import React from 'react';
 
-type Props = {};
-
 const pricingDetails = [
     { label: '12 to 18', price: '$50 a day' },
     { label: '19 to 25', price: '$70 a day' },
@@ -11,7 +9,7 @@ const pricingDetails = [
     // Add more pricing details as needed
 ];
 
-const Promote = (props: Props) => {
+const Promote = () => {
     return (
         <section className="text-gray-400 bg-[#030303] body-font">
             <div className="container px-5 py-24 mx-auto">

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 const Ad = () => {
-    const [showAd, setShowAd] = useState(true); // Set this to false to simulate no ads
+    const [showAd] = useState(true); // Set this to false to simulate no ads
     const router = useRouter();
 
     useEffect(() => {
