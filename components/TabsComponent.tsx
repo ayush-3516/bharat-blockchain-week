@@ -116,11 +116,11 @@ const TabsComponent: React.FC = () => {
 export default TabsComponent;
 
 */
-import React from 'react'
+import React from 'react';
 const TabsComponent = () => {
-  return (
-    <div>TabsComponent</div>
-  )
+    return (
+        <div>TabsComponent</div>
+    )
 }
 
 export default TabsComponent
