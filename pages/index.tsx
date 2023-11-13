@@ -19,7 +19,7 @@ const Home = () => {
           title='Bharat Blockchain Week'
           description='NETWORK, OPPORTUNITIES, AND CULTURE !!'
           image=''
-          button1='side event sheet'
+          button1=''
           button2='submit your event'
         />
         <Feature />

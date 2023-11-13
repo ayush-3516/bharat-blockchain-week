@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from 'react';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 // Define the type for your form state
 type FormData = {
@@ -61,6 +62,17 @@ const EventForm: React.FC = () => {
       console.log(res);
     });
 
+    toast('Hello Darkness!',
+      {
+        icon: '👏',
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      }
+    );
+    
     console.log(formData);
   };
 

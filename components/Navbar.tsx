@@ -29,7 +29,7 @@ function NavLink({ to, children }: NavLinkProps) {
 export default function Navbar() {
 
     return (
-        <nav className="flex filter drop-shadow-md bg-black px-4 max-h-28 py-4 items-center sticky-navbar">
+        <nav className="flex filter drop-shadow-md bg-[#000] px-4 max-h-28 py-4 items-center sticky-navbar">
             <div className="w-3/12 flex items-center">
                 <Logo />
             </div>
