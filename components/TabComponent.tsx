@@ -1,3 +1,4 @@
+/*
 import { useState, useEffect } from 'react';
 import Tags from './Tags';
 import EventTicket from './EventTicket';
@@ -31,7 +32,7 @@ const TabComponent: React.FC = () => {
     const [ticketsRendered] = useState(0);
     const [currentYearMonth, setCurrentYearMonth] = useState<string>('');
     const [currentMonthIndex, setCurrentMonthIndex] = useState<number>(0);
-
+ 
     useEffect(() => {
         axios
             .get('https://blockchain-bharat-production.up.railway.app/api/events/')
@@ -98,8 +99,7 @@ const TabComponent: React.FC = () => {
                         <div className='flex items-center text-orange-500 space-x-3'>
                             <button onClick={() => handleMonthChange('prev')}>&lt;</button>
                             <span className='text-gray-200'>
-                                {currentYearMonth} {/* Displaying the current year and month */}
-                            </span>
+                                {currentYearMonth}   </span>
                             <button onClick={() => handleMonthChange('next')}>&gt;</button>
                         </div>
                         <Tags
@@ -125,8 +125,7 @@ const TabComponent: React.FC = () => {
                                     location={tab.location}
                                     registrationLink="https://forms/"
                                 />
-                                {/* Render an Ad after every 3 or 4 EventTickets */}
-                                {((ticketsRendered % 3 === 0) && index !== filteredTabs.length - 1) && <Ad />}
+                                {((ticketsRendered % 4 === 0) && index !== filteredTabs.length - 1) && <Ad />}
                             </div>
                         ))}
                     </div>
@@ -137,3 +136,15 @@ const TabComponent: React.FC = () => {
 };
 
 export default TabComponent;
+
+*/
+
+import React from 'react'
+
+const TabComponent = () => {
+    return (
+        <div>TabComponent</div>
+    )
+}
+
+export default TabComponent

@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from 'components/Layout'
 import Head from 'next/head'
 import Hero from 'components/Hero'
-import TabComponent from 'components/TabComponent'
+import TabsComponent from 'components/TabsComponent'
 import Feature from 'components/Feature'
 
 const Home = () => {
@@ -23,7 +23,7 @@ const Home = () => {
           button2='submit your event'
         />
         <Feature />
-        <TabComponent />
+        <TabsComponent />
       </Layout>
     </div>
   )

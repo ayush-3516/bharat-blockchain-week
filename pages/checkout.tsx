@@ -74,7 +74,7 @@ const Checkout = () => {
                                 <h1 className="font-medium mb-2 text-[24px]">Your Checkout Page</h1>
                                 <div className="w-12 h-1 bg-orange-400 rounded mt-2 mb-4"></div>
                                 <div className="max-w-[600px]">
-                                    <Image src="/qr.png" width={300} height={300} />
+                                    <Image src="/qr.png" alt="qr" width={300} height={300} />
                                 </div>
                                 <p className="text-[40px] mb-3 text-orange-400">${calculatedPrice}</p>
                                 {/* Add the rest of your checkout page content here */}
