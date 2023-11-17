@@ -69,7 +69,7 @@ const featureItems = [
         subtitle: '4th - 10th December, 2023',
         title: 'Web3 Carnival',
         description:
-            "Get Ready to Experience the Future at #Web3Carnival⚡️ - India's Mega #Web3 Event! ",
+            "Get Ready to Experience the Future at #Web3Carnival⚡️ - India's Mega #Web3 Event! 📅",
 
     },
 ];
