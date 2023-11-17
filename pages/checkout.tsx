@@ -24,7 +24,7 @@ const Input: React.FC<InputProps> = ({ type, id, name, placeholder, value, onCha
             placeholder={placeholder}
             value={value}
             onChange={onChange}
-            className="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-orange-500 rounded border border-gray-600 focus:border-orange-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            className="w-full bg-[#141414] focus:bg-transparent focus:ring-2 focus:ring-orange-500 rounded text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
         />
     </div>
 );
@@ -39,9 +39,18 @@ const Checkout = () => {
         email: '',
         hash: '',
         walletAddress: '',
+        blockchain: ''
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    const handleBlockchainChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
             ...prevData,
@@ -61,6 +70,7 @@ const Checkout = () => {
             email: '',
             hash: '',
             walletAddress: '',
+            blockchain: ''
         });
     };
 
@@ -71,7 +81,7 @@ const Checkout = () => {
                     <div className="flex items-center justify-between">
                         <div className={`px-2 py-12 w-[500px] mx-auto ${styles.glassmorphism}`}>
                             <div className="text-white space-y-2 flex flex-col items-center justify-center">
-                                <h1 className="font-medium mb-2 text-[24px]">Your Checkout Page</h1>
+                                <h1 className=" font-normal mb-2 text-[24px]">Only EVM and stablecoins accepted</h1>
                                 <div className="w-12 h-1 bg-orange-400 rounded mt-2 mb-4"></div>
                                 <div className="max-w-[600px]">
                                     <Image src="/qr.png" alt="qr" width={300} height={300} />
@@ -117,6 +127,26 @@ const Checkout = () => {
                                     value={formData.walletAddress}
                                     onChange={handleChange}
                                 />
+                                <div className="mb-4">
+                                    <label htmlFor="blockchain" className="text-white mb-1">
+                                        Blockchain
+                                    </label>
+                                    <select
+                                        id="blockchain"
+                                        name="blockchain"
+                                        value={formData.blockchain}
+                                        onChange={handleBlockchainChange}
+                                        // Apply a black background style
+                                        className="w-full bg-[#202020] focus:bg-transparent focus:ring-2 focus:ring-orange-500 rounded text-base outline-none text-gray-100 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                    >
+                                        <option value="" className='bg-[#232323] text-white border-0 outline-none m-2' disabled>
+                                            Select a Blockchain
+                                        </option>
+                                        <option value="ethereum" className='bg-[#232323] text-white border-0 outline-none m-2'>Ethereum</option>
+                                        <option value="bsc" className='bg-[#232323] text-white border-0 outline-none m-2'>Binance Smart Chain</option>
+                                        {/* Add more blockchain options as needed */}
+                                    </select>
+                                </div>
                                 <button className="text-white bg-gradient-to-tr from-orange-500 to-orange-400 border-0 py-2 px-8 focus:outline-none rounded text-lg">
                                     Send
                                 </button>

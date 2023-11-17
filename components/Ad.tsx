@@ -1,8 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
-const Ad = () => {
-    const [showAd] = useState(true); // Set this to false to simulate no ads
+interface AdProps {
+    showAd: boolean;
+    image: string;
+    link: string;
+}
+
+const Ad: React.FC<AdProps> = ({ showAd, image, link }) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -20,44 +26,33 @@ const Ad = () => {
             console.log('Ad clicked');
         }
 
-        // Simulating redirection to a specific ad or promotion page
-        if (!showAd) {
-            // Replace 'YOUR_AD_URL' with the actual ad URL or promotion page URL
-            router.push('/');
-        } else {
-            // Redirect to a promotion page if no ads are shown
-            router.push('/promotion');
-        }
+        // Redirect to the provided link on ad click
+        router.push(link);
     };
 
     if (showAd) {
         return (
             <div
-                className='bg-[#1D1D1D] rounded-[20px] w-full h-full min-h-[220px] my-[3rem] flex flex-col items-center justify-center text-center cursor-pointer'
+                className='bg-[#1D1D1D] rounded-[20px] overflow-hidden w-full h-full min-h-[220px] max-h-[220px] my-[1rem] flex flex-col items-center justify-center text-center cursor-pointer'
                 onClick={handleAdClick}
                 id='ad'
             >
-                <h1 className='text-[#D0916D] text-[32px] tracking-widest mb-0'>
-                    A.d.v.e.r.t.i.s.m.e.n.t
-                </h1>
-                <h1 className='text-[#D0916D20] text-[32px] tracking-widest -mt-9 '>
-                    A.d.v.e.r.t.i.s.m.e.n.t
-                </h1>
+                <Image src={image} width={1220} height={220} style={{ width: "100%", height: "100%", objectFit: "cover" }} alt='Ad Image' className='mb-2' />
             </div>
         );
     } else {
         // If no ads are shown, you can redirect to a promotion page directly
         return (
             <div
-                className='bg-[#1D1D1D] rounded-[20px] w-full h-full min-h-[220px] my-[3rem] flex flex-col items-center justify-center text-center cursor-pointer'
+                className='bg-[#1D1D1D] rounded-[20px] w-full h-full min-h-[220px] my-[1rem] flex flex-col items-center justify-center text-center cursor-pointer'
                 onClick={() => router.push('/promotion')}
                 id='ad'
             >
+                {/* <img src={image} alt='Ad Image' className='mb-2' /> */}
                 <h1 className='text-[#D0916D] text-[32px] tracking-widest mb-0'>
-                    A.d.v.e.r.t.i.s.m.e.n.t
-                </h1>
+                    Your Ad Here                </h1>
                 <h1 className='text-[#D0916D20] text-[32px] tracking-widest -mt-9 '>
-                    A.d.v.e.r.t.i.s.m.e.n.t
+                    Your Ad Here
                 </h1>
             </div>
         );

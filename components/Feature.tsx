@@ -50,26 +50,27 @@ const featureItems = [
     {
         color: '#ffd79a',
         imageUrl: '/feature1.png',
-        subtitle: 'SUBTITLE',
-        title: 'Chichen Itza',
+        subtitle: '8th - 10th December, 2023',
+        title: 'Eth India',
         description:
-            'Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.',
+            'Empowering the Indian Ethereum Community • Hackathons, Fellowships, Grants, and more • By @devfolio 🛠️ ',
     },
     {
         color: '#c2d3ff',
         imageUrl: '/feature2.png',
-        subtitle: 'SUBTITLE',
-        title: 'Colosseum Roma',
+        subtitle: '6th-7th December, 2023',
+        title: "IBW'2023",
         description:
-            'Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.',
+            '2 Day headline event anchoring India Blockchain Week (IBW), crafted by Hashed Emergent',
     },
     {
         color: '#eeffd3',
         imageUrl: '/feature3.png',
-        subtitle: 'SUBTITLE',
-        title: 'Great Giza',
+        subtitle: '4th - 10th December, 2023',
+        title: 'Web3 Carnival',
         description:
-            'Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.',
+            "Get Ready to Experience the Future at #Web3Carnival⚡️ - India's Mega #Web3 Event! ",
+
     },
 ];
 
