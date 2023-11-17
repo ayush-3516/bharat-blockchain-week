@@ -68,7 +68,7 @@ const TabsComponent = () => {
 
     return (
         <div className="container mx-auto">
-            <Ad showAd={true} image='http://dummyimage.com/1220x220/' link='http://dummyimage.com/' />
+            <Ad showAd={false} image='http://dummyimage.com/1220x220/' link='http://dummyimage.com/' />
             <Tags
                 tags={yearMonthTags}
                 selectedTag={selectedDate}
