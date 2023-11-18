@@ -76,21 +76,20 @@ const Checkout = () => {
 
     return (
         <Layout>
-            <div className="py-24">
+            <div className={`py-24 ${styles.checkout}`}>
                 <div className="container px-5 py-12 mx-auto ">
-                    <div className="flex items-center justify-between">
+                    <div className={`flex items-center justify-between ${styles.checkContainer}`} >
                         <div className={`px-2 py-12 w-[500px] mx-auto ${styles.glassmorphism}`}>
                             <div className="text-white space-y-2 flex flex-col items-center justify-center">
-                                <h1 className=" font-normal mb-2 text-[24px]">Only EVM and stablecoins accepted</h1>
-                                <div className="w-12 h-1 bg-orange-400 rounded mt-2 mb-4"></div>
-                                <div className="max-w-[600px]">
-                                    <Image src="/qr.png" alt="qr" width={300} height={300} />
+                                <h1 className=" font-normal mb-2 text-[20px]">Only EVM and stablecoins accepted</h1>
+                                <div className="max-w-[600px] overflow-hidden">
+                                    <Image src="/qr.png" alt="qr" className='rounded-lg' width={300} height={300} />
                                 </div>
-                                <p className="text-[40px] mb-3 text-orange-400">${calculatedPrice}</p>
+                                <p className="text-[28px] mb-3 text-center w-full text-orange-400"><span className="text-white">Price:</span>  ${calculatedPrice}</p>
                                 {/* Add the rest of your checkout page content here */}
                             </div>
                         </div>
-                        <div className="flex-grow pl-20">
+                        <div className={`flex-grow ${styles.rightForm}`}>
                             <h2 className="text-white text-[28px] font-medium mb-5">
                                 Once Paid!, Fill Your Info, so that we can Verify
                             </h2>
