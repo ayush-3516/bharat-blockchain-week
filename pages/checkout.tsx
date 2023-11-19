@@ -35,6 +35,7 @@ const Checkout = () => {
     const calculatedPrice = price ? parseFloat(price as string) : 0;
 
     const [formData, setFormData] = useState({
+        ad: '',
         name: '',
         email: '',
         hash: '',
@@ -58,6 +59,7 @@ const Checkout = () => {
 
         // Reset the form after submission
         setFormData({
+            ad: '',
             name: '',
             email: '',
             hash: '',
@@ -86,6 +88,14 @@ const Checkout = () => {
                                 Once Paid!, Fill Your Info, so that we can Verify
                             </h2>
                             <form onSubmit={handleSubmit}>
+                                <Input
+                                    type="text"
+                                    id="ad"
+                                    name="ad"
+                                    placeholder="Ad you want to display ! (gif or image)"
+                                    value={formData.ad}
+                                    onChange={handleChange}
+                                />
                                 <Input
                                     type="text"
                                     id="name"
