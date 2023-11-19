@@ -50,14 +50,6 @@ const Checkout = () => {
         }));
     };
 
-    const handleBlockchainChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
-
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // Customize this function to handle the form submission, e.g., send data to a server
@@ -126,26 +118,14 @@ const Checkout = () => {
                                     value={formData.walletAddress}
                                     onChange={handleChange}
                                 />
-                                <div className="mb-4">
-                                    <label htmlFor="blockchain" className="text-white mb-1">
-                                        Blockchain
-                                    </label>
-                                    <select
-                                        id="blockchain"
-                                        name="blockchain"
-                                        value={formData.blockchain}
-                                        onChange={handleBlockchainChange}
-                                        // Apply a black background style
-                                        className="w-full bg-[#202020] focus:bg-transparent focus:ring-2 focus:ring-orange-500 rounded text-base outline-none text-gray-100 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                                    >
-                                        <option value="" className='bg-[#232323] text-white border-0 outline-none m-2' disabled>
-                                            Select a Blockchain
-                                        </option>
-                                        <option value="ethereum" className='bg-[#232323] text-white border-0 outline-none m-2'>Ethereum</option>
-                                        <option value="bsc" className='bg-[#232323] text-white border-0 outline-none m-2'>Binance Smart Chain</option>
-                                        {/* Add more blockchain options as needed */}
-                                    </select>
-                                </div>
+                                <Input
+                                    type="text"
+                                    id="blockchain"
+                                    name="blockchain"
+                                    placeholder="blockchain you transacted on ? "
+                                    value={formData.blockchain}
+                                    onChange={handleChange}
+                                />
                                 <button className="text-white bg-gradient-to-tr from-orange-500 to-orange-400 border-0 py-2 px-8 focus:outline-none rounded text-lg">
                                     Send
                                 </button>
@@ -159,14 +139,14 @@ const Checkout = () => {
                             </h1>
                         </div>
                         <div className="flex lg:flex-row md:flex-col text-gray-300">
-                            <button className="bg-[#202020] inline-flex py-3 px-5 rounded-lg items-center hover:text-white focus:outline-none">
-                                <span className="ml-4 flex items-start flex-col leading-none">
-                                    <span className="text-lg text-gray-400">1111100000</span>
+                            <button className="bg-[#141414] inline-flex py-3 px-5 rounded-lg items-center hover:text-white focus:outline-none">
+                                <span className="flex items-start flex-col leading-none">
+                                    <span className="text-lg text-gray-300">+91 90549 07333</span>
                                 </span>
                             </button>
-                            <button className="bg-[#202020] inline-flex py-3 px-5 rounded-lg items-center hover:text-white focus:outline-none lg:ml-4 md:ml-0 ml-4 md:mt-4 mt-0 lg:mt-0">
-                                <span className="ml-4 flex items-start flex-col leading-none">
-                                    <span className="text-lg text-gray-400">xyz@gmail.com</span>
+                            <button className="bg-[#141414] inline-flex py-3 px-5 rounded-lg items-center hover:text-white focus:outline-none lg:ml-4 md:ml-0 ml-4 md:mt-4 mt-0 lg:mt-0">
+                                <span className="flex items-start flex-col leading-none">
+                                    <span className="text-lg text-gray-300">admin@web3events.in</span>
                                 </span>
                             </button>
                         </div>
