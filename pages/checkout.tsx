@@ -3,7 +3,8 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import styles from './Checkout.module.css';
 import Image from 'next/image';
-import toast from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
+import axios from 'axios';
 
 interface InputProps {
     type: string;
@@ -24,7 +25,7 @@ const Input: React.FC<InputProps> = ({ type, id, name, placeholder, value, onCha
             placeholder={placeholder}
             value={value}
             onChange={onChange}
-            className="w-full bg-[#141414] focus:bg-transparent focus:ring-2 focus:ring-orange-500 rounded text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            className="w-full bg-[#141414] focus:bg-transparent focus-within:bg-transparent focus:ring-2 focus:ring-orange-500 rounded text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
         />
     </div>
 );
@@ -35,10 +36,10 @@ const Checkout = () => {
     const calculatedPrice = price ? parseFloat(price as string) : 0;
 
     const [formData, setFormData] = useState({
-        ad: '',
+        link: '',
         name: '',
         email: '',
-        hash: '',
+        txnHash: '',
         walletAddress: '',
         blockchain: ''
     });
@@ -51,21 +52,28 @@ const Checkout = () => {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // Customize this function to handle the form submission, e.g., send data to a server
         console.log('Form submitted:', formData);
-        toast.success("Form submitted !! Will get back to you shortly!");
 
-        // Reset the form after submission
-        setFormData({
-            ad: '',
-            name: '',
-            email: '',
-            hash: '',
-            walletAddress: '',
-            blockchain: ''
-        });
+        try {
+            const response = await axios.post('https://blockchain-bharat-production.up.railway.app/api/ads/', formData);
+            console.log('Server responded', response.data);
+            toast.success("Form submitted !! Will get back to you shortly");
+
+            // Reset the form after submission
+            setFormData({
+                link: '',
+                name: '',
+                email: '',
+                txnHash: '',
+                walletAddress: '',
+                blockchain: ''
+            });
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            toast.error('Error submitting form. Please try again.');
+        }
     };
 
     return (
@@ -90,10 +98,10 @@ const Checkout = () => {
                             <form onSubmit={handleSubmit}>
                                 <Input
                                     type="text"
-                                    id="ad"
-                                    name="ad"
+                                    id="link"
+                                    name="link"
                                     placeholder="Ad you want to display ! (gif or image)"
-                                    value={formData.ad}
+                                    value={formData.link}
                                     onChange={handleChange}
                                 />
                                 <Input
@@ -114,10 +122,10 @@ const Checkout = () => {
                                 />
                                 <Input
                                     type="text"
-                                    id="hash"
-                                    name="hash"
+                                    id="txnHash"
+                                    name="txnHash"
                                     placeholder="Trnx Hash"
-                                    value={formData.hash}
+                                    value={formData.txnHash}
                                     onChange={handleChange}
                                 />
                                 <Input
@@ -136,7 +144,7 @@ const Checkout = () => {
                                     value={formData.blockchain}
                                     onChange={handleChange}
                                 />
-                                <button className="text-white bg-gradient-to-tr from-orange-500 to-orange-400 border-0 py-2 px-8 focus:outline-none rounded text-lg">
+                                <button type='submit' className="text-white bg-gradient-to-tr from-orange-500 to-orange-400 border-0 py-2 px-8 focus:outline-none rounded text-lg">
                                     Send
                                 </button>
                             </form>

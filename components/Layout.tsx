@@ -14,7 +14,7 @@ const Layout = (props: Props) => {
             <div className='bg-[#020204]'>
                 {props.children}
             </div>
-            <CTA />
+            <CTA feedback='' />
             <Footer />
         </div>
     )

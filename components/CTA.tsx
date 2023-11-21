@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
-const CTA = () => {
+interface CTAProps {
+    feedback: string;
+}
+
+const CTA: React.FC<CTAProps> = () => {
+    const [feedback, setFeedback] = useState<string>('');
+
+    const handleSubmit = async () => {
+        try {
+            // Make sure to send the feedback in the request body
+            await axios.post('https://blockchain-bharat-production.up.railway.app/api/feedback/', { feedback });
+            console.log('Feedback submitted:', feedback);
+            toast.success('Thanks for your feedback!');
+            // Optionally, you can clear the feedback input after submission
+            setFeedback('');
+        } catch (error) {
+            console.error('Error submitting feedback:', error);
+            toast.error('Error submitting feedback. Please try again.');
+        }
+    };
+
+
     return (
         <section className="text-gray-600 bg-[#020204] body-font overflow-hidden" id="cta">
             <div className="container relative mx-auto">
@@ -21,9 +44,15 @@ const CTA = () => {
                     </div>
                     <div className="flex flex-col w-5/6 relative mx-auto px-8 space-y-3" id='input-feedback'>
                         <div className="relative w-full">
-                            <textarea id="feedback" name="feedback" placeholder='Your feedback' className="w-full bg-[#151414] bg-opacity-50 rounded-[15px] border-[1px] border-[#41464A] text-base font-light min-h-[100px] outline-none text-[#A5A8AB] py-2 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                            <textarea
+                                id="feedback"
+                                name="feedback"
+                                placeholder='Your feedback'
+                                value={feedback}
+                                onChange={(e) => setFeedback(e.target.value)}
+                                className="w-full bg-[#151414] bg-opacity-50 rounded-[15px] border-[1px] border-[#41464A] text-base font-light min-h-[100px] outline-none text-[#A5A8AB] py-2 px-3 leading-8 transition-colors duration-200 ease-in-out" />
                         </div>
-                        <button className="text-black w-full bg-white border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 text-lg rounded-[15px]">Submit</button>
+                        <button onClick={handleSubmit} className="text-black w-full bg-white border-0 py-2 px-8 focus:outline-none hover:bg-orange-500 hover:text-white text-lg rounded-[15px]">Submit</button>
                     </div>
                     <p className=' text-center text-sm my-2 text-gray-400'>We don't need your names, it's anonymous!</p>
                 </div>
