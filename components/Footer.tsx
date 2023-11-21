@@ -21,7 +21,10 @@ const Footer = () => {
                         <h2 className="font-medium text-white tracking-widest mb-3">BUILT BY</h2>
                         <nav className="list-none mb-10">
                             <li>
-                                <a className="text-white hover:text-white">Abhay</a>
+                                <a className="text-white hover:text-white">Abhayrajsinh Gohil</a>
+                            </li>
+                            <li>
+                                <a className="text-white hover:text-white">Vedant Singh</a>
                             </li>
                             <li>
                                 <a className="text-white hover:text-white">Ayush Chaudhari</a>
@@ -50,10 +53,10 @@ const Footer = () => {
                         <h2 className="font-medium text-white tracking-widest mb-3">CONTACT US</h2>
                         <nav className="list-none mb-10">
                             <li>
-                                <a className="text-white hover:text-white">First Link</a>
+                                <a href='tel:9054907333' className="text-white hover:text-white">+91 90549 07333</a>
                             </li>
                             <li>
-                                <a className="text-white hover:text-white">Second Link</a>
+                                <a href='admin@web3events.in' className="text-white hover:text-white">admin@web3events.in</a>
                             </li>
                         </nav>
                     </div>

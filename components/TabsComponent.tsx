@@ -17,7 +17,7 @@ interface EventData {
     registration: string;
     organizer: string;
 }
-
+ 
 const TabsComponent = () => {
     const [data, setData] = useState<EventData[]>([]);
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
