@@ -36,7 +36,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
                             {title}
                         </h2>
                         <p className="leading-relaxed text-base font-light text-[16px]">{description}</p>
-                     
+
                     </div>
                 </div>
             </div>

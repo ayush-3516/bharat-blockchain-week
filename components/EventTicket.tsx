@@ -19,9 +19,9 @@ const EventTicket: React.FC<EventTicketProps> = ({
     tags,
     entry,
     location,
-    registrationLink, 
+    registrationLink,
 }) => {
-    if (!startDate) { 
+    if (!startDate) {
         return null;
     }
 
