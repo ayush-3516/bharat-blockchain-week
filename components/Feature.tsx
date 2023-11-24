@@ -36,9 +36,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
                             {title}
                         </h2>
                         <p className="leading-relaxed text-base font-light text-[16px]">{description}</p>
-                        {/* <button className="bg-white rounded-lg px-5 py-2 border-[3px] text-[20px]">
-                    Check Karein !
-                </button> */}
+                     
                     </div>
                 </div>
             </div>
@@ -49,15 +47,15 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
 const featureItems = [
     {
         color: '#ffd79a',
-        imageUrl: '/feature1.png',
+        imageUrl: '/ethindia.jpeg',
         subtitle: '8th - 10th December, 2023',
         title: 'Eth India',
         description:
-            'Empowering the Indian Ethereum Community • Hackathons, Fellowships, Grants, and more • By @devfolio 🛠️ ',
+            'Empowering the Indian Ethereum Community, Hackathons, Fellowships, Grants, and more',
     },
     {
         color: '#c2d3ff',
-        imageUrl: '/feature2.png',
+        imageUrl: '/ibw.jpeg',
         subtitle: '6th-7th December, 2023',
         title: "IBW'2023",
         description:
@@ -65,11 +63,11 @@ const featureItems = [
     },
     {
         color: '#eeffd3',
-        imageUrl: '/feature3.png',
+        imageUrl: '/web3carnival.jpeg',
         subtitle: '4th - 10th December, 2023',
         title: 'Web3 Carnival',
         description:
-            "Get Ready to Experience the Future at #Web3Carnival⚡️ - India's Mega #Web3 Event! 📅",
+            "Get Ready to Experience the Future at #Web3Carnival - India's Mega #Web3 Event!",
 
     },
 ];

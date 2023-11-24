@@ -19,7 +19,7 @@ const EventTicket: React.FC<EventTicketProps> = ({
     tags,
     entry,
     location,
-    registrationLink,
+    registrationLink, 
 }) => {
     if (!startDate) { 
         return null;
@@ -53,7 +53,7 @@ const EventTicket: React.FC<EventTicketProps> = ({
         <div className="ticket">
             <div className="ticket-left">
                 <div className="location">
-                    <p className="font-light">{location}</p>
+                    {/* <p className="font-light">{location}</p> */}
                 </div>
                 <div className="date">
                     <h2 className="num">{startDateObject.getDate()}</h2>
