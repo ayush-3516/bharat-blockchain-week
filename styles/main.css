@@ -392,6 +392,7 @@ body {
 
   #ticket-img {
     width: 100%;
+    overflow: hidden;
   }
 
   #ticket-img span {

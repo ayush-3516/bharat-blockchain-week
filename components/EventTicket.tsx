@@ -10,6 +10,7 @@ interface EventTicketProps {
     entry: string;
     location: string;
     registrationLink: string;
+    posterUrl: string,
 }
 
 const EventTicket: React.FC<EventTicketProps> = ({
@@ -20,6 +21,7 @@ const EventTicket: React.FC<EventTicketProps> = ({
     entry,
     location,
     registrationLink,
+    posterUrl
 }) => {
     if (!startDate) {
         return null;
@@ -63,9 +65,14 @@ const EventTicket: React.FC<EventTicketProps> = ({
 
             <div className="ticket-right">
                 <div className="flex items-center" id="ticket-item">
-                    <div className="w-[200px]" id="ticket-img">
+                    <div className="w-[200px] overflow-hidden rounded-lg" id="ticket-img">
                         {/* Updated to use a placeholder image */}
-                        <Image src="/feature1.png" alt="placeholder" width={180} height={180} />
+                        {posterUrl ? (
+                            <Image src={posterUrl} alt={eventOrganizer} width={180} height={180} className=' object-fill rounded-xl' />
+                        ) : (
+                            // Placeholder image
+                            <Image src="/feature1.png" alt="Placeholder" width={180} height={180} />
+                        )}
                     </div>
                     <div className="flex-grow" id="ticket-desc">
                         <div className="flex items-center justify-between" id="ticket-inner">
@@ -106,7 +113,7 @@ const EventTicket: React.FC<EventTicketProps> = ({
                                 </div>
                             </div>
                             <Link href={`${registrationLink}`}>
-                                <a className="bg-[#1D1D1D] text-white font-light uppercase border-[1px] border-[#474747] rounded-full px-[32px] py-2">
+                                <a className="bg-gradient-to-br from-orange-500 to-[#ff4e00] text-white font-light uppercase rounded-full px-[32px] py-2">
                                     Register
                                 </a>
                             </Link>

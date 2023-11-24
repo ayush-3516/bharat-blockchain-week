@@ -16,8 +16,9 @@ interface EventData {
     entry: string;
     registration: string;
     organizer: string;
+    posterUrl: string;
 }
- 
+
 const TabsComponent = () => {
     const [data, setData] = useState<EventData[]>([]);
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
@@ -86,6 +87,7 @@ const TabsComponent = () => {
                         entry={item.entry}
                         location={item.locationUrl}
                         registrationLink={item.registration}
+                        posterUrl={item.posterUrl}
                     />
                     {(index + 1) % 7 === 0 && <Ad showAd={false} image='' link='' />}
                 </div>
