@@ -80,9 +80,10 @@ const TabsComponent = () => {
             {filteredEvents.map((item, index) => (
                 <div key={item._id}>
                     <EventTicket
-                        startDate={item.date}
-                        endDate={item.endTime}
-                        eventOrganizer={item.organizer}
+                        date={item.date}
+                        startTime={item.startTime}
+                        endTime={item.endTime}
+                        title={item.title}
                         tags={[...item.category.split('/')]}
                         entry={item.entry}
                         location={item.locationUrl}

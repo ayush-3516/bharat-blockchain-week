@@ -13,7 +13,6 @@ const Home = () => {
           <title>BhartBlockchainWeek.xyz</title>
           <meta name="description" content="bharatblockchainweek.xyz" />
           <link rel="icon" href="/favicon.ico" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
         </Head>
         <Hero
           title='Bharat Blockchain Week'

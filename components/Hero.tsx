@@ -41,14 +41,14 @@ const Hero = ({
                     <div className="flex flex-wrap gap-4 relative z-50 items-center justify-center">
                         {button1 && (
                             <Link href="/" className='z-50'>
-                                <a className="inline-flex text-white bg-[#06038D] border-2 border-[#06038d] py-2 px-6 focus:outline-none rounded-lg text-lg">
+                                <a className="inline-flex text-white bg-[#06038D] border-2 border-[#06038d] py-1 px-5 focus:outline-none rounded-lg text-base">
                                     {button1}
                                 </a>
                             </Link>
                         )}
                         {button2 && (
                             <Link href="/createEvent" className='z-50'>
-                                <a className="inline-flex text-[#06038d] cursor-pointer font-semibold bg-[#06038D10] py-2 px-6 border-2 border-[#06038D] focus:outline-none rounded-lg text-lg">
+                                <a className="inline-flex text-[#06038d] cursor-pointer font-semibold bg-[#06038D10] py-1 px-5 border-2 border-[#06038D] focus:outline-none rounded-lg text-base">
                                     {button2}
                                 </a>
                             </Link>

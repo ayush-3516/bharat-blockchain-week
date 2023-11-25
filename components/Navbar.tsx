@@ -37,7 +37,7 @@ export default function Navbar() {
                 <div className="flex text-white items-center md:flex">
                     <div className="flex md:mt-0">
                         <NavLink to='/createEvent'>
-                            <span className="inline-flex items-center bg-gradient-to-br from-orange-500 to-[#ff4e00] text-white shadow-2xl py-2 px-5 focus:outline-none transition-all ml-2 rounded-lg text-base font-medium md:ml-4">
+                            <span className="inline-flex items-center bg-gradient-to-br from-orange-500 to-[#ff4e00] text-white shadow-2xl py-[5px] px-4 focus:outline-none transition-all ml-2 rounded-lg text-base font-normal md:ml-4">
                                 Organise a Side Event
                             </span>
                         </NavLink>

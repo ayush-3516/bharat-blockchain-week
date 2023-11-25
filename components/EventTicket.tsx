@@ -3,31 +3,33 @@ import Link from 'next/link';
 import React from 'react';
 
 interface EventTicketProps {
-    startDate: string;
-    endDate: string;
-    eventOrganizer: string;
+    date: string;
+    startTime: string;
+    endTime: string;
+    title: string;
     tags: string[];
     entry: string;
     location: string;
     registrationLink: string;
-    posterUrl: string,
+    posterUrl: string;
 }
 
 const EventTicket: React.FC<EventTicketProps> = ({
-    startDate,
-    endDate,
-    eventOrganizer,
+    date,
+    startTime,
+    endTime,
+    title,
     tags,
     entry,
     location,
     registrationLink,
-    posterUrl
+    posterUrl,
 }) => {
-    if (!startDate) {
+    if (!date) {
         return null;
     }
 
-    const startDateObject = new Date(startDate);
+    const startDateObject = new Date(date);
     const formattedStartDate = startDateObject.toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
@@ -38,18 +40,6 @@ const EventTicket: React.FC<EventTicketProps> = ({
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     const dayOfWeekString = daysOfWeek[dayOfWeek] || '';
-
-    // Format time function
-    const formatTime = (timeInSeconds: number) => {
-        const hours = Math.floor(timeInSeconds / 3600);
-        const minutes = Math.floor((timeInSeconds % 3600) / 60);
-        const formattedHours = hours < 10 ? `0${hours}` : hours;
-        const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
-        return `${formattedHours}:${formattedMinutes}`;
-    };
-
-    const startTime24H = formatTime(new Date(startDate).getHours() * 3600);
-    const endTime24H = formatTime(new Date(endDate).getHours() * 3600);
 
     return (
         <div className="ticket">
@@ -68,7 +58,7 @@ const EventTicket: React.FC<EventTicketProps> = ({
                     <div className="w-[200px] overflow-hidden rounded-lg" id="ticket-img">
                         {/* Updated to use a placeholder image */}
                         {posterUrl ? (
-                            <Image src={posterUrl} alt={eventOrganizer} width={180} height={180} className=' object-fill rounded-xl' />
+                            <Image src={posterUrl} alt={title} width={180} height={180} className="object-fill rounded-xl" />
                         ) : (
                             // Placeholder image
                             <Image src="/feature1.png" alt="Placeholder" width={180} height={180} />
@@ -77,14 +67,14 @@ const EventTicket: React.FC<EventTicketProps> = ({
                     <div className="flex-grow" id="ticket-desc">
                         <div className="flex items-center justify-between" id="ticket-inner">
                             <div className="space-y-3">
-                                <h2 className="text-[20px] text-white">{eventOrganizer}</h2>
+                                <h2 className="text-[20px] text-white">{title}</h2>
                                 <div className="flex items-start space-x-4">
                                     <div className="flex items-start justify-center">
                                         <div className="icon mr-2">
                                             <i className="fa fa-table text-xs font-light text-[#CACACA]"></i>
                                         </div>
                                         <p className="leading-relaxed text-sm font-light text-[#CACACA]">
-                                            {formattedStartDate} <br /> {startTime24H} - {endTime24H}
+                                            {formattedStartDate} <br /> {startTime} - {endTime}
                                         </p>
                                     </div>
                                     <div className="sce flex items-center">

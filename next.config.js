@@ -8,7 +8,7 @@ module.exports = withPWA({
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['dummyimage.com', 'res.cloudinary.com'], // Corrected domain name here
+    domains: ['dummyimage.com', 'res.cloudinary.com', 'images.lumacdn.com'], // Corrected domain name here
   },
   resolve: {
     fallback: {
