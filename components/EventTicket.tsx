@@ -24,7 +24,7 @@ const EventTicket: React.FC<EventTicketProps> = ({
     location,
     registrationLink,
     posterUrl,
-}) => {
+}) => { 
     if (!date) {
         return null;
     }
