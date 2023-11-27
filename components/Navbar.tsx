@@ -36,6 +36,11 @@ export default function Navbar() {
             <div className="w-9/12 flex justify-end items-center">
                 <div className="flex text-white items-center md:flex">
                     <div className="flex md:mt-0">
+                        <NavLink to='/'>
+                            <span className="inline-flex items-center bg-[#242424] text-white shadow-2xl py-[5px] px-4 focus:outline-none transition-all ml-2 rounded-lg text-base font-normal md:ml-4">
+                                Magic Map 🗺️
+                            </span>
+                        </NavLink>
                         <NavLink to='/createEvent'>
                             <span className="inline-flex items-center bg-gradient-to-br from-orange-500 to-[#ff4e00] text-white shadow-2xl py-[5px] px-4 focus:outline-none transition-all ml-2 rounded-lg text-base font-normal md:ml-4">
                                 Organise a Side Event

@@ -1,9 +1,11 @@
+// TabsComponent.tsx
+
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import EventTicket from './EventTicket';
-import Tags from './Tags';  // Make sure to import your Tags component
+import EventList from './EventList'; // Make sure to import the modified EventList component
+import EventGrid from './EventGrid'; // Make sure to import the modified EventGrid component
+import Tags from './Tags';
 import Ad from './Ad';
-import GridTicket from './GridTicket';
 
 interface EventData {
     _id: string;
@@ -19,49 +21,6 @@ interface EventData {
     organizer: string;
     posterUrl: string;
 }
-
-const EventList: React.FC<{ events: EventData[] }> = ({ events }) => (
-    <div className="event-list">
-        {events.map((item, index) => (
-            <div key={item._id}>
-                <EventTicket
-                    date={item.date}
-                    startTime={item.startTime}
-                    endTime={item.endTime}
-                    title={item.title}
-                    tags={[...item.category.split('/')]}
-                    entry={item.entry}
-                    location={item.locationUrl}
-                    registrationLink={item.registration}
-                    posterUrl={item.posterUrl}
-                />
-                {(index + 1) % 7 === 0 && <Ad showAd={false} image='' link='' />}
-            </div>
-        ))}
-    </div>
-);
-
-const EventGrid: React.FC<{ events: EventData[] }> = ({ events }) => (
-    <div className="event-grid flex items-center justify-center gap-6 py-4 flex-wrap">
-        {events.map((item, index) => (
-            <div key={item._id} className="flex items-center flex-wrap space-x-5">
-                {/* Customize grid item layout */}
-                <GridTicket
-                    date={item.date}
-                    startTime={item.startTime}
-                    endTime={item.endTime}
-                    title={item.title}
-                    tags={[...item.category.split('/')]}
-                    entry={item.entry}
-                    location={item.locationUrl}
-                    registrationLink={item.registration}
-                    posterUrl={item.posterUrl}
-                />
-                {(index + 1) % 7 === 0 && <Ad showAd={false} image='' link='' />}
-            </div>
-        ))}
-    </div>
-);
 
 const TabsComponent: React.FC = () => {
     const [data, setData] = useState<EventData[]>([]);
@@ -89,7 +48,7 @@ const TabsComponent: React.FC = () => {
     const handleDateClick = (date: string) => {
         setSelectedDate(date);
         setSelectedTag(null);
-    };
+    }; 
 
     const handleTagClick = (tag: string) => {
         setSelectedTag(tag);

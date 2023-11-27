@@ -1,3 +1,5 @@
+// EventTicket.tsx
+
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -12,6 +14,7 @@ interface EventTicketProps {
     location: string;
     registrationLink: string;
     posterUrl: string;
+    highlight?: boolean;
 }
 
 const EventTicket: React.FC<EventTicketProps> = ({
@@ -24,6 +27,7 @@ const EventTicket: React.FC<EventTicketProps> = ({
     location,
     registrationLink,
     posterUrl,
+    highlight = false,
 }) => {
     if (!date) {
         return null;
@@ -42,10 +46,9 @@ const EventTicket: React.FC<EventTicketProps> = ({
     const dayOfWeekString = daysOfWeek[dayOfWeek] || '';
 
     return (
-        <div className="ticket">
+        <div className={`ticket ${highlight ? 'highlighted' : ''}`}>
             <div className="ticket-left">
                 <div className="location">
-                    {/* <p className="font-light">{location}</p> */}
                 </div>
                 <div className="date">
                     <h2 className="num">{startDateObject.getDate()}</h2>
@@ -56,18 +59,16 @@ const EventTicket: React.FC<EventTicketProps> = ({
             <div className="ticket-right">
                 <div className="flex items-center" id="ticket-item">
                     <div className="w-[200px] overflow-hidden rounded-lg" id="ticket-img">
-                        {/* Updated to use a placeholder image */}
                         {posterUrl ? (
                             <Image src={posterUrl} alt={title} width={180} height={180} className="object-fill rounded-xl" />
                         ) : (
-                            // Placeholder image
                             <Image src="/feature1.png" alt="Placeholder" width={180} height={180} />
                         )}
                     </div>
                     <div className="flex-grow" id="ticket-desc">
                         <div className="flex items-center justify-between" id="ticket-inner">
                             <div className="space-y-3">
-                                <h2 className="text-[20px] text-white">{title}</h2>
+                                <h2 className={`text-[20px] ${highlight ? 'text-yellow-400' : 'text-white'}`}>{title}</h2>
                                 <div className="flex items-start space-x-4">
                                     <div className="flex items-start justify-center">
                                         <div className="icon mr-2">

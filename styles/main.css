@@ -159,6 +159,11 @@ body {
   border-radius: 20px;
 }
 
+.ticket.highlighted {
+  border: 2px solid orangered !important;
+  transform: scale(105%);
+}
+
 /* .ticket-right,
 .ticket-left {
   float: left;

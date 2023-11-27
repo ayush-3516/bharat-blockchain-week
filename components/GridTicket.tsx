@@ -39,7 +39,7 @@ const GridTicket: React.FC<GridTicketProps> = ({
     const dayOfWeek = startDateObject.getDay();
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-    const dayOfWeekString = daysOfWeek[dayOfWeek] || '';
+    const dayOfWeekString = daysOfWeek[dayOfWeek] || ''; 
 
     return (
         <div className='grid'>
@@ -64,7 +64,7 @@ const GridTicket: React.FC<GridTicketProps> = ({
                         </div>
                         <div className="flex-grow" id="ticket-desc">
                             <div className="flex items-center justify-between" id="ticket-inner">
-                                <div className="space-y-3">
+                                <div className="space-y-3"> 
                                     <h2 className="text-[20px] text-white">{title.split(' ').slice(0, 3).join(' ')}</h2>
                                     <div className="flex items-start space-x-4">
                                         <div className="flex items-start justify-center">
