@@ -2,7 +2,6 @@
 
 import React from 'react';
 import GridTicket from './GridTicket';
-import Ad from './Ad';
 
 interface EventData {
     _id: string;
@@ -21,7 +20,7 @@ interface EventData {
 
 const EventGrid: React.FC<{ events: EventData[] }> = ({ events }) => (
     <div className="event-grid flex items-center justify-center gap-6 py-4 flex-wrap">
-        {events.map((item, index) => (
+        {events.map((item) => (
             <div key={item._id} className="flex items-center flex-wrap space-x-5">
                 <GridTicket
                     date={item.date}
@@ -33,9 +32,9 @@ const EventGrid: React.FC<{ events: EventData[] }> = ({ events }) => (
                     location={item.locationUrl}
                     registrationLink={item.registration}
                     posterUrl={item.posterUrl}
-                    
+
                 />
-                {(index + 1) % 7 === 0 && <Ad showAd={false} image='' link='' />}
+                {/* {(index + 1) % 7 === 0 && <Ad showAd={false} image='' link='' />} */}
             </div>
         ))}
     </div>

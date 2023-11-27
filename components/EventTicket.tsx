@@ -35,8 +35,7 @@ const EventTicket: React.FC<EventTicketProps> = ({
 
     const startDateObject = new Date(date);
     const formattedStartDate = startDateObject.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
+        month: 'short',
         day: 'numeric',
     });
 

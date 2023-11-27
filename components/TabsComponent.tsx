@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 import EventList from './EventList'; // Make sure to import the modified EventList component
 import EventGrid from './EventGrid'; // Make sure to import the modified EventGrid component
 import Tags from './Tags';
-import Ad from './Ad';
 
 interface EventData {
     _id: string;
@@ -32,7 +31,8 @@ const TabsComponent: React.FC = () => {
         axios
             .get('https://blockchain-bharat-production.up.railway.app/api/events/')
             .then((res) => {
-                setData(res.data);
+                const sortedEvents = res.data.sort((a: { date: string | number | Date; }, b: { date: string | number | Date; }) => new Date(a.date).getTime() - new Date(b.date).getTime());
+                setData(sortedEvents);
             })
             .catch((err) => {
                 console.error(err);
@@ -48,7 +48,7 @@ const TabsComponent: React.FC = () => {
     const handleDateClick = (date: string) => {
         setSelectedDate(date);
         setSelectedTag(null);
-    }; 
+    };
 
     const handleTagClick = (tag: string) => {
         setSelectedTag(tag);
@@ -72,7 +72,7 @@ const TabsComponent: React.FC = () => {
 
     return (
         <div className="container mx-auto">
-            <Ad showAd={false} image='http://dummyimage.com/1220x220/' link='http://dummyimage.com/' />
+            {/* <Ad showAd={false} image='http://dummyimage.com/1220x220/' link='http://dummyimage.com/' /> */}
             <Tags
                 tags={yearMonthTags}
                 selectedTag={selectedDate}
@@ -91,7 +91,7 @@ const TabsComponent: React.FC = () => {
                         </svg>
                     </button>
                 </div>
-            </div>
+            </div> 
 
             {/* Conditionally render EventList or EventGrid based on user selection */}
             {selectedView === 'list' && <EventList events={filteredEvents} />}

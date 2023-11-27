@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type FeatureItemProps = {
     color: string;
@@ -7,6 +8,8 @@ type FeatureItemProps = {
     subtitle: string;
     title: string;
     description: string;
+    websiteUrl: string;
+    location: string;
 };
 
 const FeatureItem: React.FC<FeatureItemProps> = ({
@@ -14,6 +17,8 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
     subtitle,
     title,
     description,
+    websiteUrl,
+    location
 }) => {
     return (
         <div className="xl:w-1/3 md:w-1/2" id='card'>
@@ -32,11 +37,19 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
                         {subtitle}
                     </span>
                     <div className="my-4">
-                        <h2 className="text-[18px] font-medium mb-1">
-                            {title}
-                        </h2>
+                        <div className="flex items-center justify-between py-2">
+                            <h2 className="text-[18px] font-medium mb-1">
+                                {title}
+                            </h2>
+                            <Link href={`${websiteUrl}`} className="inline-flex items-center mt-6">
+                                <i className="fas fa-external-link-alt text-orange-400"></i>
+                            </Link>
+                        </div>
                         <p className="leading-relaxed text-base font-light text-[16px]">{description}</p>
-
+                    </div>
+                    <div className="text-white flex items-start space-x-2 min-h-[50px] justify-start">
+                        <i className="fas fa-map-marker-alt text-xs pt-[2%]"></i>
+                        <span className='text-base mb-0'>{location}</span>
                     </div>
                 </div>
             </div>
@@ -52,6 +65,8 @@ const featureItems = [
         title: 'Eth India',
         description:
             'Empowering the Indian Ethereum Community, Hackathons, Fellowships, Grants, and more',
+        websiteUrl: 'https://ethindia.co/',
+        location: 'KTPO, Bengaluru, India'
     },
     {
         color: '#c2d3ff',
@@ -60,6 +75,8 @@ const featureItems = [
         title: "IBW'2023",
         description:
             '2 Day headline event anchoring India Blockchain Week (IBW), crafted by Hashed Emergent',
+        websiteUrl: 'https://indiablockchainweek.com/',
+        location: 'Sheraton Grand Whitefield, Bengaluru, India'
     },
     {
         color: '#eeffd3',
@@ -68,17 +85,18 @@ const featureItems = [
         title: 'Web3 Carnival',
         description:
             "Get Ready to Experience the Future at #Web3Carnival - India's Mega #Web3 Event!",
-
+        websiteUrl: 'https://www.web3carnival.world/',
+        location: 'Palm Meadows Resort, Bengaluru, India'
     },
 ];
 
 const Feature: React.FC = () => {
     return (
         <section className="relative overflow-hidden" id='feature-section'>
-            <div className="absolute top-8 -left-10" id='square1'>
+            <div className="absolute top-8 -left-10 z-0" id='square1'>
                 <Image src='/square.svg' alt='square' width={600} height={600} />
             </div>
-            <div className="absolute -bottom-20 -right-44" id='square2'>
+            <div className="absolute -bottom-20 -right-44 z-0" id='square2'>
                 <Image src='/square.svg' alt='square' width={550} height={550} />
             </div>
             <div className="container mx-auto">

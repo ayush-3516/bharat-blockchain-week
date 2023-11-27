@@ -2,7 +2,6 @@
 
 import React from 'react';
 import EventTicket from './EventTicket';
-import Ad from './Ad';
 
 interface EventData {
     _id: string;
@@ -21,7 +20,7 @@ interface EventData {
 
 const EventList: React.FC<{ events: EventData[] }> = ({ events }) => (
     <div className="event-list">
-        {events.map((item, index) => (
+        {events.map((item) => (
             <div key={item._id}>
                 <EventTicket
                     date={item.date}
@@ -30,12 +29,12 @@ const EventList: React.FC<{ events: EventData[] }> = ({ events }) => (
                     title={item.title}
                     tags={[...item.category.split('/')]}
                     entry={item.entry}
-                    location={item.locationUrl}
+                    location={item.locationUrl} 
                     registrationLink={item.registration}
                     posterUrl={item.posterUrl}
                     highlight={['ETHIndia', 'IBW', 'Web3 Carnival'].some((highlightTitle) => item.title.includes(highlightTitle))}
                 />
-                {(index + 1) % 7 === 0 && <Ad showAd={false} image='' link='' />}
+                {/* {(index + 1) % 7 === 0 && <Ad showAd={false} image='' link='' />} */}
             </div>
         ))}
     </div>
