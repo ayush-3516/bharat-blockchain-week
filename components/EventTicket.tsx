@@ -1,5 +1,3 @@
-// EventTicket.tsx
-
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -19,12 +17,9 @@ interface EventTicketProps {
 
 const EventTicket: React.FC<EventTicketProps> = ({
     date,
-    startTime,
-    endTime,
     title,
     tags,
     entry,
-    location,
     registrationLink,
     posterUrl,
     highlight = false,
@@ -35,14 +30,8 @@ const EventTicket: React.FC<EventTicketProps> = ({
 
     const startDateObject = new Date(date);
     const formattedStartDate = startDateObject.toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
+        month: 'long',
     });
-
-    const dayOfWeek = startDateObject.getDay();
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-    const dayOfWeekString = daysOfWeek[dayOfWeek] || '';
 
     return (
         <div className={`ticket ${highlight ? 'highlighted' : ''}`}>
@@ -51,7 +40,7 @@ const EventTicket: React.FC<EventTicketProps> = ({
                 </div>
                 <div className="date">
                     <h2 className="num">{startDateObject.getDate()}</h2>
-                    <p className="day">{dayOfWeekString.slice(0, 3)}</p>
+                    <p className="day">{formattedStartDate}</p>
                 </div>
             </div>
 
@@ -69,14 +58,14 @@ const EventTicket: React.FC<EventTicketProps> = ({
                             <div className="space-y-3">
                                 <h2 className={`text-[20px] ${highlight ? 'text-yellow-400' : 'text-white'}`}>{title}</h2>
                                 <div className="flex items-start space-x-4">
-                                    <div className="flex items-start justify-center">
+                                    {/* <div className="flex items-start justify-center">
                                         <div className="icon mr-2">
                                             <i className="fa fa-table text-xs font-light text-[#CACACA]"></i>
                                         </div>
                                         <p className="leading-relaxed text-sm font-light text-[#CACACA]">
                                             {formattedStartDate} <br /> {startTime} - {endTime}
                                         </p>
-                                    </div>
+                                    </div> */}
                                     <div className="sce flex items-center">
                                         <div className="icon mr-2">
                                             <i className="far fa-tags text-xs font-light text-[#CACACA]"></i>
@@ -99,11 +88,11 @@ const EventTicket: React.FC<EventTicketProps> = ({
                                     <div className="icon mr-2">
                                         <i className="far fa-map-marker-alt text-[#CACACA] text-[12px]"></i>
                                     </div>
-                                    <p className="leading-relaxed text-sm font-light my-[2px] text-[#CACACA]">{location}</p>
+                                    <p className="leading-relaxed text-sm font-light my-[2px] text-[#CACACA]">Bengaluru</p>
                                 </div>
                             </div>
                             <Link href={`${registrationLink}`}>
-                                <a className="bg-gradient-to-br from-orange-500 to-[#ff4e00] text-white font-light uppercase rounded-full px-[32px] py-2">
+                                <a target='_blank' className="bg-gradient-to-br from-orange-500 to-[#ff4e00] text-white font-light uppercase rounded-full px-[32px] py-2">
                                     Register
                                 </a>
                             </Link>

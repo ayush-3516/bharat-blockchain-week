@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 type FeatureItemProps = {
     color: string;
@@ -21,7 +20,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
     location
 }) => {
     return (
-        <div className="xl:w-1/3 md:w-1/2" id='card'>
+        <div className="xl:w-1/3 md:w-1/2 relative z-10" id='card'>
             <div
                 className="h-full w-full bg-[#1d1d1d] text-[#CACACA] p-4 space-y-2 rounded-2xl"
             >
@@ -41,9 +40,9 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
                             <h2 className="text-[18px] font-medium mb-1">
                                 {title}
                             </h2>
-                            <Link href={`${websiteUrl}`} className="inline-flex items-center mt-6">
+                            <a href={`${websiteUrl}`} target='_blank' className="inline-flex items-center mt-6">
                                 <i className="fas fa-external-link-alt text-orange-400"></i>
-                            </Link>
+                            </a>
                         </div>
                         <p className="leading-relaxed text-base font-light text-[16px]">{description}</p>
                     </div>

@@ -1,9 +1,7 @@
-// TabsComponent.tsx
-
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import EventList from './EventList'; // Make sure to import the modified EventList component
-import EventGrid from './EventGrid'; // Make sure to import the modified EventGrid component
+import EventList from './EventList';
+import EventGrid from './EventGrid';
 import Tags from './Tags';
 
 interface EventData {
@@ -26,22 +24,25 @@ const TabsComponent: React.FC = () => {
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
     const [selectedView, setSelectedView] = useState<string>('list'); // Default to list view
+    const [yearMonthTags, setYearMonthTags] = useState<string[]>([]);
 
     useEffect(() => {
         axios
-            .get('https://blockchain-bharat-production.up.railway.app/api/events/')
+            .get<EventData[]>('https://blockchain-bharat-production.up.railway.app/api/events/')
             .then((res) => {
-                const sortedEvents = res.data.sort((a: { date: string | number | Date; }, b: { date: string | number | Date; }) => new Date(a.date).getTime() - new Date(b.date).getTime());
+                const sortedEvents = res.data.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
                 setData(sortedEvents);
+
+                const sortedYearMonthTags = Array.from(
+                    new Set(sortedEvents.map((item) => new Date(item.date).toLocaleString('en-US', { month: 'short', day: 'numeric' })))
+                ).sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+
+                setYearMonthTags(sortedYearMonthTags);
             })
             .catch((err) => {
                 console.error(err);
             });
     }, []);
-
-    const yearMonthTags = Array.from(
-        new Set(data.map((item) => new Date(item.date).toLocaleString('en-US', { month: 'short', day: 'numeric' })))
-    ).sort();
 
     const categoryTags = Array.from(new Set(data.map((item) => item.category)));
 
@@ -72,7 +73,6 @@ const TabsComponent: React.FC = () => {
 
     return (
         <div className="container mx-auto">
-            {/* <Ad showAd={false} image='http://dummyimage.com/1220x220/' link='http://dummyimage.com/' /> */}
             <Tags
                 tags={yearMonthTags}
                 selectedTag={selectedDate}
@@ -91,9 +91,8 @@ const TabsComponent: React.FC = () => {
                         </svg>
                     </button>
                 </div>
-            </div> 
+            </div>
 
-            {/* Conditionally render EventList or EventGrid based on user selection */}
             {selectedView === 'list' && <EventList events={filteredEvents} />}
             {selectedView === 'grid' && <EventGrid events={filteredEvents} />}
         </div>

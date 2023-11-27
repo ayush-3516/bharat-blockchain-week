@@ -26,7 +26,7 @@ const EventList: React.FC<{ events: EventData[] }> = ({ events }) => (
                     date={item.date}
                     startTime={item.startTime}
                     endTime={item.endTime}
-                    title={item.title}
+                    title={item.title} 
                     tags={[...item.category.split('/')]}
                     entry={item.entry}
                     location={item.locationUrl} 
