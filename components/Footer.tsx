@@ -37,14 +37,14 @@ const Footer = () => {
                     <div className="lg:w-1/3 md:w-1/2 flex items-start md:justify-start text-center flex-col" id='special-footer'>
                         <h2 className="font-medium text-white tracking-widest mb-3">POWERED BY WEB3 EVENTS</h2>
                         <div className="list-none flex items-center w-[48%] text-center justify-center gap-4 mb-10">
-                            <a target='_blank' href='https://www.instagram.com/web3.events/' className="text-white hover:text-white">
+                            <a target='_blank' rel='noreferrer' href='https://www.instagram.com/web3.events/' className="text-white hover:text-white">
                                 <i className="fab fa-instagram text-[15px]"></i>
                             </a>
-                            <a target='_blank' href='https://twitter.com/web3_events' className="text-white hover:text-white">
+                            <a target='_blank' rel='noreferrer' href='https://twitter.com/web3_events' className="text-white hover:text-white">
                                 {/* Use inline SVG */}
                                 <Image src="/twitter.svg" width={14} height={14} alt="" />
                             </a>
-                            <a target='_blank' href='https://t.me/+4XZe08hMAeMzMTVl' className="text-white hover:text-white">
+                            <a target='_blank' rel='noreferrer' href='https://t.me/+4XZe08hMAeMzMTVl' className="text-white hover:text-white">
                                 <i className="fab fa-telegram-plane text-[15px]"></i>
                             </a>
                         </div>

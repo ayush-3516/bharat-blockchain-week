@@ -40,7 +40,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
                             <h2 className="text-[18px] font-medium mb-1">
                                 {title}
                             </h2>
-                            <a href={`${websiteUrl}`} target='_blank' className="inline-flex items-center mt-6">
+                            <a href={`${websiteUrl}`} target='_blank' rel='noreferrer' className="inline-flex items-center mt-6">
                                 <i className="fas fa-external-link-alt text-orange-400"></i>
                             </a>
                         </div>
