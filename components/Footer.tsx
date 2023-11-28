@@ -56,7 +56,7 @@ const Footer = () => {
                                 <a href='tel:9054907333' className="text-white hover:text-white">+91 90549 07333</a>
                             </li>
                             <li>
-                                <a href='admin@web3events.in' className="text-white hover:text-white">admin@web3events.in</a>
+                                <a href='mailto:admin@web3events.in' className="text-white hover:text-white">admin@web3events.in</a>
                             </li>
                         </nav>
                     </div>
