@@ -2,21 +2,39 @@ import Layout from 'components/Layout';
 import Promote from 'components/Promote';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import { toast } from 'react-hot-toast';
 
-const Promotion = () => {
+const Promotion = () => { // Initialize toast
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [price, setPrice] = useState(0);
-    const router = useRouter(); // Initialize useRouter
+    const router = useRouter();
 
     const handleStartDateChange = (newDate: Date) => {
-        setStartDate(newDate);
-        calculatePrice(newDate, endDate);
+        if (isValidDate(newDate)) {
+            setStartDate(newDate);
+            calculatePrice(newDate, endDate);
+        } else {
+            // Show toast for invalid date
+            toast.error(`Invalid date`);
+        }
     };
 
     const handleEndDateChange = (newDate: Date) => {
-        setEndDate(newDate);
-        calculatePrice(startDate, newDate);
+        const maxEndDate = new Date('2023-12-15');
+
+        if (isValidDate(newDate)) {
+            if (newDate <= maxEndDate) {
+                setEndDate(newDate);
+                calculatePrice(startDate, newDate);
+            } else {
+                setEndDate(maxEndDate);
+                calculatePrice(startDate, maxEndDate);
+            }
+        } else {
+            // Show toast for invalid date
+            toast.error("Invalid date");
+        }
     };
 
     const handleCheckout = () => {
@@ -24,32 +42,29 @@ const Promotion = () => {
     };
 
     const calculatePrice = (start: Date, end: Date) => {
-        const daysDifference = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
-        const basePrice = 50; // base price per day
+        const oneDay = 1000 * 60 * 60 * 24;
+        const daysDifference = Math.ceil((end.getTime() - start.getTime()) / oneDay);
+        const basePrice1 = 100;
+        const basePrice2 = 50;
 
-        // Pricing logic based on provided ranges for November 14th
-        if (daysDifference >= 13 && daysDifference <= 18) {
-            setPrice(daysDifference * basePrice);
-        } else if (daysDifference >= 19 && daysDifference <= 25) {
-            setPrice(daysDifference * 70);
-        } else if (daysDifference >= 26 && daysDifference <= 32) {
-            setPrice(daysDifference * 100);
-        } else if (daysDifference >= 33 && daysDifference <= 37) {
-            setPrice(daysDifference * 150);
-        } else if (daysDifference >= 38 && daysDifference <= 43) {
-            setPrice(daysDifference * 300);
-        } else if (daysDifference >= 44 && daysDifference <= 51) {
-            setPrice(daysDifference * 100);
-        } else if (daysDifference >= 52 && daysDifference <= 58) {
-            setPrice(daysDifference * 50);
-        } else if (daysDifference >= 59 && daysDifference <= 60) {
-            setPrice(1000); // Entire blockchain week
-        } else if (daysDifference >= 61 && daysDifference <= 90) {
-            setPrice(3000); // Entire month
-        } else {
-            // Handle other cases or default pricing
-            setPrice(0);
+        let totalCost = 0;
+
+        for (let day = 1; day <= daysDifference; day++) {
+            const currentDate = new Date(start.getTime() + (day - 1) * oneDay);
+            currentDate.setHours(0, 0, 0, 0); // Set time to midnight
+
+            if (currentDate >= new Date('2023-11-30') && currentDate < new Date('2023-12-11')) {
+                totalCost += basePrice1;
+            } else if (currentDate >= new Date('2023-12-11') && currentDate <= new Date('2023-12-15')) {
+                totalCost += basePrice2;
+            }
         }
+
+        setPrice(totalCost);
+    };
+
+    const isValidDate = (date: Date) => {
+        return !isNaN(date.getTime());
     };
 
     return (
@@ -63,6 +78,7 @@ const Promotion = () => {
                             type="date"
                             value={startDate.toISOString().split('T')[0]}
                             min={new Date().toISOString().split('T')[0]}
+                            max={'2023-12-15'} // Set maximum allowed date
                             className=" rounded-md w-full px-3 py-2 text-gray-200 bg-[#252525]"
                             onChange={(e) => handleStartDateChange(new Date(e.target.value))}
                         />
@@ -73,6 +89,7 @@ const Promotion = () => {
                             type="date"
                             value={endDate.toISOString().split('T')[0]}
                             min={startDate.toISOString().split('T')[0]}
+                            max={'2023-12-15'} // Set maximum allowed date
                             className=" rounded-md w-full px-3 py-2 text-gray-200 bg-[#252525]"
                             onChange={(e) => handleEndDateChange(new Date(e.target.value))}
                         />
@@ -81,7 +98,7 @@ const Promotion = () => {
                 <div className="flex items-center justify-between mt-8">
                     <h2 className='text-[26px] text-gray-200'>Calculated Price: <span className="text-orange-500">${price}</span></h2>
                     <button className="flex ml-auto text-white bg-orange-500 hover:bg-orange-600 transition-all shadow-lg py-2 px-6 focus:outline-none rounded-lg"
-                        onClick={handleCheckout} // Call handleCheckout on button click
+                        onClick={handleCheckout}
                     >
                         Checkout
                     </button>

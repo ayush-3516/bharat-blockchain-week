@@ -100,7 +100,7 @@ const Checkout = () => {
                                     type="text"
                                     id="link"
                                     name="link"
-                                    placeholder="Ad you want to display ! (gif or image)"
+                                    placeholder="drive link of your ad"
                                     value={formData.link}
                                     onChange={handleChange}
                                 />

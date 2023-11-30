@@ -1,11 +1,8 @@
 import React from 'react';
 
 const pricingDetails = [
-    { label: '12 to 18', price: '$50 a day' },
-    { label: '19 to 25', price: '$70 a day' },
-    { label: '26 to 2', price: '$100 a day' },
-    { label: 'Entire Blockchain Week', price: '$1000' },
-    { label: 'Entire Month', price: '$3000' },
+    { label: '1 Dec to 10 Dec', price: '$100 a day' },
+    { label: '11 Dec to 15 Dec', price: '$50 a day' },
     // Add more pricing details as needed
 ];
 
