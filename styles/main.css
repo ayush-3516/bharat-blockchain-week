@@ -262,11 +262,11 @@ body {
     background: #1d1d1d;
     flex-direction: column;
     margin: 1rem auto;
-    transform: scale(95%);
+    transform: scale(98%);
   }
 
   .ticket.highlighted {
-    transform: scale(100%);
+    transform: scale(102%);
   }
 
   .ticket-left,
