@@ -4,9 +4,12 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { toast } from 'react-hot-toast';
 
-const Promotion = () => { // Initialize toast
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
+const Promotion = () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set time to midnight
+
+    const [startDate, setStartDate] = useState(today);
+    const [endDate, setEndDate] = useState(today);
     const [price, setPrice] = useState(0);
     const router = useRouter();
 
@@ -16,12 +19,13 @@ const Promotion = () => { // Initialize toast
             calculatePrice(newDate, endDate);
         } else {
             // Show toast for invalid date
-            toast.error(`Invalid date`);
+            toast.error('Invalid start date. Please select a valid date.');
         }
     };
 
     const handleEndDateChange = (newDate: Date) => {
         const maxEndDate = new Date('2023-12-15');
+        maxEndDate.setHours(0, 0, 0, 0); // Set time to midnight
 
         if (isValidDate(newDate)) {
             if (newDate <= maxEndDate) {
@@ -33,7 +37,7 @@ const Promotion = () => { // Initialize toast
             }
         } else {
             // Show toast for invalid date
-            toast.error("Invalid date");
+            toast.error('Invalid start date. Please select a valid date.');
         }
     };
 
@@ -64,8 +68,11 @@ const Promotion = () => { // Initialize toast
     };
 
     const isValidDate = (date: Date) => {
-        return !isNaN(date.getTime());
+        const today = new Date();
+        today.setHours(0, 0, 0, 0); // Set time to midnight
+        return !isNaN(date.getTime()) && date >= today;
     };
+
 
     return (
         <Layout>
@@ -77,7 +84,7 @@ const Promotion = () => { // Initialize toast
                         <input
                             type="date"
                             value={startDate.toISOString().split('T')[0]}
-                            min={new Date().toISOString().split('T')[0]}
+                            min={today.toISOString().split('T')[0]} // Set minimum allowed date to today
                             max={'2023-12-15'} // Set maximum allowed date
                             className=" rounded-md w-full px-3 py-2 text-gray-200 bg-[#252525]"
                             onChange={(e) => handleStartDateChange(new Date(e.target.value))}
