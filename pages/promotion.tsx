@@ -19,7 +19,7 @@ const Promotion = () => {
             calculatePrice(newDate, endDate);
         } else {
             // Show toast for invalid date
-            toast.error('Invalid start date. Please select a valid date.');
+            toast.error('Invalid date. Please select a valid date.');
         }
     };
 
@@ -37,7 +37,7 @@ const Promotion = () => {
             }
         } else {
             // Show toast for invalid date
-            toast.error('Invalid start date. Please select a valid date.');
+            toast.error('Invalid date. Please select a valid date.');
         }
     };
 
