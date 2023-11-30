@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import EventList from './EventList';
 import EventGrid from './EventGrid';
 import Tags from './Tags';
+import Ad from './Ad';
 
 interface EventData {
     _id: string;
@@ -29,7 +30,7 @@ const TabsComponent: React.FC = () => {
     useEffect(() => {
         axios
             .get<EventData[]>('https://blockchain-bharat-production.up.railway.app/api/events/')
-            .then((res) => {
+            .then((res: { data: any[]; }) => {
                 const sortedEvents = res.data.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
                 setData(sortedEvents);
 
@@ -39,7 +40,7 @@ const TabsComponent: React.FC = () => {
 
                 setYearMonthTags(sortedYearMonthTags);
             })
-            .catch((err) => {
+            .catch((err: any) => {
                 console.error(err);
             });
     }, []);
@@ -73,6 +74,7 @@ const TabsComponent: React.FC = () => {
 
     return (
         <div className="container mx-auto">
+            <Ad showAd={false} image='' link='' />
             <Tags
                 tags={yearMonthTags}
                 selectedTag={selectedDate}

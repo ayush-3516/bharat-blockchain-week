@@ -164,109 +164,6 @@ body {
   transform: scale(105%);
 }
 
-/* .ticket-right,
-.ticket-left {
-  float: left;
-  padding: 20px;
-}
-
-.ticket-right {
-  padding: 0px;
-  width: 25%;
-  position: relative;
-  height: 286px;
-}
-
-.ticket-left {
-  background: #151414;
-}
-
-.ticket-right .up-border,
-.ticket-right .down-border {
-  padding: 14px 15px;
-  background-color: #000;
-  border-radius: 50%;
-  position: absolute;
-}
-.ticket-right .up-border {
-  top: -15px;
-  right: -35px;
-}
-.ticket-right .down-border {
-  bottom: -15px;
-  right: -35px;
-}
-.ticket-right .num {
-  font-size: 60px;
-  text-align: center;
-  color: #111;
-}
-.ticket-right .day,
-.ticket-left .event {
-  color: #555;
-  font-size: 20px;
-  margin-bottom: 9px;
-}
-.ticket-right .day {
-  text-align: center;
-  font-size: 25px;
-}
-.ticket-left {
-  width: 71%;
-  padding: 34px 0px 19px 46px;
-  border-left: 3px dotted #999;
-}
-.ticket-left .title {
-  color: #111;
-  font-size: 34px;
-  margin-bottom: 12px;
-}
-.ticket-left .sce {
-  margin-top: 5px;
-  display: block;
-}
-.ticket-left .sce .icon,
-.ticket-left .sce p,
-.ticket-left .loc .icon,
-.ticket-left .loc p {
-  float: left;
-  letter-spacing: 1px;
-  color: #888;
-}
-.ticket-left .sce .icon,
-.ticket-left .loc .icon {
-  margin-right: 10px;
-  color: #888;
-}
-.ticket-left .loc {
-  display: block;
-}
-.fix {
-  clear: both;
-}
-
-.ticket .tickets,
-.booked,
-.cancel {
-  color: #fff;
-  padding: 6px 14px;
-  float: right;
-  font-size: 20px;
-  border: none;
-  border-radius: 0rem 0rem 10px 0rem;
-  cursor: pointer;
-}
-
-.ticket .booked {
-  background: #3d71e9;
-}
-.ticket .cancel {
-  background: #df5454;
-}
-.linethrough {
-  text-decoration: line-through;
-} */
-
 #footer-sec-2 {
   margin-left: 10rem;
 }
@@ -365,6 +262,11 @@ body {
     background: #1d1d1d;
     flex-direction: column;
     margin: 1rem auto;
+    transform: scale(95%);
+  }
+
+  .ticket.highlighted {
+    transform: scale(100%);
   }
 
   .ticket-left,

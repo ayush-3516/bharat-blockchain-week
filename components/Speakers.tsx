@@ -5,7 +5,7 @@ type TeamMemberProps = {
     name: string;
     role: string;
     imageSrc: string;
-};
+}; 
 
 const TeamMember: React.FC<TeamMemberProps> = ({ name, role, imageSrc }) => (
     <div className="p-5 lg:w-1/5 md:w-1/2">

@@ -98,7 +98,7 @@ const EventTicket: React.FC<EventTicketProps> = ({
                             </Link>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
     );
