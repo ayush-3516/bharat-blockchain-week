@@ -1,0 +1,32 @@
+# Next.js
+.next
+out
+node_modules
+.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build files
+build/
+dist/
+.cache/
+
+# Visual Studio Code files
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Next.js Image Optimization
+__imagecache/
+
+# Tailwind CSS
+.tailwind-cache/

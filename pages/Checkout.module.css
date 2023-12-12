@@ -1,0 +1,36 @@
+/* Checkout.module.css */
+
+.glassmorphism {
+  background: #141414; /* Adjust the transparency as needed */
+  backdrop-filter: blur(10px); /* Adjust the blur effect as needed */
+  border-radius: 10px;
+  max-width: 500px; /* Adjust the border radius as needed */
+}
+
+.rightForm {
+  padding-left: 2rem;
+}
+
+.contentWrapper {
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+@media screen and (max-width: 1000px) {
+  .checkout {
+    padding: 2rem 0rem;
+  }
+
+  .rightForm {
+    padding: 1rem;
+  }
+
+  .glassmorphism {
+    width: 320px !important;
+    padding: 1.5rem !important;
+    margin-bottom: 2rem;
+  }
+
+  .checkContainer {
+    flex-direction: column;
+  }
+}

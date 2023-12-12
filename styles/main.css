@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --font-family: 'Kanit', sans-serif;
+  --font-size: 16px;
+  --title-font-size: 32px;
+  --mobile-font-size: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+.title-font {
+  font-size: var(--title-font-size);
+}
+
+.logo {
+  max-width: 200px !important;
+  width: 100%;
+}
+
+.hero {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  transition: all 0.5s ease;
+  height: 90vh;
+  z-index: 0;
+}
+
+.hero h1 {
+  font-size: 48px;
+}
+
+.container {
+  padding: 6rem 10rem;
+}
+
+.rangoli {
+  position: absolute;
+  top: 0%;
+  left: -5%;
+  max-width: 300px;
+  display: none;
+}
+
+#tsparticles canvas {
+  max-height: 100vh !important;
+}
+
+#hero-container {
+  padding: 8rem 0rem;
+}
+
+#hero-container .monument {
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  z-index: 10;
+  max-width: 600px;
+}
+
+.tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag-date {
+  border-bottom: 1px solid #474747;
+  color: #474747;
+  font-weight: normal;
+  height: 75px;
+}
+
+.tag-date button {
+  background: none;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.tag-date .text-white {
+  color: #ff6827;
+  position: relative;
+  padding-bottom: 20px;
+  transition: all 0.5s;
+}
+
+.tag-date .text-white::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2%;
+  height: 12px;
+  width: 1px;
+  border: 1px solid #ff6827;
+}
+
+.events-section {
+  padding: 2rem;
+}
+
+.event-card {
+  max-width: 840px;
+}
+
+/* ticket */
+
+.ticket {
+  width: 100%;
+  background: #1d1d1d;
+  overflow: hidden;
+  margin: 1.2rem auto;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ticket-left {
+  max-width: 20%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ticket-left .location {
+  color: #c9c9c9;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.ticket-left .date {
+  font-size: 20px;
+  color: #fff;
+}
+
+.ticket-right {
+  max-width: 80%;
+  width: 100%;
+  background: #151414;
+  padding: 1rem;
+  border: 1px solid #474747;
+  border-radius: 20px;
+}
+
+.ticket.highlighted {
+  border: 2px solid orangered !important;
+  transform: scale(105%);
+}
+
+#footer-sec-2 {
+  margin-left: 10rem;
+}
+
+#speakers {
+  padding: 4rem 11rem;
+}
+
+#speaker-register {
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+}
+
+#timeline {
+  padding: 4rem 2rem;
+}
+
+/* Tablet Styles */
+
+@media only screen and (max-width: 1150px) {
+  body {
+    font-size: var(--mobile-font-size);
+  }
+
+  .container {
+    padding: 24px 1rem;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .hero,
+  #events,
+  #card,
+  #speakers,
+  #speaker-register,
+  #speaker-register .px-16 {
+    min-height: auto;
+    padding: 30px 0;
+  }
+
+  .tags {
+    justify-content: start;
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero .container {
+    padding: 4rem 1rem;
+  }
+
+  #hero-container {
+    padding: 3rem 2rem;
+  }
+
+  #feature {
+    flex-wrap: wrap;
+  }
+
+  #feature #card {
+    padding: 0rem 0.5rem;
+  }
+
+  #cta {
+    padding: 4rem 2rem;
+  }
+
+  #ellipse {
+    top: 0%;
+  }
+
+  #square1 {
+    top: -15%;
+    left: -15%;
+  }
+
+  .tag-date {
+    flex-wrap: nowrap;
+  }
+
+  .tag-date button {
+    padding: 0rem;
+  }
+
+  .ticket {
+    max-width: 360px;
+    background: #1d1d1d;
+    flex-direction: column;
+    margin: 1rem auto;
+    transform: scale(98%);
+  }
+
+  .ticket.highlighted {
+    transform: scale(102%);
+  }
+
+  .ticket-left,
+  .ticket-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ticket-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 1rem 1.2rem;
+  }
+
+  .ticket-left .date {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .ticket-left .date .day {
+    margin-left: 5px;
+  }
+
+  #ticket-item {
+    flex-direction: column;
+  }
+
+  #ticket-img {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #ticket-img span {
+    width: 100% !important;
+  }
+
+  #ticket-desc {
+    width: 100%;
+  }
+
+  #ticket-desc .space-y-3 {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  #ticket-inner {
+    flex-direction: column;
+  }
+
+  #ad {
+    margin: 0rem;
+  }
+
+  #ad h1 {
+    font-size: 1.5rem;
+  }
+
+  #cta .container {
+    padding: 0rem;
+  }
+
+  #cta .container .px-12 {
+    padding: 2rem 1rem;
+  }
+
+  #cta .container button {
+    width: 100%;
+  }
+
+  #cta #cta-inputs {
+    padding: 0rem;
+  }
+
+  #cta #cta-inputs #input-feedback {
+    width: 100%;
+    padding: 0rem;
+  }
+
+  #cta #cta1 {
+    bottom: -25%;
+    left: -10%;
+    max-width: 100px;
+  }
+
+  #cta #cta2 {
+    top: 32%;
+    right: -10%;
+    max-width: 100px;
+  }
+
+  #footer-sec-2 {
+    justify-content: center;
+    margin-left: 0rem;
+  }
+
+  #special-footer div {
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+
+  footer .tracking-widest {
+    text-align: center;
+    width: 100%;
+  }
+
+  #footer-contact {
+    padding-left: 0rem;
+  }
+
+  #tags-filter {
+    align-items: flex-start;
+  }
+
+  #tags-list {
+    display: none;
+  }
+}
+
+/* Desktop Styles */
+
+/* Airtable Style */
+
+.baymax input[type='text']:not(.ignore-baymax-defaults),
+.baymax input[type='email']:not(.ignore-baymax-defaults),
+.baymax input[type='password']:not(.ignore-baymax-defaults),
+.baymax input[type='tel']:not(.ignore-baymax-defaults),
+.baymax input[type='url']:not(.ignore-baymax-defaults),
+.baymax input[type='submit']:not(.ignore-baymax-defaults),
+.baymax [contenteditable='plaintext-only']:not(.ignore-baymax-defaults),
+.baymax [contenteditable='true']:not(.ignore-baymax-defaults),
+.baymax button:not(.ignore-baymax-defaults),
+.baymax textarea:not(.ignore-baymax-defaults),
+.baymax .styled-input:not(.ignore-baymax-defaults) {
+  border: 2px solid #111;
+}
+
+.event-grid #ad {
+  min-width: 380px;
+  max-width: 380px;
+  height: 100%;
+  min-height: 680px;
+}
+
+.grid .ticket {
+  min-width: 380px;
+  max-width: 380px;
+  background: #1d1d1d;
+  flex-direction: column;
+  margin: 1rem auto;
+  padding: 3rem auto;
+}
+
+.grid .ticket-left,
+.grid .ticket-right {
+  width: 100%;
+  max-width: 100%;
+}
+
+.grid .ticket-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 1rem 1.2rem;
+}
+
+.grid .ticket-right {
+  padding: 24px 1rem;
+}
+
+.grid .ticket-left .date {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.grid .ticket-left .date .day {
+  margin-left: 5px;
+}
+
+.grid #ticket-item {
+  flex-direction: column;
+}
+
+.grid #ticket-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.grid #ticket-img span {
+  width: 100% !important;
+}
+
+.grid #ticket-desc {
+  width: 100%;
+}
+
+.grid #ticket-desc .space-y-3 {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.grid #ticket-inner {
+  flex-direction: column;
+}
